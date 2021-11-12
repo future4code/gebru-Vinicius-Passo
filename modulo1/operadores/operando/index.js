@@ -76,7 +76,7 @@ console.log(res1,res2,res3,res4)*/
 // QUESTÃO1
 //a)
 
-  /* let f_k = Number(prompt('Para saber a temperatura em em kelvin, digite a temperatura em Fahrenheit:'))
+ /* let f_k = Number(prompt('Para saber a temperatura em em kelvin, digite a temperatura em Fahrenheit:'))
  res = 5 * (f_k - 32) / (9) + 273
     console.log(res, '°F')*/
 //b)
@@ -85,6 +85,60 @@ console.log(res1,res2,res3,res4)*/
 res1 = (c_f / 5) * 9 + 32
 console.log(res1, '°F')*/
  //nãoo terminei o desafio pq fiquei com medo de passar o tempo da entrega, mas vou continuar tentendo resolver o desafio
+
+// DESAFIO
+/*const custa = Number(0.05)
+    const total = (280 * custa)
+    const desconto = total * (15 / 100)
+    const valorliquido = total - desconto
+    console.log('O valor a ser pago é', valorliquido)*/
+    
+// DESAFIO 3
+//a)
+
+/*const libraKg = Number (prompt('para conferter libra pra kg, só inserir o valor em libra:'))
+const res = libraKg / 2.2046
+console.log(libraKg, 'convertendo para kg equivakem', res)*/
+
+//b)
+
+/*const ozKg = Number (10.5)
+const res = (ozKg / 3.527)
+console.log(ozKg, 'equivalem a', res)*/
+
+//c)
+
+/*const miParaM = Number (100)
+const res = miParaM * 1609.34
+console.log(miParaM,'milha equivalem' ,res,'metro')*/
+
+//d)
+
+/*const ftParaMe = Number (10)
+const res = ftParaMe / 3.281
+console.log(ftParaMe,'ft equivalem a', res,'m')*/
+
+// e)
+
+/*const galParaL = Number (103.56)
+const res = (galParaL * 3.785)
+console.log(galParaL,'gal e quivalem a', res, 'L')*/
+
+// f)
+
+/*const xicaParaL = Number (450)
+const res = xicaParaL * 1000
+console.log(xicaParaL,'xic equivalem a', res, 'L')*/
+
+// g) feito
+
+
+
+
+
+
+
+
 
 
 
