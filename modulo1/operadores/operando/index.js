@@ -131,16 +131,3 @@ const res = xicaParaL * 1000
 console.log(xicaParaL,'xic equivalem a', res, 'L')*/
 
 // g) feito
-
-
-
-
-
-
-
-
-
-
-
-
-   
