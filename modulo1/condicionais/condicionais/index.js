@@ -171,14 +171,42 @@ console.log(mensagem)*/
 
       //               -------------------------- DESAFIO 2---------------------------
 
-      const nomecompleto = prompt('Digite seu nome completo:')
-      const tipoDeJogo = prompt('Qual o tipo de jogo')
 
-      const sistemaDeVendasDeIngressoDoMexico = () => {
-        sf1 = 1.320,00
-        dt1 = 660,00
-        fi1 = 1.980,00
-        
-        sf2 = 880,00
+     function dadosDoClienteParaIngresso() {
+       const cliente = {
+         nome: prompt('Qual o seu nome completo?'),
+         tipoDeJogo: prompt('Qual o tipo de jogo, sabendo que IN para (jogos Internacional) e DO para jogos (Nacional)').toUpperCase(),
+        etapaDoJogo: prompt('SF pra semi fial, DT para disputa do terceiro lugar, FI para grande fianl.').toUpperCase(),
+        categoria: Number(prompt('Qual a categoria de jogo que quer assistir, lembrando que são de 1 a 4')),
+        quantidadeIngresso: Number(prompt('Digite a quantidade de ingresso que deseja:'))
+       }
+       switch(cliente.tipoDeJogo) {
+         case "DO":
+         console.log('Tipo de jogo: Nacional')
+         break
+        case "IN":
+          console.log('Tipo do jogo: Internacional')
+       }
+       switch(cliente.etapaDoJogo) {
+        case "SF":
+          console.log('Etapa do jogo: Semi-final')
+          break
+          case "DT":
+            console.log('Etapa do jogo: Terceiro lugar')
+            break
+            case "FI":
+              console.log('Etapa do jogo: Final')
+              break
+              default:
+                console.log('Não encontramos o tipo de jogo desejado, tente novamente!')
+       }
+    
+     }
 
-      }
+ 
+
+ 
+   
+
+    
+    
