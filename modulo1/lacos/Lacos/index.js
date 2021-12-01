@@ -50,6 +50,8 @@ imprimir uma boa tarde!!*/
 
 //              ----- 1 EXERCÍCIO DE ESCRITA DE CÓDIGO -----
 
+// a, b c ) tudo em baixo
+
 /* const binchinhoUsuario = Number(prompt('Quantos binchinhos você tem?'))
 let valor = 0
 
@@ -64,24 +66,77 @@ valor++
 console.log(nomePet)
 }  */
 
-/*const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
 
-for(let numero of arrayOriginal){
-  console.log(numero)
+//                  ----- 2 EXERCÍCIO DE ESCRITA DE CÓDIGO -----
+
+
+// const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
+
+// for(let numero of arrayOriginal){
+//   console.log(numero)
+// }
+// for(let numero of arrayOriginal) {
+//   console.log(numero % 10)
+// }
+// for(let numero of arrayOriginal) {
+//   if( numero % 2 === 0) {
+//     console.log('É par', numero)
+//   }
+// }
+
+
+// for(let numero of arrayOriginal) {
+//   console.log(numero % 10)
+// }
+// for(let numero of arrayOriginal) {
+//   if( numero % 2 === 0) {
+//     console.log('É par', numero)
+//   }
+// }
+
+// d)
+const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55,99]
+
+/*let string = []
+
+let valor = []
+
+for(valor = 0; valor < arrayOriginal.length; valor++){
+  string.push(`O elemento do índex é ${valor} é ${arrayOriginal[valor]} `)
 }
-for(let numero of arrayOriginal) {
-  console.log(numero % 10)
-}
-for(let numero of arrayOriginal) {
-  if( numero % 2 === 0) {
-    console.log('É par', numero)
+console.log( string) */
+
+// e)
+/*function encontrarMaior(array) {
+  let maiorNumero = 0
+
+  for (let i = 0; i < array.length; i++) {
+    const elemento = array[i];
+    if (elemento > maiorNumero) {
+      maiorNumero = elemento;
+    }
   }
+
+  return maiorNumero
 }
+const resultado = encontrarMaior(arrayOriginal)
+console.log(resultado)
 
 
-let novoArray = ['O elemento do índex', [], 'é:', ]
 
-for(let novoArray = 0; novoArray < arrayOriginal.length; novoArray++) {
-const novoElemento = [novoArray]
-console.log(novoElemento)
-}*/
+function encontrarMenor(array1) {
+  let menorNumero = Infinity
+
+  for(let i = 0; i < array1.length; i++) {
+    let item = array1[i];
+    if(item <  menorNumero) {
+      menorNumero = item;
+    }
+    
+  }
+  return menorNumero
+}
+const resultado1 = encontrarMenor(arrayOriginal)
+console.log(resultado1)
+
+console.log(`O maior número é ${resultado} e o menor é ${resultado1}`)*/
