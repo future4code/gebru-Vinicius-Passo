@@ -140,3 +140,32 @@ const resultado1 = encontrarMenor(arrayOriginal)
 console.log(resultado1)
 
 console.log(`O maior número é ${resultado} e o menor é ${resultado1}`)*/
+
+//          ----- 1 DESAFIO-----
+
+const pensou = Number (prompt('Pense e digite o número que deseja:'))
+
+prompt('Vamos jogar!')
+
+let sorte = Number(prompt('Se acerta o número que o primeiro usuário digitou, ganha um prêmio de 1.000000,00 R$'))
+
+function sorteando() {
+let valor = pensou;
+
+for(i = 0; i < valor; i++ ) {
+  
+  if(pensou > sorte) {
+    prompt('Esse valor ta baixo, Digite um maior')
+  } else if(pensou < sorte) {
+    prompt('Esse valor ta alta jovem, digite um menor')
+  } else{
+    prompt (`Você ganhou, Parabèns, o primeiro número digita foi ${pensou} seu numero de tentativas é ${i}`)
+  }
+  
+} 
+return sorteando
+}
+console.log(pensou)
+console.log(sorteando(pensou,sorte, valor))
+
+
