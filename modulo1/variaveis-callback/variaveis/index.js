@@ -71,7 +71,7 @@
         //  const incluir = item.nome.includes('Madame')
           
        //   return `Você ganhou um cupom de desconto de 10% para tosar o/a ${incluir}`
-        })
+        
      //   const arrayRecebe = arrayNovoC.filter( (item) => {
 
 //        const ray = item.nome.includes('Fluffy')
@@ -125,5 +125,16 @@
         // const arrayNewE = arrayNewD.map( produto => `Compre ${produto.nome}
         //  por ${produto.preco}`)
         //  console.log(arrayNewE)
-        
-         
+
+         //DESAFIO 1
+         const pokemons = [
+          { nome: "Bulbasaur", tipo: "grama" },
+          { nome: "Bellsprout", tipo: "grama" },
+          { nome: "Charmander", tipo: "fogo" },
+          { nome: "Vulpix", tipo: "fogo" },
+          { nome: "Squirtle", tipo: "água" },
+          { nome: "Psyduck", tipo: "água" },
+       ]
+       
+ pokemons.nome.sort()
+ console.log(pokemons)
