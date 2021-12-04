@@ -10,40 +10,40 @@
  * 
  * 
  */
-console.log('Bem-vindo(a) ao jogo de blackjack')
+// console.log('Bem-vindo(a) ao jogo de blackjack')
 
-if(confirm('Quer iniciar uma nova rodada?')) {
-
-  
-   const carta = comprarCarta()
-
-   const carta1 = comprarCarta()
-
-   const usuario = Number( carta.valor + carta1.valor)
-
-   console.log(`Usuário - ${carta.texto} ${carta1.texto} - ${usuario}`)
-
-   const cartas = comprarCarta()
-
-   const cartas1 = comprarCarta()
-
-   const computador = Number(cartas.valor + cartas1.valor)
-
-   console.log(`Computador - ${cartas.texto} ${cartas1.texto} - ${computador}`)
+// if(confirm('Quer iniciar uma nova rodada?')) {
 
   
+//    const carta = comprarCarta()
 
-   if(usuario > computador && usuario < 22 ) {
-      console.log('O usuário ganhou!')
-   } 
-   else if(computador > usuario && computador < 22) {
-      console.log(`O computador ganhou!`)
+//    const carta1 = comprarCarta()
 
-   }  
-    else if(computador === usuario) {
-       console.log(`Empatou!`)
-}
+//    const usuario = Number( carta.valor + carta1.valor)
 
-} else{
-   console.log('Fim de jogo!')
-}
+//    console.log(`Usuário - ${carta.texto} ${carta1.texto} - ${usuario}`)
+
+//    const cartas = comprarCarta()
+
+//    const cartas1 = comprarCarta()
+
+//    const computador = Number(cartas.valor + cartas1.valor)
+
+//    console.log(`Computador - ${cartas.texto} ${cartas1.texto} - ${computador}`)
+
+  
+
+//    if(usuario > computador && usuario < 22 ) {
+//       console.log('O usuário ganhou!')
+//    } 
+//    else if(computador > usuario && computador < 22) {
+//       console.log(`O computador ganhou!`)
+
+//    }  
+//     else if(computador === usuario) {
+//        console.log(`Empatou!`)
+// }
+
+// } else{
+//    console.log('Fim de jogo!')
+// }
