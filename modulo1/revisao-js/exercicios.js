@@ -51,7 +51,14 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+const maiorNumero = Match.max(num1, num2);
+const menorNumero = Match.min(num1, num2);
 
+const objeto = {
+   numeroMairo: maiorNumero,
+   menorNumero: menorNumero
+}
+return objeto
 }
 
 // EXERCÍCIO 08
