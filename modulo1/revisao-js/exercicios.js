@@ -54,8 +54,10 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 const maiorNumero = Match.max(num1, num2);
 const menorNumero = Match.min(num1, num2);
 
+
 const objeto = {
    numeroMairo: maiorNumero,
+   
    menorNumero: menorNumero
 }
 return objeto
@@ -63,7 +65,14 @@ return objeto
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-   
+   let numeroPar = []
+   for(let i = 0; i < n; i++) {
+       if(i % 2 === 0){
+           numeroPar.push(i)
+       }
+   }
+   return numeroPar
+  
 }
 
 // EXERCÍCIO 09
