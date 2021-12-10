@@ -32,7 +32,21 @@ function retornaNumerosPares(array) {
 }
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
+const arrPares = array.filter( (par) => {
 
+   if(par % 2 === 0) {
+      let elevado = []
+      for(let i = 0; i < par.length ; i++) {
+
+           par.length.push(elevado)
+      }
+      return elevado;
+   }
+}).map((elevado) => {
+      return elevado ** 2
+})
+return arrPares
+   
 }
 
 // EXERCÍCIO 06
@@ -51,16 +65,15 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-const maiorNumero = Match.max(num1, num2);
-const menorNumero = Match.min(num1, num2);
-
-
+const maiorNumero = Math.max(num1, num2);
+const menorNumero = Math.min(num1, num2);
+ 
 const objeto = {
-   numeroMairo: maiorNumero,
-
-   menorNumero: menorNumero
+   maiorNumero: maiorNumero,
+   maiorDivisivelPorMenor: maiorNumero % menorNumero === 0,
+   diferenca : maiorNumero - menorNumero
 }
-return objeto
+   return objeto
 }
 
 // EXERCÍCIO 08
@@ -124,7 +137,7 @@ function retornaPessoasAutorizadas(pessoas) {
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
    const pessoaNaoAutorizada = pessoas.filter( (pros) => {
-      return pros.altura < 1.5 && pros.idade <=14 && pros.idade >= 60
+      return pros.altura < 1.5 || pros.idade <=14 || pros.idade >= 60
    })
    return pessoaNaoAutorizada
    
