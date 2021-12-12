@@ -112,6 +112,7 @@ function retornaSegundoMaiorESegundoMenor(array) {
    let segundoMenor = Infinity;
 
    for(let i = 0; i < array.length; i++){
+   // pegando segundo maior
        if(array[i] > maior){
            segundoMaior = maior
            maior = array[i];
@@ -119,8 +120,7 @@ function retornaSegundoMaiorESegundoMenor(array) {
        if(array[i] < maior && array[i] > segundoMaior) {
            segundoMaior = array[i]
        }
-
-
+// Pegando segundo menor
        if(array[i] < menor){
            segundoMenor = menor;
            menor = array[i];
@@ -128,7 +128,6 @@ function retornaSegundoMaiorESegundoMenor(array) {
        if(array[i] > menor &&  array[i] < segundoMenor) {
            segundoMenor = array[i]
        }
-   
    }
    return [segundoMaior, segundoMenor]
 }
@@ -169,7 +168,10 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+   const contaAtualizada = contas.reduce( (prod) => {
+      return {...prod, compras: prod.saldoTotal - prod.compras} 
+   })
+   return contaAtualizada
 }
 
 // EXERCÍCIO 15A
