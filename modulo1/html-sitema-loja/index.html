@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" 
+    content="
+      worker-src blob:; 
+      child-src blob: gap:;
+      img-src 'self' data:image/svg+xml
+      default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nome da Loja</title>
+    <title>Família Duarte</title>
+
 </head>
 <body>
     <div>
         <h1>Bem-vind@ ao <em><strong> loja Família Duarte</strong></em>!</h1>
-        <p>Frase de chamada para sua loja</p>
+        <p>Aqui você encontra de tudo com o menor o preço, temos desconto de 15 % para compras acima de 100,00 R$</p>
     </div>
 
     <div>
