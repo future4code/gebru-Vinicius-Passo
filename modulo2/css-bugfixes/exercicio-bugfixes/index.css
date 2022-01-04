@@ -8,7 +8,9 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    border: solid 2px;
+}
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -25,10 +27,14 @@ input {
 button:focus {
     color: white;
 }
+button:hover{
+    color:#fe7e02;
+    background-color:#2274a5;
+}
 
 img {
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
 }
 
 div>p:first-child {
@@ -40,8 +46,9 @@ div img {
 }
 
 .botao-amarelo {
+    margin-top: 100px;
     display: block;
-    margin-left: 400px;
+    margin-left: 530px;
     background-color: #ffaf43;
     width: 250px;
     height: 40px;
@@ -52,9 +59,11 @@ div img {
 
 .botao-amarelo:hover {
     background-color: #c44f00;
-    
+    font:italic 18px Arial;
 }
-
+.botao-amarelo{
+    font:normal 18px Arial;
+}
 .container {
     height: 500px;
     text-align: center;
@@ -99,7 +108,7 @@ div img {
   **/
 
   table{
-      margin-left: 300px;
+      margin-left: 400px;
   }
 div:nth-child(2),
 div:last-child {
@@ -107,7 +116,7 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 50%;
 }
 
 td button {
@@ -125,6 +134,8 @@ td button {
 
 
 #back-button {
+    margin-top: 80px;
+    margin-left: 600px;
     background-color: white;
     width: 100px;
     height: 20px;
@@ -135,5 +146,6 @@ td button {
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #635a3d;
+    color:#c44f00;
 }
