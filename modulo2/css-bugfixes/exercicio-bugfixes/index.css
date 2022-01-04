@@ -19,6 +19,7 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    
 }
 
 button:focus {
@@ -26,7 +27,8 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 90px;
+    height: 90px;
 }
 
 div>p:first-child {
@@ -59,7 +61,8 @@ div img {
 }
 
 .icone {
-    height: 15px;
+    width: 18px;
+    height:18px;
 }
 
 
@@ -89,13 +92,15 @@ div img {
     font-size: 60px;
 }
 
-
 /**
   *
   *  ESTILOS COMPRAR 
   *
   **/
 
+  table{
+      margin-left: 300px;
+  }
 div:nth-child(2),
 div:last-child {
     text-align: center;
