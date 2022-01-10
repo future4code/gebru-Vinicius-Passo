@@ -4,86 +4,135 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfólio</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Meu portfólio</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-        <h1 class="portfolio"> <strong>My Portfólio</strong> </h1>
-        <br/><br/>
-        <a class="link" href="index.html">My Porffólio</a>
-        <a class="link" href="projeto-blackjack.html">Projeto blackjack</a>
-        <a class="link" href="projeto-exercicio-js.html">Projeto Exercício JavaScript</a>
-        <a class="link" href="projeto-revisao-js.html">Projeto revisão JavaScript</a>
-        <br/>
+    
+    <div id="container"> 
 
-        <h2 class="h2"> <strong>Desenvolvedor full-stack pela a Labenu!</strong></h2>
-        <h4 class="h4">Apoixonado por tecnologia estou habilitado para trabalhar com front-end. E amo 
-            o que faço!
-        </h4>
-        <br/><br/>
+    <header>
+        <div>
+            <img class="img" src="img/portifolio.png" alt="foto">
+            <p>Vinicius Duarte</p>
+        </div>
+        <div class="link">
+            <a href="index.html">Portfólio</a>
+            <a href="blackjack.html">Blackjack</a>
+            <a href="Loja.html">Loja</a>
+        </div>
+    </header>
 
-        <img class="perfil" src="img/vinicius.jfif" alt="imagem para Portfólio">
-
-        <br/><br/><br>
-        <img class="arte" src="img/arte1.jpg" alt="arte do portfolio">
-
-        <div id="unica">
-            <h1 class="informacao">
-                Olá, sou o vinicius. é um prazer conhecê-la.
+    <main class="container-filho">
+        
+            <div class="corpo">
+           <h1>
+               Sou estudante de web full-stack pela a labenu!
             </h1>
-           
+            
+            <div>
             <p>
-                Sou estudante pela a Labenu, já participei de alguns
-                projetos como projeto-lista-js, projeto-blackjack e revisão- js. 
-                colocando meus conhecimento em prática. e a cada dia que passa
-                estou cada vez mais encantado com as tecnologia que venho estudando, e isso me motiva
-                sempre a buscar por novos conhecimentos e estar em constância 
-                evolução tando pro meu desenvolvimento profissional como pessoal.
+                Apaixonado por tecnologia, resolvi buscar conhecimeto<br>
+                sobre essa aréa, e no final do mês de fevereiro<br> 
+                já posso trabalhar com front-end.<br>
+                 
             </p>
         </div>
-        <div class="tabela">
-            <table>
-               <th class="th">Informação para contato é so clicar!</th> 
-               <th class="th">Habilidade!</th>
-                <th class="th">Experiência!</th>
-                <tr>
-                    <td>
-                        <ul>
-                            <a href="mailto:vinicius.benduarte14@gmail.com">
-                                <img class="icones" src="img/log.png" alt="logo do gmail">
-                            </a>
-                        </ul>
-                        <ul>
-                            <a href="https://github.com/ViniciusDuarte17">
-                                <img class="icones" src="img/github.png" alt="github">
-                            </a>
-                        </ul>
-                        <ul>
-                            <a href="https://www.linkedin.com/in/vinicius-duarte-passo-656865223">
-                                <img class="icones" src="img/in.png" alt="linkedin">
-                            </a>
-                        </ul>
-                        <ul>
-                            <a href="https://api.whatsapp.com/send?phone=5574998079070">
-                                <img class="icones" src="img/whats.jpeg" alt="telefone para contato">
-                            </a>
-                        </ul>
-                    </td>
-
-                    <td class="listas">
-                            <ul class="listas">Linguagem JavaScript.</ul>
-                            <ul class="listas">Conhecimento em html e css.</ul>
-                            <ul class="listas">Entendimento em Git e GitHub.</ul>
-                    </td>
-                   <td>
-                       <ul class="listas">Projeto Fixação JavaScript.</ul>
-                       <ul class="listas">Projeto Blackjack.</ul>
-                       <ul class="listas">Projeto Revisão JavaScript.</ul>
-                   </td>
-                </tr>
-            </table>
         </div>
         
+        <div class="js">
+            <img src="img/js.jpg" alt="javascript">
+            <img src="img/html.png" alt="html">
+            <img src="img/css.webp" alt="css">
+        </div>
+        <div class="conteudo">
+        <div>
+            <h1>
+                Olá, sou o vinicius. é um prazer conhecê-la.
+            </h1>
+        </div>
+        <div>
+            <p>
+                Sou estudante da Labenu, e até o momento tenho experiências <br>
+                 em algumas tecnologias participando de projetos práticos: <br>
+                 como esse portfólio e da criação de uma loja. <br>
+                 que desenvolvi utilizando <b>html e css</b>, para ter acessa <br>
+                 a esse projeto clica no <b>link loja</b>. <br>
+            </p>
+            <p>
+                E utilizando <b>Javascript</b> fiz um jogo chamado Blackjack <br>
+                colando meus conhecimento em prática, para ter acessa <br>
+                basta da um clique no <b>link Blackjack</b>.
+            </p>
+        </div>
+        <div class="contato">
+            <h3>Formulário para contato.</h3>
+            <form class="form">
+                <input class="filed" name = "name" placeholder = "Nome">
+                <input class="field" name = "email" placeholder = "E-mail">
+                <textarea class="field" name="mesage" placeholder = "Digite sua mensagem aqui."></textarea>
+                <input type="submit" value="enviar">
+            </form>
+        </div>
+    </div>
+        
+    </main>
+
+    <footer class="rodape">
+        <div>
+          <img src="img/vinicius (2).jfif" alt="perfil">
+        </div>
+        <div>
+            <p>
+                Sou estudante de web full-stack e até o momento ja possui<br>
+                   conhecimento básico com front-end,  e me sinto capacidade<br>
+                  para mercado de trabalho.
+               </p>
+        </div>
+        <div class="lista">
+            <h4>Link para contato.</h4>
+            <ul>
+                <ol>
+                    <a href="https://bit.ly/3n9SzrD">
+                        <img src="img/whats.jpg" alt="icone">
+                    </a>
+                </ol>
+                <ol>
+                    <a href="https://www.instagram.com/vini_duarte9/">
+                        <img src="img/insta.jpg" alt="icone">
+                    </a>
+                </ol>
+                <ol>
+                    <a href="mailto:vinicius.benduarte14@gmail.com">
+                        <img src="img/gmail.jpg" alt="icone">
+                    </a>
+                </ol>
+                
+            </ul>
+        </div>
+        <div class="lista2">
+            <h4>Link de redes sociais.</h4>
+            <ul>
+                <ol>
+                    <a href="https://github.com/future4code/gebru-Vinicius-Passo">
+                        <img src="img/github.png" alt="icone">
+                    </a>
+                </ol>
+                <ol>
+                    <a href="https://www.linkedin.com/in/vinicius-duarte-passo-656865223/">
+                        <img src="img/in.png" alt="icone">
+                    </a>
+                </ol>
+                <ol>
+                    <a href="https://slack.com/intl/pt-br/">
+                        <img src="img/slack.png" alt="icone">
+                    </a>
+                </ol>
+            </ul>
+        </div>
+    </footer>
+
+</div>
+
 </body>
 </html>
