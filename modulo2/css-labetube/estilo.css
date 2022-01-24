@@ -11,3 +11,9 @@ nav {
     width: 100vh;
    height: 70vh;
 }
+@media screen and (max-device-width : 600px) {
+  .video-1 {
+    width: 85%;
+    height: 65%;
+  }
+}
