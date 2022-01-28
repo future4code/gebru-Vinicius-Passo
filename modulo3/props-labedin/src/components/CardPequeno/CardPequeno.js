@@ -13,7 +13,8 @@ padding-left: 2%;
 height: 10vh;
 `
 const Caila = styled.img` 
-width: 5vh;
+width: 2.5vw;
+height: 5vh;
 margin-right: 10px;
 border-radius:50px;
 `
