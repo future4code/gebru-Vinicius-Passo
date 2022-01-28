@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import Cardpequeno from './components/CardPequeno/CardPequeno';
@@ -7,16 +6,29 @@ import foto from './img/vini.jfif'
 import logoLabenu from './img/labenu.png'
 import cart from './img/carta.png'
 import loca from './img/locali.png'
+import styled from 'styled-components';
 
-
-
-
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+`
+const ContainerFilho = styled.div`
+  width: 40vw;
+  margin: 10px 0;
+`
+const H2 = styled.h2` 
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`
 
 function App() {
   return (
-    <div className="App">
-      <div className="page-section-container">
-        <h2>Dados pessoais</h2>
+    <Container className="App">
+      <ContainerFilho className="page-section-container">
+        <H2>Dados pessoais</H2>
         <CardGrande 
           imagem={foto} 
           nome="Vinicius Duarte" 
@@ -36,16 +48,16 @@ function App() {
           email= "Vinicius.benduarte14@gmail.com"
           endereco = "Santa urusula interior da BA"
         />
-      </div>
+      </ContainerFilho>
 
-      <div className="page-section-container">
-        <h2>Experiências profissionais</h2>
+      <ContainerFilho className="page-section-container">
+        <H2>Experiências profissionais</H2>
         <CardGrande 
           imagem={logoLabenu} 
           nome="Labenu" 
-          descricao="Conhecimento com git e git-hub, inglês tecnico. experiência com javaScript, html e css. 
-          E agora vamos estudar sobre o react essa tecnologia que me encontou demais, esse é o meu framework.
-          Boa comunicação e gosto de trabalhar em equipe." 
+          descricao="Conhecimento com git e git-hub, inglês tecnico. Experiência com javaScript, html e css. 
+          E agora vamos estudar sobre o react essa tecnologia que me encontou demais. Gosto de trabalhar
+          em equipe." 
         />
        
         <CardGrande 
@@ -55,10 +67,10 @@ function App() {
           to escrevendo alguma coisa pra vocês lerem.
           vou deixar uma fotinha minha pq me acho bonitinho." 
         />
-      </div>
+      </ContainerFilho>
 
       <div className="page-section-container">
-        <h2>Minhas redes sociais</h2>
+        <H2>Minhas redes sociais</H2>
         <ImagemButton 
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook" 
@@ -69,7 +81,7 @@ function App() {
           texto="Twitter" 
         />        
       </div>
-    </div>
+    </Container>
   );
 }
 
