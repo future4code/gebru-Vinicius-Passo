@@ -5,6 +5,8 @@ import ImagemButton from './components/ImagemButton/ImagemButton';
 import Cardpequeno from './components/CardPequeno/CardPequeno';
 import foto from './img/vini.jfif'
 import logoLabenu from './img/labenu.png'
+import cart from './img/carta.png'
+import loca from './img/locali.png'
 
 
 
@@ -29,6 +31,8 @@ function App() {
         />
 
         <Cardpequeno
+          imagem1 = {cart}
+          imagem = {loca}
           email= "Vinicius.benduarte14@gmail.com"
           endereco = "Santa urusula interior da BA"
         />
@@ -47,7 +51,9 @@ function App() {
         <CardGrande 
           imagem={foto}
           nome="NASA" 
-          descricao="Apontando defeitos. so que nao" 
+          descricao="Aqui eu nao sei o que era para adicionar entao
+          to escrevendo alguma coisa pra vocês lerem.
+          vou deixar uma fotinha minha pq me acho bonitinho." 
         />
       </div>
 
