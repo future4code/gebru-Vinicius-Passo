@@ -3,19 +3,49 @@ import styled from 'styled-components';
 
 const MinhaDiv = styled.div`
 display: flex;
+width: 30vw;
+margin:auto;
+max-width: 50%;
+min-width: 8%;
 align-items: flex-end;
-width: 40vw;
 height: 80vh;
-border:solid 1px black;
-margin: auto;
+margin-bottom: 1em;
+word-wrap: break-word;
+padding: 0.9em 0.8em;
+  border-radius: 0.5em;
+  font-weight: 450;
+  line-height: 1.3;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
 `
 
 const MeuInput = styled.input`
 display: flex;
-flex-direction: column-reverse;
-align-self:flex-end;
-align-items: center;`
-
+flex-direction: column;
+width: 16%;
+height: 4%;
+margin-left: 5%;
+`
+const MeuSegundoInput = styled.input`
+display: flex;
+flex-direction: column;
+width: 60%;
+height: 4%;
+margin-left: 2%;
+`
+ const Meubotao = styled.button`
+ display:flex;
+ width: 16%;
+ height: 5%;
+ margin-left: 2%;
+ padding:auto;
+ `
+ const MinhaOutraDiv = styled.div`
+ display: flex;
+ align-self:flex-end;
+ margin-bottom: 20%;
+ flex-direction: column;
+ `
+ 
 class app extends React.Component {
 
   state = {
@@ -56,6 +86,8 @@ class app extends React.Component {
 
   render() {
 
+
+
     const listaDeCoteudo = this.state.whats.map( (pessoa) => {
 
       return (
@@ -73,14 +105,15 @@ class app extends React.Component {
         placeholder={"Usuário"}
         />
 
-        <MeuInput
+        <MeuSegundoInput 
         value= {this.state.valorInputMensagem}
         onChange={this.onchangeInputMensagem}
         placeholder={"Mensagem"}
         />
-        <button onClick={this.adicionarMensagem}>Enviar</button>
+        <Meubotao onClick={this.adicionarMensagem}>Enviar</Meubotao>
 
-        <div>{listaDeCoteudo}</div>
+        <MinhaOutraDiv>{listaDeCoteudo}</MinhaOutraDiv>
+
       </MinhaDiv>
     )
   }
