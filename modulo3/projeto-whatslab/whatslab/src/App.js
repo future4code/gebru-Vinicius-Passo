@@ -5,7 +5,7 @@ const MinhaDiv = styled.div`
 display: flex;
 width: 30vw;
 margin:auto;
-max-width: 50%;
+max-width: 70%;
 min-width: 8%;
 align-items: flex-end;
 height: 80vh;
@@ -27,23 +27,36 @@ margin-left: 5%;
 `
 const MeuSegundoInput = styled.input`
 display: flex;
-flex-direction: column;
+flex-direction: column-reverse;
 width: 60%;
 height: 4%;
 margin-left: 2%;
 `
  const Meubotao = styled.button`
  display:flex;
- width: 16%;
+ width: 14%;
  height: 5%;
  margin-left: 2%;
  padding:auto;
  `
  const MinhaOutraDiv = styled.div`
  display: flex;
- align-self:flex-end;
+ align-self: flex-end;
  margin-bottom: 20%;
- flex-direction: column;
+ margin-left: -100%;
+ justify-content: flex-start;
+ flex-direction: column-reverse;
+ word-wrap: wrap;
+ 
+ padding: 0.9em 0.8em;
+  border-radius: 0.5em;
+  font-weight: 450;
+  line-height: 1.3;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+
+  max-width: 60%;
+  min-width: 8%;
+ 
  `
  
 class app extends React.Component {
@@ -56,7 +69,7 @@ class app extends React.Component {
      }
     ],
 
-    valorInputUsuario: "",
+    valorInputUsuario: "" ,
     valorInputMensagem: ""
   }
 
