@@ -23,29 +23,35 @@ class App extends React.Component {
       tarefas: [
         {
           id:Date.now(),
-          texto: 'texto de tarefa 1',
+          texto: '',
           completa: false
-        },
-        {
-          id:Date.now(),
-          texto: 'texto de tarefa 2',
-          completa: true
-        },
+        }
+        // {
+        //   id:Date.now(),
+        //   texto: '',
+        //   completa: true
+        // },
      
       ],
       inputValue: '',
       filtro: 'true',
     }
 
-
   componentDidUpdate() {
-
+    this.salvaObjeto()
   };
 
-  componentDidMount() {
+  componentDidMount(prevPros, prevState) {
+    
+   
+  }
 
-  };
-
+  salvaObjeto = () => {
+  localStorage.setItem('objeto:',JSON.stringify(this.state.tarefas))
+ 
+  }
+ 
+  
   onChangeInput = (event) => {
     this.setState({inputValue: event.target.value})
   }
@@ -53,8 +59,8 @@ class App extends React.Component {
   criaTarefa = () => {
     const novaTarefa = {
         id:Date.now(),
-        texto: this.state.inputValue,
-        completa: false
+        texto:this.state.inputValue,
+        completa: false,
     }
 
     const novaTarefas = [...this.state.tarefas, novaTarefa]
@@ -62,6 +68,7 @@ class App extends React.Component {
     this.setState({tarefas: novaTarefas, inputValue: ""})
     
   }
+
 
   selectTarefa = (id) => {
    const novaListaDeTarefas = this.state.tarefas.map( (tarefa) => {
