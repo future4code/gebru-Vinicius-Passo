@@ -1,11 +1,27 @@
 import axios from "axios"
 import React from "react"
-
+import styled from "styled-components"
 const axiosConfig = {
     headers:{
         Authorization: "vinicius-duarte-gebru"
     }
 }
+
+const DivPai = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid black;
+    max-width: 50vw;
+    min-width: 30vw;
+    height: 90vh;
+    background-color: #011F26;
+`
+const Span = styled.span`
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+`
 
 class TelaUsuario extends React.Component{
     state={
@@ -62,7 +78,7 @@ class TelaUsuario extends React.Component{
     }
     render(){
         return(
-            <div>
+            <DivPai>
               {this.state.paginaAtual === "listaUsuario" ? (
                   <div>
                       <ul>
@@ -70,9 +86,9 @@ class TelaUsuario extends React.Component{
                           {this.state.listaUsuario.map( (user) => {
                               return (
                                   <li>
-                                      <span>
+                                      <Span >
                                         {user.name}
-                                      </span>
+                                      </Span>
                                       <button 
                                       onClick={()=> this.exclusaoUsuario(user.id)}
                                       >
@@ -87,7 +103,7 @@ class TelaUsuario extends React.Component{
               ): (
                   <div idUsuario={this.state.idNameChange} paginaAtual={this.state.paginaAtual}/>
               )}
-            </div>
+            </DivPai>
         )
     }
 }

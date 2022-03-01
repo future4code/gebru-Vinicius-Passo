@@ -1,6 +1,40 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
 
+
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 12%;
+    align-items: center;
+    width: 45% ; 
+    height: 32vh ;
+    background-color: #011F26;
+`
+
+const Input = styled.input`
+    border: 1px solid;
+    margin-bottom: 2%;
+    height: 15%;
+
+`
+const Inputs = styled.input`
+    border: 1px solid;
+    height: 15%;
+    margin-bottom: 2%;
+`
+const MeuButton = styled.button`
+    color: blue ;
+    margin-bottom: -1%;
+    height: 22%;
+`
+const TagP = styled.p`
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+`
 class TelaCadastro extends React.Component{
     state = {
         name: "",
@@ -43,22 +77,23 @@ class TelaCadastro extends React.Component{
 
     render(){
         return(
-            <div>
-               <input
+            <Container>
+                <TagP>Informações para cadastro</TagP>
+               <Input
                placeholder={"Nome"}
                type="text"
                value={this.state.name}
                onChange={this.nameChange}
                />
 
-               <input
+               <Inputs
                placeholder={"E-mail"}
                type="email"
                value={this.state.email}
                onChange={this.emailChange}
                />
-               <button onClick={this.criarUsuario}>Criar usuário</button>
-            </div>
+               <MeuButton  onClick={this.criarUsuario}>Criar usuário</MeuButton>
+            </Container>
         )
     }
 }
