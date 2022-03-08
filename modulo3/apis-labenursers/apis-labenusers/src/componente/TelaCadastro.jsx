@@ -12,7 +12,19 @@ const Container = styled.div`
     align-items: center;
     width: 45% ; 
     height: 32vh ;
-    background-color: #011F26;
+    background-color: #45afc7;
+
+    @media screen and (max-width: 600px ){
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 12%;
+    align-items: center;
+    width: 65% ; 
+    height: 32vh ;
+    background-color: #3092a8;
+}
 `
 
 const Input = styled.input`
@@ -20,16 +32,33 @@ const Input = styled.input`
     margin-bottom: 2%;
     height: 15%;
 
+    @media screen and (max-width: 600px ){
+        border: 1px solid;
+        margin-bottom: 2%;
+        height: 8%;
+}
 `
 const Inputs = styled.input`
     border: 1px solid;
     height: 15%;
     margin-bottom: 2%;
+    @media screen and (max-width: 600px ){
+        border: 1px solid;
+        margin-bottom: 2%;
+        height: 8%;
+        margin: 2px ;
+}
 `
 const MeuButton = styled.button`
     color: blue ;
     margin-bottom: -1%;
     height: 22%;
+    @media screen and (max-width: 600px ){
+    color: #6903729e ;
+    margin-bottom: -2%;
+    height: 10%;
+    width: 70%;
+}
 `
 const TagP = styled.p`
     font-family: Arial, Helvetica, sans-serif;

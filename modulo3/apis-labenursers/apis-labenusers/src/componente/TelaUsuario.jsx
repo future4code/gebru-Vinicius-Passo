@@ -16,11 +16,44 @@ const DivPai = styled.div`
     min-width: 30vw;
     height: 90vh;
     background-color: #011F26;
+
+    @media screen and (max-width: 600px ){
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid black;
+    max-width: 70vw;
+    height: 70vh;
+    background-color: #063c47;
+}
 `
 const Span = styled.span`
     color:white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
+`
+
+const CardUser = styled.div`
+    display: flex ;
+    justify-content: space-between ;
+    margin: 10px;
+    padding: 10px;
+    width: 30vw;
+    height: 4vh;
+    border: 1px solid white;
+
+    @media screen and (max-width: 600px ){
+     display: flex ;
+    justify-content: space-between ;
+    margin: 10px;
+    padding: 10px;
+    width: 50vw;
+    height: 4vh;
+    border: 1px solid white;
+}
+`
+const Atualizar = styled.div`
+    color:white;
 `
 
 class TelaUsuario extends React.Component{
@@ -34,15 +67,17 @@ class TelaUsuario extends React.Component{
     componentDidMount(){
         this.buscaUsuarioLista();
     }
-    buscaUsuarioLista = () => {
-        axios
-        .get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
+    buscaUsuarioLista = async () => {
+
+       try {
+        const res = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
         axiosConfig
-        )
-        .then( (resp) => {
-            this.setState({listaUsuario: resp.data});
-        })
+         )
+         this.setState({listaUsuario: res.data});
+       } catch (error) {
+          
     }
+}
     exclusaoUsuario = (idUsuario) => {
         if (("Você vai apagar o usuário da lista, é isso que quer fazer?")){
             axios
@@ -64,17 +99,18 @@ class TelaUsuario extends React.Component{
     idNameChange = (ev) => {
         this.setState({idUsuario: ev.target.value})
     }
-    pesquisarPorNome = () => {
-        axios 
-        .get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name${this.state.name}=&email=`,
-        axiosConfig
-        )
-        .then( (resp) => {
-            this.setState({listaUsuario: resp.data})
-        })
-        .catch ( () => {
-            alert("Erro ao criar o usuário")
-        })
+    pesquisarPorNome = async () => {
+
+        try {
+            const res = await axios 
+            .get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name${this.state.name}=&email=`,
+            axiosConfig
+            )
+            this.setState({listaUsuario: res.data})
+        } catch (err) {
+            alert("erro ao criar usuário")
+        }
+      
     }
     render(){
         return(
@@ -82,10 +118,10 @@ class TelaUsuario extends React.Component{
               {this.state.paginaAtual === "listaUsuario" ? (
                   <div>
                       <ul>
-                          {this.state.listaUsuario.length === 0 && <div>Atualizando...</div>}
+                          {this.state.listaUsuario.length === 0 && <Atualizar>Atualizando...</Atualizar>}
                           {this.state.listaUsuario.map( (user) => {
                               return (
-                                  <li>
+                                  <CardUser>
                                       <Span >
                                         {user.name}
                                       </Span>
@@ -94,7 +130,7 @@ class TelaUsuario extends React.Component{
                                       >
                                           X
                                       </button>
-                                  </li>
+                                  </CardUser>
                               )
                           })}
                       </ul>

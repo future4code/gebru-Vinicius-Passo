@@ -7,6 +7,7 @@ const Div = styled.div`
 border: 1px solid black;
 height: 100vh;
 background-color: #025E73;
+
 `
 
 class App extends React.Component{
