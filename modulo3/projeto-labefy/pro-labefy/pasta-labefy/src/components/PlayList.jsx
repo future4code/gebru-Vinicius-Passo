@@ -10,9 +10,24 @@ const axiosConfing = {
 class PlayList extends React.Component{
     state = {
         namePlayList: [],
-        onClick: false
-      
+        onClick: 'false',
+        name: "", 
+        artist: "",
+        url: ""
+       
     }
+    nameInput = (ev) => {
+        this.setState({name: ev.target.value})
+    }
+
+    artistaInput = (ev) => {
+        this.setState({artist: ev.target.value})
+    }
+
+    urlInput = (ev) => {
+        this.setState({ url: ev.target.value})
+    }
+  
     componentDidMount(){
         this.getAllPlayList();
     }
@@ -47,6 +62,7 @@ class PlayList extends React.Component{
     }
 
     getPlaylistTracks = (id) => {
+      
         axios 
         .get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`,
         axiosConfing
@@ -54,43 +70,106 @@ class PlayList extends React.Component{
         .then( (resp) => {
             this.setState({namePlayList: resp.data.result.tracks})
             // console.log(resp.data.result.tracks)
-            console.log(this.state.listaDeMsc)
-            this.setState({onClick: true})
+            
+            this.setState({onClick: 'true'})
         })
         .catch( () => {
             alert('erro')
         })
     }
+    addTrackToPlayList = (id) => {
+        const bory = {
+            name: this.state.name,
+            artist: this.state.artist,
+            url: this.state.url
+        }
+        axios
+        .post(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`,
+        bory,axiosConfing
+        )
+        .then(()=>{
+           this.setState({
+            name: "",
+            artist: "",
+            url: ""
+           })
+           alert('msc add com sucesso')
+        })
+        .catch(()=> {
+            alert('Erro ao adicionar musica a play list')
+        })
+    }
 
     voltarPlayList = () => {
-        this.setState({onClick: false})
+        this.setState({onClick: 'false'})
+        this.getAllPlayList();
     }
 
     render(){
         
         return(
             <div>
-                <p>Play list</p>
+               
                 {this.state.namePlayList.map( (user) => {
-                    if(this.state.onClick === true){
+                    
+                    if(this.state.onClick === 'true'){
                         return (
                             <div key={user.id}>
-                                <label onClick={()=> this.getPlaylistTracks(user.id)}> {user.name}  {user.artist} {user.url}</label>
+                               
+                                <label 
+                                onClick={()=> this.getPlaylistTracks(user.id)}> {user.name}  
+                                 <audio  controls={"controls"}>
+                                     
+                                     <source src={user.url} type="audio/mp3"/>
+                                     </audio>
+                                  
+                                </label>
                                 <button onClick={()=> this.voltarPlayList()}>voltar play list</button>
+                          
                             </div>
+                            
                         )
-                    } else if(this.state.onClick === false) {
+                    } else if(this.state.onClick === 'false') {
                         return (
                             <div key={user.id}>
+                                <p>Play list</p>
                                 {user.name}
                                 <button onClick={()=> this.getPlaylistTracks(user.id)}>ver detalhe</button>
                                 <button onClick={()=> this.delePlayList(user.id)}> X </button>
+
+                                <div>
+                                    <p><b>Adicione msc a sua play list</b></p>
+                                    <input
+                                placeholder="nome"
+                                type={"text"}
+                                value={this.state.name}
+                                onChange={ this.nameInput}
+                                />
+                              
+                                <input
+                               
+                                placeholder="artista"
+                                type={"text"}
+                                value={this.state.artist}
+                                onChange={ this.artistaInput}
+                                />
+                                
+                                <input
+                               
+                                placeholder="url da msc"
+                                type={"text"}
+                                value={this.state.url}
+                                onChange={ this.urlInput}
+                                />
+                               
+                                <button onClick={()=> this.addTrackToPlayList(user.id)}>Adicionar</button>
+                               
+                             </div>
                             </div>
                         )
-                    }
+                    } 
                    
                 })}
-
 
             </div>
         )
