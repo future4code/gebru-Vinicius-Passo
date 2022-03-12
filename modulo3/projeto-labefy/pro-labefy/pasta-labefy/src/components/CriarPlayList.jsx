@@ -1,5 +1,37 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+
+const ContainerTelaCadastro = styled.div`
+     display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 12%;
+    align-items: center;
+    width: 45% ; 
+    height: 32vh ;
+    background-color: #027368;
+
+`
+const CompoInput = styled.input`
+    border: 1px solid;
+    margin-bottom: 2%;
+    height: 17%;
+    width:45% ;
+`
+
+const MeuButton = styled.button`
+     color: #26e9d5 ;
+     background-color: #012626;
+    margin-bottom: -1%;
+    height: 18%;
+    :hover{
+        color: #012626;
+        background-color: white ;
+    }
+`
 
 const axiosConfing = {
     headers: {
@@ -35,15 +67,15 @@ class CriarPlayList extends React.Component{
 
     render(){
         return(
-            <div>
-               <input
+            <ContainerTelaCadastro>
+               <CompoInput
                placeholder="Criar play list"
                type={"text"}
                value={this.state.name}
                onChange={this.nameChange}
                />
-               <button onClick={this.createPlayList}>Adicionar play list</button>
-            </div>
+               <MeuButton onClick={this.createPlayList}> <b>Criar PlayList</b></MeuButton>
+            </ContainerTelaCadastro>
         )
     }
 }

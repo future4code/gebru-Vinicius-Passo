@@ -1,6 +1,32 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
 
+
+
+  const CompoButton = styled.button`
+      color: #ffffff;
+      margin-left: 25%;
+      background-color: black;
+  `  
+  const OutroButton = styled.button`
+  color: #ffffff;
+  margin-left: 7%;
+  background-color: black;
+`  
+  const CampoInput = styled.input`
+       height: 19%;
+       width:15% ;
+  `
+
+const DivFilha = styled.div`
+    font-size: 18px;
+    color:white;
+    border: solid 1px white;
+   width: 50vw;
+   margin: auto;
+   padding: auto;
+`
 const axiosConfing = {
     headers: {
         Authorization: "vinicius-duarte-gebru"
@@ -31,6 +57,7 @@ class PlayList extends React.Component{
     componentDidMount(){
         this.getAllPlayList();
     }
+  
     getAllPlayList = () => {
         axios 
         .get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists`, 
@@ -131,22 +158,22 @@ class PlayList extends React.Component{
                         )
                     } else if(this.state.onClick === 'false') {
                         return (
-                            <div key={user.id}>
+                            <DivFilha  key={user.id}>
                                 <p>Play list</p>
                                 {user.name}
-                                <button onClick={()=> this.getPlaylistTracks(user.id)}>ver detalhe</button>
-                                <button onClick={()=> this.delePlayList(user.id)}> X </button>
+                                <CompoButton onClick={()=> this.getPlaylistTracks(user.id)}>ver detalhe</CompoButton>
+                                <OutroButton onClick={()=> this.delePlayList(user.id)}> Delete playList </OutroButton>
 
                                 <div>
                                     <p><b>Adicione msc a sua play list</b></p>
-                                    <input
+                                    <CampoInput
                                 placeholder="nome"
                                 type={"text"}
                                 value={this.state.name}
                                 onChange={ this.nameInput}
                                 />
                               
-                                <input
+                                <CampoInput
                                
                                 placeholder="artista"
                                 type={"text"}
@@ -154,7 +181,7 @@ class PlayList extends React.Component{
                                 onChange={ this.artistaInput}
                                 />
                                 
-                                <input
+                                <CampoInput
                                
                                 placeholder="url da msc"
                                 type={"text"}
@@ -165,7 +192,7 @@ class PlayList extends React.Component{
                                 <button onClick={()=> this.addTrackToPlayList(user.id)}>Adicionar</button>
                                
                              </div>
-                            </div>
+                            </DivFilha>
                         )
                     } 
                    
