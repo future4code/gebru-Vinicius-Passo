@@ -26,6 +26,18 @@ const DivFilha = styled.div`
    width: 50vw;
    margin: auto;
    padding: auto;
+   background-color: #13678A;
+`
+
+const DivDetail = styled.div`
+    border: solid 1px white;
+    width: 450px;
+    margin:10px;
+    padding: 10px;
+    background-color: #A1A2A6;
+`
+const ParaDetail = styled.p`
+color: white;
 `
 const axiosConfing = {
     headers: {
@@ -120,7 +132,7 @@ class PlayList extends React.Component{
             artist: "",
             url: ""
            })
-           alert('msc add com sucesso')
+           alert('Música adicionada com sucesso!')
         })
         .catch(()=> {
             alert('Erro ao adicionar musica a play list')
@@ -141,10 +153,10 @@ class PlayList extends React.Component{
                     
                     if(this.state.onClick === 'true'){
                         return (
-                            <div key={user.id}>
+                            <DivDetail key={user.id}>
                                
                                 <label 
-                                onClick={()=> this.getPlaylistTracks(user.id)}> {user.name}  
+                            onClick={()=> this.getPlaylistTracks(user.id)}> <ParaDetail> <b>{ user.name}</b> </ParaDetail> 
                                  <audio  controls={"controls"}>
                                      
                                      <source src={user.url} type="audio/mp3"/>
@@ -152,8 +164,8 @@ class PlayList extends React.Component{
                                   
                                 </label>
                                 <button onClick={()=> this.voltarPlayList()}>voltar play list</button>
-                          
-                            </div>
+                                    <ParaDetail>{user.artist} </ParaDetail>
+                            </DivDetail>
                             
                         )
                     } else if(this.state.onClick === 'false') {
