@@ -6,12 +6,12 @@ export const  ContainerMain = styled.div`
     margin-top: 2%;
     margin-left: 35vw;
     width: 390px;
-    height: 550px;
+    height: 570px;
     border: solid red 1px;
 `
 export const PageDamain = styled.div`
     width: 380px;
-    height: 390px;
+    height: 415px;
     margin-top: 5px;
     margin-left: 4px;
     border: solid green 1px;
