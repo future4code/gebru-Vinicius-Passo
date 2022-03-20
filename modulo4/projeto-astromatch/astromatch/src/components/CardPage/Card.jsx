@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-import FooterPage from "../FooterPage/Foter";
 import HeaderPage from "../HeaderPage/Header";
 import ListMatch from "../ListMatch/Match";
 import MainPage from "../MainPage/Main";
-import { ContainerMain, PageDamain, PageFooter } from "./styled";
+import { ContainerMain, PageDamain } from "./styled";
 
 const CardPage = () => {
   const [currentPage, setCurrentPage] = useState("telaInicial");
@@ -26,9 +25,7 @@ const CardPage = () => {
               
             </PageDamain>
 
-            <PageFooter>
-             
-            </PageFooter>
+          
           </ContainerMain>
         );
 

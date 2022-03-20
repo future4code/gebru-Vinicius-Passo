@@ -4,16 +4,16 @@ import axios from "axios"
 import FooterPage from "../FooterPage/Foter"
 
 const ContainerImg = styled.img`
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
 `
 const FooterAlinhado = styled.div`
     display: flex;
-    width: 385px;
-    height: 70px;
-  
+    width: 380px;
+    height: 50px;
     justify-content: space-evenly ;
     align-items: center;
+    border: solid blue 1px;
 `
 
 const MainPage = () => {
@@ -35,9 +35,7 @@ const MainPage = () => {
         pegaPefil();
 
     },[])
-    const like = () =>{
-        alert("curtiu")
-    }
+    
     return(
         <>
       

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components"
 
 export const  ContainerMain = styled.div`
@@ -18,12 +17,3 @@ export const PageDamain = styled.div`
     border: solid green 1px;
 `
 
-export const PageFooter = styled.div`
-    display: flex;
-    flex-direction: start;
-    width: 390px;
-    height: 80px;
-    border: solid blue 1px;
-    justify-content: space-evenly ;
-    align-items: center;
-`
