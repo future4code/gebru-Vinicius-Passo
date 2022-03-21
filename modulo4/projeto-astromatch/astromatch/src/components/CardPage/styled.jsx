@@ -7,7 +7,8 @@ export const  ContainerMain = styled.div`
     margin-left: 35vw;
     width: 390px;
     height: 570px;
-    border: solid red 1px;
+    border: solid #012030 2px;
+    border-radius: 17px ;
 `
 export const PageDamain = styled.div`
     width: 380px;
@@ -15,5 +16,6 @@ export const PageDamain = styled.div`
     margin-top: 5px;
     margin-left: 4px;
     border: solid green 1px;
+    border: none;
 `
 

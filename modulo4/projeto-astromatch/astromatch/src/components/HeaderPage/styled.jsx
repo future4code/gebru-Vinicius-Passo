@@ -8,4 +8,7 @@ export  const ContainerHeader = styled.div`
      width: 390px;
     height: 70px;
     border: solid green 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 `
