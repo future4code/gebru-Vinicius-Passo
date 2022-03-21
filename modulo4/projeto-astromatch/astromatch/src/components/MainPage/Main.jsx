@@ -9,6 +9,8 @@ const ContainerImg = styled.img`
   width: 350px;
   height: 415px;
   margin-left: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px 0 rgba(136, 136, 136, 0.77);
 `;
 const FooterAlinhado = styled.div`
   display: flex;
@@ -23,7 +25,7 @@ const EstiloDaStrings = styled.div`
   color: black;
   text-align: start;
   margin-left: 25px;
-  top: 330px;
+  top: 380px;
   width: 250px;
   line-height: 30px;
   height: 30px;
@@ -36,6 +38,20 @@ const Bio = styled.p`
   color: #fff;
   font-size: 17px;
 `;
+
+const NomeMaisBio = styled.div`
+  width: 350px ;
+  margin-left: -11px;;
+  background: rgb(2, 0, 36);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(35, 34, 65, 0) 0%,
+    rgba(0, 0, 0, 0.7 ) 52%
+  );
+  border-radius: 5px;
+`
 
 const MainPage = () => {
   const [perfils, setPerfils] = useState({});
@@ -86,10 +102,13 @@ const MainPage = () => {
           <ContainerImg src={perfils.photo} alt={perfils.name} />
 
           <EstiloDaStrings>
+          <NomeMaisBio>
             <NomeIdade>
               {perfils.name} , {perfils.age}
             </NomeIdade>
             <Bio>{perfils.bio}</Bio>
+
+            </NomeMaisBio>
           </EstiloDaStrings>
         </div>
       }
