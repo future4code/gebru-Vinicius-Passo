@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import HeaderPage from "../HeaderPage/Header";
 import ListMatch from "../ListMatch/Match";
 import MainPage from "../MainPage/Main";
-import { ContainerMain, PageDamain } from "./styled";
+import { ContainerMain, PageDamain} from "./styled";
 
 const CardPage = () => {
   const [currentPage, setCurrentPage] = useState("telaInicial");
@@ -18,7 +18,9 @@ const CardPage = () => {
       case "telaInicial":
         return (
           <ContainerMain>
-            <HeaderPage  chagePage={change} />
+            <HeaderPage  chagePage={change}
+            />
+          
             <PageDamain>
               <MainPage />
               

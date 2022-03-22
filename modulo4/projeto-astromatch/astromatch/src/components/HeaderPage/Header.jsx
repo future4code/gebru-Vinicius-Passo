@@ -1,24 +1,31 @@
-import React from "react";
-import { ContainerHeader } from "./styled";
+import React  from "react";
+import { ContainerHeader, ContainerImgMatch, ContainerIconeHome, ContainerIconeTelaMatch } from "./styled";
+import {AiOutlineHome} from "react-icons/ai";
+import {VscAccount} from "react-icons/vsc";
+import logo from "../..//assets/atromatch.png"
 
 const HeaderPage = (props) => {
- 
+
   return (
     <ContainerHeader>
-      <duv>
-        <p>viniMach</p>
-      </duv>
+      <div>
+          <ContainerImgMatch src={logo}
+           alt="astromatch"/>
+      </div>
 
       <div>
-        <button onClick={() => props.chagePage("telaInicial")}>home</button>
+        <ContainerIconeHome  onClick={() => props.chagePage("telaInicial")}>
+          <AiOutlineHome />
+          </ContainerIconeHome>
       </div>
+
       <div>
-        <button onClick={() => props.chagePage("telaMatch")}>
-          tela de match
-        </button>
+        <ContainerIconeTelaMatch onClick={() => props.chagePage("telaMatch")}>
+        <VscAccount/>
+        </ContainerIconeTelaMatch>
       
       </div>
-     
+
     </ContainerHeader>
   );
 };

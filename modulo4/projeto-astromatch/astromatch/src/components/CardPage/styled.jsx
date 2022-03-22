@@ -19,3 +19,4 @@ export const PageDamain = styled.div`
     border: none;
 `
 
+
