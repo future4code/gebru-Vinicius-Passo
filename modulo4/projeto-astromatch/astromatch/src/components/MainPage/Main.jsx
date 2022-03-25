@@ -51,7 +51,6 @@ const Bio = styled.p`
       width: 30px;
       height: 30px;
       border-radius: 50px;
-
     
     `
     const ImgBlue = styled.img`
@@ -78,8 +77,30 @@ const Bio = styled.p`
       }
     `
 
+    const DivisaoImg = styled.div`
+    display: flex;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center;
+     width: 380px;
+     height: 415px;
+    `
+    const Bolinha = styled.div`
+      width: 20px;
+      height: 20px ;
+      border: 10px solid black;
+      border-radius: 50px ;
+      border-top-color: transparent;
+      background-color: #8f1a8f;;
+      animation: logo 1.8s infinite ;
+      @keyframes logo {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    `
 const MainPage = () => {
-  const [perfils, setPerfils] = useState({});
+  const [perfils, setPerfils] = useState();
 
   const pegaPefil = () => {
     axios
@@ -90,7 +111,7 @@ const MainPage = () => {
         setPerfils(res.data.profile);
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       });
   };
 
@@ -102,7 +123,13 @@ const MainPage = () => {
     axios.post(
       `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vinicius/choose-person`,
       body
-    );
+
+    )
+    .then(res => {
+      pegaPefil()
+    })
+   
+    
   };
 
   const notLike = () => {
@@ -113,7 +140,10 @@ const MainPage = () => {
     axios.post(
       `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vinicius/choose-person`,
       body
-    );
+    )
+    .then(res => {
+      pegaPefil();
+    })
   };
 
   useEffect(() => {
@@ -122,10 +152,12 @@ const MainPage = () => {
 
   return (
     <>
-      {
+     
+      { perfils ? 
         <div key={perfils.id}>
+            <DivisaoImg>
           <ContainerImg src={perfils.photo} alt={perfils.name} />
-
+          </DivisaoImg>
           <EstiloDaStrings>
        
             <NomeIdade>
@@ -135,14 +167,19 @@ const MainPage = () => {
 
          
           </EstiloDaStrings>
-        </div>
-      }
+        </div> : <DivisaoImg>
+         
+          <Bolinha>
+
+          </Bolinha>
+          </DivisaoImg>
+      } 
       <FooterAlinhado>
       
-        <BotaoNone onClick={() => notLike(pegaPefil())}>
+        <BotaoNone onClick={notLike}>
         <ImgBlue src="https://w7.pngwing.com/pngs/948/1017/png-transparent-x-mark-logo-tinder-mobile-dating-bumble-logo-online-dating-service-false-miscellaneous-angle-orange-thumbnail.png" alt="" />
           </BotaoNone>
-        <BotaoNone2 onClick={() => like(pegaPefil())}>
+        <BotaoNone2 onClick={ like}>
          
        <ImgFire src="https://br.tinderpressroom.com/image/flame-gradient-RGB_tn1100-category.png" alt="logo tinder"/>
         

@@ -30,12 +30,15 @@ function App() {
   }
   
   return (
+    <>
    <div>
      <CardPage />
+     </div>
      <div>
         <DirecaoButton onClick={()=> newRequest()}><FaBeer /></DirecaoButton>
         </div>
-   </div>
+   
+   </>
   );
 }
 
