@@ -1,5 +1,5 @@
-import React from "react"
-import axios from "axios"
+import React from "react";
+import axios from "axios";
 import CardPage from "./components/CardPage/Card";
 import { FaBeer } from 'react-icons/fa';
 import styled from "styled-components";

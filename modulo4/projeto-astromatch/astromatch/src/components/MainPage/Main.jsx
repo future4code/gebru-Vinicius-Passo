@@ -91,7 +91,7 @@ const Bio = styled.p`
       border: 10px solid black;
       border-radius: 50px ;
       border-top-color: transparent;
-      background-color: #8f1a8f;;
+      background-color: #8f1a8f;
       animation: logo 1.8s infinite ;
       @keyframes logo {
         to {
