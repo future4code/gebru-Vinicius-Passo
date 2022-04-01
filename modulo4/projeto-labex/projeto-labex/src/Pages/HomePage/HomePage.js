@@ -12,8 +12,8 @@ const HomePage = () => {
     }
     return(
         <div>
-            <p>tela home page</p>
-            <button onClick={gotToTrip}>Tela de viagem</button>
+          
+            <button onClick={gotToTrip}>Ver viagens</button>
             <button onClick={goLogin}>Área de Admin</button>
         </div>
     )
