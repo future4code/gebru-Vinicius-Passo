@@ -25,7 +25,7 @@ const ListTripsPage = () => {
         <p> Descrição: {tri.description}</p>
         <p> Planeta: {tri.planet}</p>
         <p>Duração: {tri.durationInDays}</p>
-        <p> Data: {tri.date}</p>
+        <p> Data: {tri.date}</p> 
       </TripsCard>
     );
   });
