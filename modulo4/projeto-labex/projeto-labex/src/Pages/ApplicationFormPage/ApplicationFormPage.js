@@ -2,8 +2,9 @@ import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import { useRequestData } from "../../hooks/useRequestData";
-import { FormInput } from "./syled";
+import { ContainerForm, FormInput, FormSelect, TyleButton } from "./syled";
 import axios from "axios"
 
 
@@ -67,9 +68,11 @@ const ApplicationFormPage = () => {
     const selectTrip = seleTrip?.trips;
     const ListTrip = selectTrip?.map((trip) => {
         return (
+       
             <option key={trip.id} value={trip.id}>
                 {trip.name}
             </option>
+         
         );
     });
 
@@ -79,51 +82,71 @@ const ApplicationFormPage = () => {
     };
   
     return (
-        <div>
-            <p>Inscreva-se para uma viagem</p>
+        <ContainerForm>
+            <h1>Inscreva-se para uma viagem</h1>
             
             <FormInput>
-                <select  value={tripName} onChange={tripOnchange}>
-                 <option>Escolha sua viagem</option>
-                 {ListTrip}
-                </select>
-                <input
-                 placeholder="Nome" 
+              
+                <FormSelect
+                 select
+                 label="Escolha sua viagem" 
+                 value={tripName} 
+                 helperText="Please select your currency"
+                 onChange={tripOnchange}
+               >
+                   <option>Escolha uma viagem</option>
+                   {ListTrip}
+               </FormSelect>
+                <br/>
+                <TextField
+                label="Nome"
                  value={nome}
                  onChange={nomeOnchange}
                  />
-
-                <input 
-                placeholder="Idade"
+                <br/>
+                <TextField 
+                label="Idade"
                 type={'number'}
                 value={idade}
                 onChange={idadeOnchange}
                  />
-                <input 
-                placeholder="Texto de Candidatura"
+                 <br/>
+                <TextField 
+                label="Texto de Candidatura"
                 value={texto}
                 onChange={candidaturaOnchange}
                 />
-                <input 
-                placeholder="Profissão" 
+                <br/>
+                <TextField 
+                label="Profissão" 
                 value={profissao}
                 onChange={profissaoOnchange}
                 />
-
-              <input
-              placeholder="País"
+                <br/>
+              <TextField
+              label="País"
               value={pais}
               onChange={paisOnchange}
               />
             </FormInput>
 
             <hr />
-            <div>
+            <TyleButton>
                
-                <button  onClick={goBack}>voltar</button>
-                <button  onClick={ApplicationTrip}>Criar viagem</button>
-            </div>
-        </div>
+                <Button 
+                size="large" 
+                variant="contained" 
+                color="secondary"  
+                onClick={goBack}
+                >voltar</Button>
+                <Button  
+                size="large"
+                variant="contained"
+                color="success"
+                onClick={ApplicationTrip}
+                >Criar viagem</Button>
+            </TyleButton>
+        </ContainerForm>
     );
 };
 

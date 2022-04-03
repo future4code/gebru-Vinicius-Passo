@@ -25,7 +25,7 @@ export const ContainerTrips = styled.div`
     display: grid;
     align-items: center;
     justify-content: center;
-    background-color: #011C40;
+    background-color:#30478C;
     padding: 2%;
 `
 
