@@ -4,15 +4,29 @@ export const TripsCard = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 400px;
-    height: 300px;
-    border: 1px solid red;
+    word-wrap: break-word;
+    width: 600px;
+    height: 250px;
+    background: #6382BF;
+    border-radius: 25px;
+    margin: 8px;
+    padding-left: 25px;
+     strong{
+        color: #DEEFE7;
+        font-family: sans-serif;
+    }
+    p{
+        color: #DEEFE7;
+        font-family: sans-serif;
+    }
 `
 
 export const ContainerTrips = styled.div`
     display: grid;
     align-items: center;
     justify-content: center;
+    background-color: #011C40;
+    padding: 2%;
 `
 
 export const ButtonTrip = styled.div`
@@ -20,5 +34,17 @@ export const ButtonTrip = styled.div`
     justify-content: space-evenly;
     align-items: center;
     height: 100px;
-    border: 1px solid black;
+    margin-top: 60px;
+    button{
+        border-radius: 25px;
+        :hover{
+            background: #96A6D9;
+        }
+    }
+`
+export const ListViagens = styled.div`
+    margin: auto;
+    h1{
+        color: white;
+    }
 `

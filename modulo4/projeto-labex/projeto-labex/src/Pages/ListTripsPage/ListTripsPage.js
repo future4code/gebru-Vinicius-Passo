@@ -2,7 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useRequestData } from "../../hooks/useRequestData";
-import { TripsCard, ContainerTrips, ButtonTrip } from "./styled";
+import { TripsCard, ContainerTrips, ButtonTrip, ListViagens } from "./styled";
+import Button from '@mui/material/Button';
 
 const ListTripsPage = () => {
   const [trip, loadingTrip, errorTrip] = useRequestData(`${BASE_URL}/trips`);
@@ -21,11 +22,11 @@ const ListTripsPage = () => {
   const listTrips = viagens?.map((tri) => {
     return (
       <TripsCard key={tri.id}>
-        <p>Nome: {tri.name}</p>
-        <p> Descrição: {tri.description}</p>
-        <p> Planeta: {tri.planet}</p>
-        <p>Duração: {tri.durationInDays}</p>
-        <p> Data: {tri.date}</p> 
+        <p><strong>Nome:</strong> {tri.name}</p>
+        <p> <strong>Descrição:</strong> {tri.description}</p>
+        <p> <strong>Planeta:</strong> {tri.planet}</p>
+        <p><strong>Duração:</strong> {tri.durationInDays}</p>
+        <p> <strong>Data:</strong> {tri.date}</p> 
       </TripsCard>
     );
   });
@@ -33,11 +34,23 @@ const ListTripsPage = () => {
   return (
     <ContainerTrips>
       <ButtonTrip>
-        <button onClick={goBack}>voltar</button>
-        <button onClick={goApplicationForm}>inscreva-se</button>
+        <Button 
+         size="large" 
+         variant="contained" 
+         color="secondary"
+         onClick={goBack}>voltar
+         </Button>
+        <Button
+         size="large" 
+         variant="contained"
+         color="secondary"
+         onClick={goApplicationForm}>
+          inscreva-se
+          </Button>
       </ButtonTrip>
-    
-      <h1>Ver viagens</h1>
+         <ListViagens>
+          <h1>Lista de viagens</h1>
+          </ListViagens>
       {loadingTrip && <p>carregando...</p>}
       {!loadingTrip && errorTrip && <p>Deu ruim carrega de novo!</p>}
       {!loadingTrip && listTrips && listTrips.length > 0 && listTrips}

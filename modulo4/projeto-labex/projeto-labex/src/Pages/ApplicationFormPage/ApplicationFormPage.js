@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
+import Button from '@mui/material/Button';
 import { useRequestData } from "../../hooks/useRequestData";
 import { FormInput } from "./syled";
 import axios from "axios"
@@ -62,8 +63,6 @@ const ApplicationFormPage = () => {
         
     }
 
-    console.log("linha 63", `${BASE_URL}/trips/${tripName}/apply`, body)
-    console.log("linha 64", ApplicationTrip)
    
     const selectTrip = seleTrip?.trips;
     const ListTrip = selectTrip?.map((trip) => {
@@ -120,8 +119,9 @@ const ApplicationFormPage = () => {
 
             <hr />
             <div>
-                <button onClick={goBack}>voltar</button>
-                <button onClick={ApplicationTrip}>enviar</button>
+               
+                <button  onClick={goBack}>voltar</button>
+                <button  onClick={ApplicationTrip}>Criar viagem</button>
             </div>
         </div>
     );

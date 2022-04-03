@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"
+import Button from '@mui/material/Button';
+import { ButtonSp, ContainerHome, DivFont } from "./styled";
+
 
 const HomePage = () => {
     const navigate = useNavigate()
@@ -11,11 +14,29 @@ const HomePage = () => {
         navigate("/login")
     }
     return(
-        <div>
+      
+            <ContainerHome>
+               <DivFont>
+                    <h1>Labex</h1>
+                </DivFont>
+            <ButtonSp>
+           
+            <Button 
+            size="large"
+            variant="contained"  
+            color="secondary" 
+            onClick={gotToTrip}>
+            Ver viagens</Button>
           
-            <button onClick={gotToTrip}>Ver viagens</button>
-            <button onClick={goLogin}>Área de Admin</button>
-        </div>
+            <Button
+             size="large" 
+             variant="contained"  
+             color="secondary"
+             onClick={goLogin}>
+             Área de Admin</Button>
+            </ButtonSp>
+        </ContainerHome>
+      
     )
 }
 
