@@ -22,3 +22,20 @@ export  const useRequestData = ( url ) => {
 
     return[data,isLoading, error]
  }
+
+//  export const useRequestDataPost = (url) => {
+
+//     const [error, setError] = useState("")
+
+//     useEffect( () => {
+//         axios 
+//         .post(url)
+//         .then( (res) => {
+//            alert("usuario criado com sucesso")
+//         })
+//         .catch( (err) => {
+//             setError(err)
+//         })
+//     }, [url])
+//     return  [error];
+// }

@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useRequestData } from "../../hooks/useRequestData";
 import { FormInput } from "./syled";
+import axios from "axios"
+
 
 const ApplicationFormPage = () => {
     const [seleTrip] = useRequestData(`${BASE_URL}/trips`);
     const [tripName, setTripName] = useState("");
-    const [name, setName] = useState("")
-    const [age, setIdade] = useState("")
-    const [applicationText, setCandidatura] = useState("")
-    const [profession, setProfissao] = useState("")
+    const [nome, setName] = useState("")
+    const [idade, setIdade] = useState("")
+    const [texto, setCandidatura] = useState("")
+    const [profissao, setProfissao] = useState("")
+    const [pais, setCoutry] = useState("")
    
-
     const tripOnchange = (ev) => {
         setTripName(ev.target.value);
     };
@@ -28,10 +30,42 @@ const ApplicationFormPage = () => {
     const profissaoOnchange = (ev) => {
         setProfissao(ev.target.value);
     };
+    const paisOnchange = (ev) => {
+        setCoutry(ev.target.value);
+    };
 
 
+    const body = {
+        name: nome,
+        age: idade,
+        applicationText: texto,
+        profession: profissao,
+        country: pais
+    }
+
+
+    const ApplicationTrip = () => {
+
+            axios 
+            .post(`${BASE_URL}/trips/${tripName}/apply`, body)
+            .then( () => {
+               alert("usuario criado com sucesso")
+                setName("")
+                setIdade("")
+                setCandidatura("")
+                setProfissao("")
+                setCoutry("")
+            })
+            .catch( (err) => {
+                console.log(err)
+            })
+        
+    }
+
+    console.log("linha 63", `${BASE_URL}/trips/${tripName}/apply`, body)
+    console.log("linha 64", ApplicationTrip)
+   
     const selectTrip = seleTrip?.trips;
-
     const ListTrip = selectTrip?.map((trip) => {
         return (
             <option key={trip.id} value={trip.id}>
@@ -40,56 +74,54 @@ const ApplicationFormPage = () => {
         );
     });
 
-
-
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
     };
-    const enviarForm = () => {
-        navigate();
-    };
-
+  
     return (
         <div>
             <p>Inscreva-se para uma viagem</p>
-        
+            
             <FormInput>
-                <select placeholder="escolha" value={tripName} onChange={tripOnchange}>
+                <select  value={tripName} onChange={tripOnchange}>
+                 <option>Escolha sua viagem</option>
                  {ListTrip}
                 </select>
                 <input
                  placeholder="Nome" 
-                 value={name}
+                 value={nome}
                  onChange={nomeOnchange}
                  />
 
                 <input 
                 placeholder="Idade"
                 type={'number'}
-                value={age}
+                value={idade}
                 onChange={idadeOnchange}
                  />
                 <input 
                 placeholder="Texto de Candidatura"
-                value={applicationText}
+                value={texto}
                 onChange={candidaturaOnchange}
                 />
                 <input 
                 placeholder="Profissão" 
-                value={profession}
+                value={profissao}
                 onChange={profissaoOnchange}
                 />
 
-                <select>
-                    <option>Escolha um país</option>
-                </select>
+              <input
+              placeholder="País"
+              value={pais}
+              onChange={paisOnchange}
+              />
             </FormInput>
 
             <hr />
             <div>
                 <button onClick={goBack}>voltar</button>
-                <button onClick={enviarForm}>enviar</button>
+                <button onClick={ApplicationTrip}>enviar</button>
             </div>
         </div>
     );
