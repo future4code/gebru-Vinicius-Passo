@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { ContainerLogin, TextoInput } from "./styled";
 
 const LoginPage = () => {
 
@@ -14,12 +15,23 @@ const LoginPage = () => {
 
     
     return(
-        <div>
-            <p>para fazermos login como adim</p>
+        <ContainerLogin>
 
+            <div>
+            <h1>Login</h1>
+           </div> 
+            <TextoInput>
+                <input />
+                <br/>
+                <input />
+                <br/>
+            </TextoInput>
+            <br/>
+            <div>
             <button onClick={goBack}>Voltar</button>
             <button onClick={goAdminHome}>Entrar</button>
-        </div>
+            </div>
+        </ContainerLogin>
     )
 }
 

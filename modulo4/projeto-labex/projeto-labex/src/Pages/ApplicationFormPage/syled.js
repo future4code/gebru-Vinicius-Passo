@@ -34,5 +34,5 @@ export const TyleButton = styled.div`
     display: flex;
     width: 400px;
     justify-content: space-evenly;
-  
+
 `

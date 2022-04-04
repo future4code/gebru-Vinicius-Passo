@@ -99,12 +99,14 @@ const ApplicationFormPage = () => {
                </FormSelect>
                 <br/>
                 <TextField
+                placeholder="Digite seu nome"
                 label="Nome"
                  value={nome}
                  onChange={nomeOnchange}
                  />
                 <br/>
                 <TextField 
+                placeholder="Digite sua idade"
                 label="Idade"
                 type={'number'}
                 value={idade}
@@ -112,18 +114,21 @@ const ApplicationFormPage = () => {
                  />
                  <br/>
                 <TextField 
+                placeholder="Texto de Candidatura"
                 label="Texto de Candidatura"
                 value={texto}
                 onChange={candidaturaOnchange}
                 />
                 <br/>
                 <TextField 
+                 placeholder="Digite sua profissão"
                 label="Profissão" 
                 value={profissao}
                 onChange={profissaoOnchange}
                 />
                 <br/>
               <TextField
+              placeholder="Digite sua nacionalidade"
               label="País"
               value={pais}
               onChange={paisOnchange}
