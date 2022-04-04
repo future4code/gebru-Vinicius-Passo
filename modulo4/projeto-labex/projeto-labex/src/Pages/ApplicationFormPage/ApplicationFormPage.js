@@ -4,7 +4,7 @@ import { BASE_URL } from "../../constants/url";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useRequestData } from "../../hooks/useRequestData";
-import { ContainerForm, FormInput, FormSelect, TyleButton } from "./syled";
+import { CardForm, ContainerForm, FormInput, FormSelect, TyleButton } from "./syled";
 import axios from "axios"
 
 
@@ -84,7 +84,7 @@ const ApplicationFormPage = () => {
     return (
         <ContainerForm>
             <h1>Inscreva-se para uma viagem</h1>
-            
+            <CardForm>
             <FormInput>
               
                 <FormSelect
@@ -147,10 +147,11 @@ const ApplicationFormPage = () => {
                 <Button  
                 size="large"
                 variant="contained"
-                color="success"
+                color="secondary" 
                 onClick={ApplicationTrip}
                 >Criar viagem</Button>
             </TyleButton>
+            </CardForm>
         </ContainerForm>
     );
 };

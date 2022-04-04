@@ -6,11 +6,22 @@ export const ContainerForm = styled.div`
     flex-direction: column;
     height: 100vh;
     align-items: center;
-    background:#96A6D9;
+    background:#30478C;
     h1{
-        color:#30478C;
+        color:#E1E1ED;
         font-family: sans-serif;
     }
+`
+
+export const CardForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 600px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background:#7996C3;
 `
 
 export const FormInput = styled.div`
@@ -18,7 +29,7 @@ export const FormInput = styled.div`
     flex-direction: column;
     width: 500px;
     input{
-        color: white;
+   
         font-family: sans-serif;
     }
 `
@@ -33,6 +44,12 @@ export const FormSelect = styled.select`
 export const TyleButton = styled.div`
     display: flex;
     width: 400px;
-    justify-content: space-evenly;
-
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    button{
+        :hover{
+            background: #96A6D9;
+        }
+    }
 `

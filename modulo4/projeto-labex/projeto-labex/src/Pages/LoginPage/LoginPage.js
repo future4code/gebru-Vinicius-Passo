@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ContainerLogin, TextoInput } from "./styled";
+import { CampoLogin, ContainerLogin, ContunButton, TextoInput } from "./styled";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const LoginPage = () => {
 
@@ -16,21 +18,42 @@ const LoginPage = () => {
     
     return(
         <ContainerLogin>
+        <CampoLogin>
 
             <div>
             <h1>Login</h1>
            </div> 
+           
             <TextoInput>
-                <input />
+                <TextField
+                label="Nome"
+                placeholder="Digite seu nome"
+                />
                 <br/>
-                <input />
+                <TextField
+                 label="Email"
+                 placeholder="Digite seu E-mail"
+                 type={"email"}
+                />
                 <br/>
             </TextoInput>
             <br/>
-            <div>
-            <button onClick={goBack}>Voltar</button>
-            <button onClick={goAdminHome}>Entrar</button>
-            </div>
+            <ContunButton>
+            <Button 
+            size="large" 
+            variant="contained" 
+            color="secondary"
+            onClick={goBack}>
+            Voltar</Button>
+            <Button 
+            size="large" 
+            variant="contained" 
+            color="secondary"
+            onClick={goAdminHome}>
+            Entrar</Button>
+            </ContunButton>
+        </CampoLogin>
+
         </ContainerLogin>
     )
 }
