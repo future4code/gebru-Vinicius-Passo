@@ -39,6 +39,7 @@ export const ContunButton = styled.button`
     background: #7996C3; 
     border: 1px solid #7996C3;
     button{
+        border-radius: 25px;
         :hover{
             background: #96A6D9;
         }

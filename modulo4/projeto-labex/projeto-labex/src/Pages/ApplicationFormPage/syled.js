@@ -48,6 +48,7 @@ export const TyleButton = styled.div`
     align-items: center;
     margin: auto;
     button{
+        border-radius: 25px;
         :hover{
             background: #96A6D9;
         }
