@@ -9,3 +9,4 @@ export const goToLogin = (navigate) =>{
 export const gotripDetail = (navigate, id) => {
     navigate(`/detail/${id}`)
 }
+
