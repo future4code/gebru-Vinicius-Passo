@@ -13,7 +13,14 @@ const HomePage = () => {
         navigate("/viagens")
     }
     const goLogin = () => { 
-    navigate("/login")
+        const token = localStorage.getItem("token")
+        if(token){
+            navigate("/admin")
+        }
+        else{
+            navigate("/login")
+        }
+
     }
     return(
       

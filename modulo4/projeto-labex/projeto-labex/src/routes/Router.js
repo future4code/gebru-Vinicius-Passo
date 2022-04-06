@@ -18,11 +18,9 @@ export const Router = () => {
          <Route path="viagens" element={<ListTripsPage /> } />
          <Route path="inscreva-se" element={<ApplicationFormPage /> } />
          <Route path="admin" element={<AdminHomePage /> } />
-         <Route path="detailPage" element={<TripDetailsPage /> } />
+         <Route path="/detail/:id" element={<TripDetailsPage /> } />
          <Route path="create" element={<CreateTripPage /> } />
          <Route path="*" element={<ErroPage /> } />
-         
-
      </Routes>
     </BrowserRouter>
     )

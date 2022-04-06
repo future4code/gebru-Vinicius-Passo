@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 export  const useRequestData = ( url ) => {
     const [data, setData] = useState(undefined)
     const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +26,6 @@ export  const useRequestData = ( url ) => {
 
 //  export const useRequestDataPost = (url) => {
 
-//     const [error, setError] = useState("")
 
 //     useEffect( () => {
 //         axios 
@@ -34,8 +34,8 @@ export  const useRequestData = ( url ) => {
 //            alert("usuario criado com sucesso")
 //         })
 //         .catch( (err) => {
-//             setError(err)
+          
 //         })
 //     }, [url])
-//     return  [error];
+//     return  ;
 // }
