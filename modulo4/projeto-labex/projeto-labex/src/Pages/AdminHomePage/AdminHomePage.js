@@ -5,7 +5,7 @@ import { BASE_URL } from "../../constants/url";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { useRequestData } from "../../hooks/useRequestData";
 import { goToHomePage, gotripDetail } from "../../routes/coordinator";
-import { CartTripDetail } from "./styled";
+import { CartTripDetail, PossitionAbsolute } from "./styled";
 
 const AdminHomePage = () => {
     useProtectedPage();
@@ -15,12 +15,23 @@ const AdminHomePage = () => {
     const [tripDetail] = useState();
     const viagens = trip?.trips;
 
+    const deleteTrip = (id, nome) => {
+        console.log("deletou a viagem desse id:", id, nome)
+    }
+
     const lisTripNameId = viagens?.map((nameId) => {
     
         return (
+         <>
             <label tripdetail={tripDetail} onClick={() => gotripDetail(navigate, nameId.id)} key={nameId.id}>
                 {nameId.name}
+
+                {/* <PossitionAbsolute>
+             <button onClick={()=> deleteTrip(nameId.id, nameId.name)}>Delete</button>
+             </PossitionAbsolute> */}
             </label>
+         
+         </>
         );
     });
 
@@ -43,6 +54,7 @@ const AdminHomePage = () => {
                  lisTripNameId &&
                  lisTripNameId.length > 0 &&
                 lisTripNameId}
+            
             </CartTripDetail>
 
         </div>
