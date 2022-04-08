@@ -18,6 +18,11 @@ const AdminHomePage = () => {
     const [tripDetail] = useState();
     const viagens = trip?.trips;
 
+
+    const logaut = ()=>{
+        localStorage.removeItem('token')
+        goToHomePage(navigate)
+    }
     const headers = {
         headers: {
             auth: localStorage.getItem("token")
@@ -64,7 +69,7 @@ const AdminHomePage = () => {
             <ContainerButton>
             <Button color="secondary" variant="contained" size="medium" onClick={() => goToHomePage(navigate)}>voltar</Button>
             <Button color="secondary" variant="contained" size="medium" onClick={goCreateTrip}>criar viagem</Button>
-            <Button color="secondary" variant="contained" size="medium" onClick={() => localStorage.removeItem("token")}>Logaut</Button>
+            <Button color="secondary" variant="contained" size="medium" onClick={() => logaut()}>Logaut</Button>
             </ContainerButton>
             <br />
             <div >
