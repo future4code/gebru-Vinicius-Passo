@@ -16,7 +16,7 @@ const ListTripsPage = () => {
 
   const goBack = () => {
     navigate(-1);
-  };
+  }; 
   const goApplicationForm = () => {
     navigate("/inscreva-se");
   };

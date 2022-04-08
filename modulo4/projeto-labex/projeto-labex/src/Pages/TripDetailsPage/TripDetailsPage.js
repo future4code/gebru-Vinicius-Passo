@@ -108,6 +108,7 @@ const TripDetailsPage = () => {
                {!isLoading && listCandidatesApproved && listCandidatesApproved.length === 0 && listCandidatesApproved &&
                 <p>Não há candidatos aprovado</p>}
            </div>
+         
         </ContainerTripDetail>
     )
 }

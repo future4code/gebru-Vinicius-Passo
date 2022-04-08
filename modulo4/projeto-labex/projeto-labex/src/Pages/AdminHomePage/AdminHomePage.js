@@ -45,6 +45,10 @@ const AdminHomePage = () => {
           <AlignCards>
             <label tripdetail={tripDetail} onClick={() => gotripDetail(navigate, nameId.id)} key={nameId.id}>
                 {nameId.name}
+
+                {/* <PossitionAbsolute>
+             <button onClick={()=> deleteTrip(nameId.id, nameId.name)}>Delete</button>
+             </PossitionAbsolute> */}
             </label>
         
             <Button 

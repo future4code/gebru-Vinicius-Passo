@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useForm } from "../../hooks/useForm";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import { ContainerCreate } from "./styled";
+import { ContainerCreateForm } from "./styled";
 
 const CreateTripPage = () => {
     useProtectedPage();
     const navigate = useNavigate();
 
-    const { form, onChange, cleanFields} = useForm({
+    const { form, onChange, cleanFields } = useForm({
         name: '',
         planet: '',
         date: '',
@@ -48,9 +48,9 @@ const CreateTripPage = () => {
     const goBack = () => {
         navigate(-1);
     };
-
+     
     return (
-        <ContainerCreate>
+        <ContainerCreateForm>
             <h1>Criar viagem</h1>
             <form onSubmit={enviaFormulario}>
                 <input
@@ -105,8 +105,10 @@ const CreateTripPage = () => {
                 </div>
             </form>
            
-        </ContainerCreate>
+        </ContainerCreateForm>
     );
 };
 
 export default CreateTripPage;
+
+ 
