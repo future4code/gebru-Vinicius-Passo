@@ -66,15 +66,16 @@ const ApplicationFormPage = () => {
 
    
     const selectTrip = seleTrip?.trips;
-    const ListTrip = selectTrip?.map((trip) => {
-        return (
+    console.log("pais", selectTrip)
+    // const ListTrip = selectTrip?.map((trip) => {
+    //     return (
        
-            <option key={trip.id} value={trip.id}>
-                {trip.name}
-            </option>
+    //         <option key={trip.id} value={trip.id}>
+    //             {trip.name}
+    //         </option>
          
-        );
-    });
+    //     );
+    // });
 
     const navigate = useNavigate();
     const goBack = () => {
@@ -87,16 +88,17 @@ const ApplicationFormPage = () => {
             <div>
             <div>
               
-                <slect
-                 select
-                 label="Escolha sua viagem" 
+                <select 
                  value={tripName} 
-                 helperText="Please select your currency"
                  onChange={tripOnchange}
                >
-                   <option>Escolha uma viagem</option>
-                   {ListTrip}
-               </slect>
+                  <option value={""} disabled>Escolha uma viagem</option>
+                  
+                   {selectTrip?.map((pais) => {
+                        return <option value={pais.id} key={pais.id}>{pais.name}</option>
+                    })}
+               </select>
+               {console.log(tripName)}
                 <br/>
                 <TextField 
                 placeholder="Digite seu nome"
