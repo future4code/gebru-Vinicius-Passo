@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useForm } from "../../hooks/useForm";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { ContainerCreate } from "./styled";
 
 const CreateTripPage = () => {
     useProtectedPage();
@@ -49,7 +50,7 @@ const CreateTripPage = () => {
     };
 
     return (
-        <div>
+        <ContainerCreate>
             <h1>Criar viagem</h1>
             <form onSubmit={enviaFormulario}>
                 <input
@@ -81,7 +82,7 @@ const CreateTripPage = () => {
                 type={"date"}
                 required
                 />
-                 {form.data}
+           
                 <input
                    placeholder={"Descrição"}
                    name={"description"}
@@ -89,7 +90,7 @@ const CreateTripPage = () => {
                    onChange={onChange}
                    required
                 />
-                  {form.durationInDays}
+               
                 <input
                    placeholder={"Duração"}
                    name={"durationInDays"}
@@ -104,7 +105,7 @@ const CreateTripPage = () => {
                 </div>
             </form>
            
-        </div>
+        </ContainerCreate>
     );
 };
 
