@@ -31,7 +31,7 @@ const TripDetailsPage = () => {
             setError("ERRO:", err.resonse);
             setIsLoading(false)
         });
-    },[params.id])
+    },[])
 
     // Requisição para candidatos pendentes 
     const listCandidatesPendant =  tripDetail?.candidates.map( (pendantCandidate) => {

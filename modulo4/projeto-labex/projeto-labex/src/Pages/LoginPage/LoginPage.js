@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CampoLogin, ContainerLogin, ContunButton, TextoInput } from "./styled";
+// import { CampoLogin, ContainerLogin, ContunButton, TextoInput } from "./styled";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { BASE_URL } from "../../constants/url";
@@ -44,13 +44,13 @@ const LoginPage = () => {
   };
 
   return (
-    <ContainerLogin>
-      <CampoLogin>
+    <div>
+      <div>
         <div>
           <h1>Login</h1>
         </div>
 
-        <TextoInput>
+        <div>
           <TextField
             value={email}
             onChange={onChangeEmail}
@@ -67,9 +67,9 @@ const LoginPage = () => {
             type={"password"}
           />
           <br />
-        </TextoInput>
+        </div>
         <br />
-        <ContunButton>
+        <div>
           <Button
             size="large"
             variant="contained"
@@ -86,9 +86,9 @@ const LoginPage = () => {
           >
             Entrar
           </Button>
-        </ContunButton>
-      </CampoLogin>
-    </ContainerLogin>
+        </div>
+      </div>
+    </div>
   );
 };
 

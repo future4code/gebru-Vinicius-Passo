@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useRequestData } from "../../hooks/useRequestData";
-import { TripsCard, ContainerTrips, ButtonTrip, ListViagens } from "./styled";
+// import { TripsCard, ContainerTrips, ButtonTrip, ListViagens } from "./styled";
 import Button from '@mui/material/Button';
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 
@@ -23,19 +23,19 @@ const ListTripsPage = () => {
 
   const listTrips = viagens?.map((tri) => {
     return (
-      <TripsCard key={tri.id}>
+      <div key={tri.id}>
         <p><strong>Nome:</strong> {tri.name}</p>
         <p> <strong>Descrição:</strong> {tri.description}</p>
         <p> <strong>Planeta:</strong> {tri.planet}</p>
         <p><strong>Duração:</strong> {tri.durationInDays}</p>
         <p> <strong>Data:</strong> {tri.date}</p> 
-      </TripsCard>
+      </div>
     );
   });
 
   return (
-    <ContainerTrips>
-      <ButtonTrip>
+    <div>
+      <div>
         <Button 
          size="large" 
          variant="contained" 
@@ -49,14 +49,14 @@ const ListTripsPage = () => {
          onClick={goApplicationForm}>
           inscreva-se
           </Button>
-      </ButtonTrip>
-         <ListViagens>
+      </div>
+         <div>
           <h1>Lista de viagens</h1>
-          </ListViagens>
+          </div>
       {loadingTrip && <p>carregando...</p>}
       {!loadingTrip && errorTrip && <p>Deu ruim carrega de novo!</p>}
       {!loadingTrip && listTrips && listTrips.length > 0 && listTrips}
-    </ContainerTrips>
+    </div>
   );
 };
 

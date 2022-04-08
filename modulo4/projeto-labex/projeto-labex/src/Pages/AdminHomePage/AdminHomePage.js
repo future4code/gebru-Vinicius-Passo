@@ -5,7 +5,7 @@ import { BASE_URL } from "../../constants/url";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { useRequestData } from "../../hooks/useRequestData";
 import { goToHomePage, gotripDetail } from "../../routes/coordinator";
-import { CartTripDetail } from "./styled";
+
 
 const AdminHomePage = () => {
     useProtectedPage();
@@ -36,14 +36,14 @@ const AdminHomePage = () => {
             <button onClick={goCreateTrip}>criar viagem</button>
             <button onClick={() => localStorage.removeItem("token")}>Logaut</button>
             <br />
-            <CartTripDetail >
+            <div >
                 {loadingTrip && <p>carregando...</p>}
                 {!loadingTrip && errorTrip && <p>Deu ruim carrega de novo!</p>}
                 {!loadingTrip &&
                  lisTripNameId &&
                  lisTripNameId.length > 0 &&
                 lisTripNameId}
-            </CartTripDetail>
+            </div>
 
         </div>
     );

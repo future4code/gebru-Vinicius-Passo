@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"
 import Button from '@mui/material/Button';
-import { ButtonSp, ContainerHome, DivFont } from "./styled";
+// import { ButtonSp, ContainerHome, DivFont } from "./styled";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 
@@ -24,11 +24,11 @@ const HomePage = () => {
     }
     return(
       
-            <ContainerHome>
-               <DivFont>
+            <div>
+               <div>
                     <h1>Labex</h1>
-                </DivFont>
-            <ButtonSp>
+                </div>
+            <div>
            
             <Button 
             size="large"
@@ -43,8 +43,8 @@ const HomePage = () => {
              color="secondary"
              onClick={goLogin}>
              Área de Admin</Button>
-            </ButtonSp>
-        </ContainerHome>
+            </div>
+        </div>
       
     )
 }
