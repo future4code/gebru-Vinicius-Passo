@@ -34,13 +34,6 @@ export const FormInput = styled.div`
     }
 `
 
-export const FormSelect = styled.select`
-    height: 55px;
-    background: #96A6D9;
-    color: white;
-    font-family: sans-serif;
-`
-
 export const TyleButton = styled.div`
     display: flex;
     width: 350px;

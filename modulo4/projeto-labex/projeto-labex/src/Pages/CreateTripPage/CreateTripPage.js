@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useForm } from "../../hooks/useForm";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import { ContainerCreateForm } from "./styled";
+import { ContainerCreateForm, InputForm, planets, TopButton } from "./styled";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const CreateTripPage = () => {
     useProtectedPage();
@@ -34,17 +36,7 @@ const CreateTripPage = () => {
         })
         cleanFields()
       }
-      const planets = [
-        "Mercurio",
-        "Vênus",
-        "Terra",
-        "Marte",
-        "Jupiter",
-        "Saturno" ,
-        "Urano",
-        "Nertuno",
-        "Plutão"
-      ]
+     
     const goBack = () => {
         navigate(-1);
     };
@@ -52,15 +44,15 @@ const CreateTripPage = () => {
     return (
         <ContainerCreateForm>
             <h1>Criar viagem</h1>
-            <form onSubmit={enviaFormulario}>
-                <input
+            <InputForm onSubmit={enviaFormulario}>
+                <TextField
                 placeholder={"Nome"}
                 name={"name"}
                 value={form.name}
                 onChange={onChange}
                 required
                 />
-          
+                <br />
                   <select
                     placeholder={"Planeta"}
                     name={"planet"}
@@ -74,7 +66,8 @@ const CreateTripPage = () => {
                         return <option value={planet} key={planet}>{planet}</option>
                     })}
                 </select>
-                <input
+                <br />
+                <TextField
                 placeholder={"Data"}
                 name={"date"}
                 value={form.date}
@@ -82,16 +75,16 @@ const CreateTripPage = () => {
                 type={"date"}
                 required
                 />
-           
-                <input
+               <br />
+                <TextField
                    placeholder={"Descrição"}
                    name={"description"}
                    value={form.description}
                    onChange={onChange}
                    required
                 />
-               
-                <input
+                <br />
+                <TextField
                    placeholder={"Duração"}
                    name={"durationInDays"}
                    value={form.durationInDays}
@@ -99,11 +92,12 @@ const CreateTripPage = () => {
                    type={"number"}
                    required
                 />
-                <div>
-                <button onClick={goBack}>Voltar</button>
-                <button type={"submit"}>Criar</button>
-                </div>
-            </form>
+                 <br />
+                <TopButton>
+                <Button onClick={goBack}>Voltar</Button>
+                <Button type={"submit"}>Criar</Button>
+                </TopButton>
+            </InputForm>
            
         </ContainerCreateForm>
     );
