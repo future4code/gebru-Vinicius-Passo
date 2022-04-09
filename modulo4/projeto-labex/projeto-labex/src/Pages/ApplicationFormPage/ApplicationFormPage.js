@@ -1,160 +1,124 @@
-import React, {  useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useRequestData } from "../../hooks/useRequestData";
-// import { CardForm, ContainerForm, FormInput, FormSelect, TyleButton } from "./syled";
+import { CardForm, ContainerForm, FormInput, FormSelect, TyleButton } from "./syled";
 import axios from "axios"
+import { useForm } from "../../hooks/useForm";
 
 
 const ApplicationFormPage = () => {
     const [seleTrip] = useRequestData(`${BASE_URL}/trips`);
-    const [tripName, setTripName] = useState("");
-    const [nome, setName] = useState("")
-    const [idade, setIdade] = useState("")
-    const [texto, setCandidatura] = useState("")
-    const [profissao, setProfissao] = useState("")
-    const [pais, setCoutry] = useState("")
-   
-    const tripOnchange = (ev) => {
-        setTripName(ev.target.value);
-    };
-    const nomeOnchange = (ev) => {
-        setName(ev.target.value);
-    };
-    const idadeOnchange = (ev) => {
-        setIdade(ev.target.value);
-    };
-    const candidaturaOnchange = (ev) => {
-        setCandidatura(ev.target.value);
-    };
-    const profissaoOnchange = (ev) => {
-        setProfissao(ev.target.value);
-    };
-    const paisOnchange = (ev) => {
-        setCoutry(ev.target.value);
-    };
+    const { form, onChange, cleanFields } = useForm({
+        tripName: '',
+        name: '',
+        age: '',
+        applicationText: '',
+        profession: '',
+        country:''
+    })
 
-
-    const body = {
-        name: nome,
-        age: idade,
-        applicationText: texto,
-        profession: profissao,
-        country: pais
-    }
-
-
-    const ApplicationTrip = () => {
-
+    const ApplicationTrip = (event) => {
+        event.preventDefault()
             axios 
-            .post(`${BASE_URL}/trips/${tripName}/apply`, body)
+            .post(`${BASE_URL}/trips/${form.tripName}/apply`, form)
             .then( () => {
                alert("usuario criado com sucesso")
-                setName("")
-                setIdade("")
-                setCandidatura("")
-                setProfissao("")
-                setCoutry("")
             })
             .catch( (err) => {
-                console.log(err)
+               alert("algo deu erro")
             })
-        
+            cleanFields();
     }
 
-   
     const selectTrip = seleTrip?.trips;
-    console.log("pais", selectTrip)
-    // const ListTrip = selectTrip?.map((trip) => {
-    //     return (
-       
-    //         <option key={trip.id} value={trip.id}>
-    //             {trip.name}
-    //         </option>
-         
-    //     );
-    // });
-
+    
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
     };
   
     return (
-        <div>
+        <ContainerForm>
             <h1>Inscreva-se para uma viagem</h1>
-            <div>
-            <div>
-              
+            <CardForm onSubmit={ApplicationTrip}>
+            
+            <FormInput>
                 <select 
-                 value={tripName} 
-                 onChange={tripOnchange}
+                name={"tripName"}
+                 value={form.tripName} 
+                 onChange={onChange}
                >
                   <option value={""} disabled>Escolha uma viagem</option>
-                  
                    {selectTrip?.map((pais) => {
                         return <option value={pais.id} key={pais.id}>{pais.name}</option>
                     })}
                </select>
-               {console.log(tripName)}
+              
                 <br/>
                 <TextField 
                 placeholder="Digite seu nome"
                 label="Nome"
-                 value={nome}
-                 onChange={nomeOnchange}
+                name={"name"}
+                 value={form.name}
+                 onChange={onChange}
                  />
                 <br/>
                 <TextField 
                 placeholder="Digite sua idade"
                 label="Idade"
                 type={'number'}
-                value={idade}
-                onChange={idadeOnchange}
+                name={"age"}
+                value={form.age}
+                onChange={onChange}
                  />
                  <br/>
                 <TextField 
                 placeholder="Texto de Candidatura"
                 label="Texto de Candidatura"
-                value={texto}
-                onChange={candidaturaOnchange}
+                name={"applicationText"}
+                value={form.applicationText}
+                onChange={onChange}
                 />
                 <br/>
                 <TextField 
                  placeholder="Digite sua profissão"
                 label="Profissão" 
-                value={profissao}
-                onChange={profissaoOnchange}
+                name={"profession"}
+                value={form.profession}
+                onChange={onChange}
                 />
                 <br/>
               <TextField
               placeholder="Digite sua nacionalidade"
               label="País"
-              value={pais}
-              onChange={paisOnchange}
+              name={"country"}
+              value={form.country}
+              onChange={onChange}
               />
-            </div>
-
-            <hr />
-            <button>
+            </FormInput>
+               <br />     
+            <TyleButton>
                
-                <Button 
-                size="large" 
-                variant="contained" 
-                color="secondary"  
-                onClick={goBack}
-                >voltar</Button>
-                <Button  
-                size="large"
-                variant="contained"
-                color="secondary" 
-                onClick={ApplicationTrip}
-                >Criar viagem</Button>
-            </button>
-            </div>
-        </div>
+               <Button 
+               size="large" 
+               variant="contained" 
+               color="secondary"  
+               onClick={goBack}
+               >voltar</Button>
+               <Button  
+               size="large"
+               variant="contained"
+               color="secondary" 
+               type={"submit"}
+               >Criar viagem</Button>
+           </TyleButton>
+         
+            
+            </CardForm>
+        </ContainerForm>
     );
 };
 
