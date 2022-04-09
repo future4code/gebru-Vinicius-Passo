@@ -14,7 +14,7 @@ export const CampoLogin = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 600px;
+    width: 400px;
     height: 400px;
     margin: auto;
     background:#B6B3BB; 

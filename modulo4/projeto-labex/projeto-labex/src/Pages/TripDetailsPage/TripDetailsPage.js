@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import { ContainerTripDetail } from "./styled";
+import { ButtonSps, CardTrip2, CardTripDetail, ContainerTripDetail } from "./styled";
+import Button from '@mui/material/Button';
 
 const TripDetailsPage = () => {
     useProtectedPage();
@@ -34,39 +35,53 @@ const TripDetailsPage = () => {
     },[])
 
     // Requisição para candidatos pendentes 
-    const listCandidatesPendant =  tripDetail?.candidates.map( (pendantCandidate) => {
-        const approve = (decision) => {
-            const body = {
-                approve: decision
+
+    
+        const listCandidatesPendant =  tripDetail?.candidates.map( (pendantCandidate) => {
+            const approve = (decision) => {
+               
+                const body = {
+                    approve: decision
+                }
+               axios 
+               .put(`${BASE_URL}/trips/${params.id}/candidates/${pendantCandidate.id}/decide`, body, headers)
+               .then( res => {
+                   alert(`Decisão registrada com sucesso`)
+                 
+               })
+               .catch( err => {
+                   alert("Error ao aprovar candidato")
+               })
             }
-           axios 
-           .put(`${BASE_URL}/trips/${params.id}/candidates/${pendantCandidate.id}/decide`, body, headers)
-           .then( res => {
-               alert(`Decisão registrada com sucesso`)
-             
-           })
-           .catch( err => {
-               alert("Error ao aprovar candidato")
-           })
-        }
-     
-        return(
-         <div key={pendantCandidate.id}>
-            <p><b>Nome:</b> {pendantCandidate.name} </p>
-            <p><b>Profissão:</b> {pendantCandidate.profession} </p>
-            <p><b>idade:</b> {pendantCandidate.age} </p>
-            <p><b>País:</b> {pendantCandidate.country} </p>
-            <p><b>Texto de Candidatura:</b> {pendantCandidate.applicationText} </p>
-
-            <div>
-                  <button onClick={()=> approve(true)}>Aprovar</button>
-                  <button onClick={()=> approve(false)}>Reprovar</button>
-           </div>
-        </div>
-        )
-    } )
-
-    //   Requisição para candidatos pendentes 
+            
+            return(
+                <CardTripDetail key={pendantCandidate.id}>
+                   <p><b>Nome:</b> {pendantCandidate.name} </p>
+                   <p><b>Profissão:</b> {pendantCandidate.profession} </p>
+                   <p><b>idade:</b> {pendantCandidate.age} </p>
+                   <p><b>País:</b> {pendantCandidate.country} </p>
+                   <p><b>Texto de Candidatura:</b> {pendantCandidate.applicationText} </p>
+       
+                   <ButtonSps>
+                         <Button  
+                          size="large" 
+                          variant="contained" 
+                          color="secondary"
+                          onClick={()=> approve(true)}
+                         >Aprovar</Button>
+                         <Button 
+                         size="large" 
+                         variant="contained" 
+                         color="secondary"
+                         onClick={()=> approve(false)}> 
+                         Reprovar</Button>
+                  </ButtonSps>
+               </CardTripDetail>
+               )
+           } )
+       
+        
+    //   Requisição para candidatos aprovado
       const listCandidatesApproved = tripDetail?.approved.map( (listProved) => {
           return(
               <div key={listProved.id}>
@@ -77,17 +92,23 @@ const TripDetailsPage = () => {
 
     return(
         <ContainerTripDetail>
-           <div>
+           <CardTrip2>
            <h1>{tripDetail?.name}</h1>
-            <p> <stron>Nome: </stron> {tripDetail?.name}</p>
-            <p> <stron>Descrição: </stron>{tripDetail?.description}</p>
-            <p> <stron>Planeta: </stron>{tripDetail?.planet}</p>
-            <p> <stron>Duração: </stron>{tripDetail?.durationInDays}</p>
-            <p> <stron>Data: </stron>{tripDetail?.date}</p>
-           </div>
+            <p> <strong>Nome: </strong> {tripDetail?.name}</p>
+            <p> <strong>Descrição: </strong>{tripDetail?.description}</p>
+            <p> <strong>Planeta: </strong>{tripDetail?.planet}</p>
+            <p> <strong>Duração: </strong>{tripDetail?.durationInDays}</p>
+            <p> <strong>Data: </strong>{tripDetail?.date}</p>
+           </CardTrip2>
            <br/>
            <div>
-               <button onClick={()=> navigate(-1)}>Voltar</button>
+               <Button 
+               size="large" 
+               variant="contained" 
+               color="secondary"
+               onClick={()=> navigate(-1)}>
+                   Voltar
+                   </Button>
            </div>
            <div>
                <h3>Candidatos pendes</h3>
@@ -101,7 +122,7 @@ const TripDetailsPage = () => {
            </div>
            <div>
                <h3>Candidatos aprovados</h3>
-             {/* {listCandidatesApproved} */}
+            
               {isLoading && <p>carregando...</p>}
                {!isLoading && error && <p>Falha ao carregar!</p>}
                {!isLoading && listCandidatesApproved && listCandidatesApproved.length > 0 && listCandidatesApproved}

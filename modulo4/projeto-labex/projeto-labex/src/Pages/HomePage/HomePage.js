@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom"
 import Button from '@mui/material/Button';
 import { ButtonSp, ContainerHome, DivFont } from "./styled";
-import { useProtectedPage } from "../../hooks/useProtectedPage";
+
 
 
 const HomePage = () => {
-    useProtectedPage(); 
+    
     const navigate = useNavigate()
 
     const gotToTrip = () => {

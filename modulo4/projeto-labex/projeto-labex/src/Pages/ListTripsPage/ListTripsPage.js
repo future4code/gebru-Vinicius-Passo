@@ -4,10 +4,10 @@ import { BASE_URL } from "../../constants/url";
 import { useRequestData } from "../../hooks/useRequestData";
 import { TripsCard, ContainerTrips, ButtonTrip, ListViagens } from "./styled";
 import Button from '@mui/material/Button';
-import { useProtectedPage } from "../../hooks/useProtectedPage";
+
 
 const ListTripsPage = () => {
-  useProtectedPage();
+  
   const [trip, loadingTrip, errorTrip] = useRequestData(`${BASE_URL}/trips`);
 
   const viagens = trip?.trips;
