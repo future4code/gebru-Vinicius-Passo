@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useForm } from "../../hooks/useForm";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import { ContainerCreateForm, InputForm, planets, TopButton } from "./styled";
+import { CampoSelect, ContainerCreateForm, CreateCart, InputForm, planets, TopButton } from "./styled";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+
 
 const CreateTripPage = () => {
     useProtectedPage();
@@ -43,6 +44,8 @@ const CreateTripPage = () => {
      
     return (
         <ContainerCreateForm>
+           
+            <CreateCart>
             <h1>Criar viagem</h1>
             <InputForm onSubmit={enviaFormulario}>
                 <TextField
@@ -51,21 +54,24 @@ const CreateTripPage = () => {
                 value={form.name}
                 onChange={onChange}
                 required
+                inputProps={{ pattern: '^.{5,}' }}
+                title={"Deve conter no mímino 5 letras"}
                 />
                 <br />
-                  <select
+                  <CampoSelect
                     placeholder={"Planeta"}
                     name={"planet"}
                     value={form.planet}
                     defaultValue={""}
                     onChange={onChange}
                     required
+                    
                 >
                     <option value={""} disabled>Escolha um Planeta</option>
                     {planets.map((planet) => {
                         return <option value={planet} key={planet}>{planet}</option>
                     })}
-                </select>
+                </CampoSelect>
                 <br />
                 <TextField
                 placeholder={"Data"}
@@ -74,6 +80,7 @@ const CreateTripPage = () => {
                 onChange={onChange}
                 type={"date"}
                 required
+                
                 />
                <br />
                 <TextField
@@ -82,6 +89,8 @@ const CreateTripPage = () => {
                    value={form.description}
                    onChange={onChange}
                    required
+                   inputProps={{ pattern: '^.{30,}' }}
+                   title={"Deve conter no mímino 30 letras"}
                 />
                 <br />
                 <TextField
@@ -91,14 +100,25 @@ const CreateTripPage = () => {
                    onChange={onChange}
                    type={"number"}
                    required
+                   inputProps={{ min: 50 }}
+                   title={"Digite um número igual a 50 ou maior"}
                 />
                  <br />
                 <TopButton>
-                <Button onClick={goBack}>Voltar</Button>
-                <Button type={"submit"}>Criar</Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                 onClick={goBack}
+                 >Voltar</Button>
+                <Button 
+                  variant="contained"
+                  color="secondary"
+                type={"submit"}>
+                Criar</Button>
                 </TopButton>
             </InputForm>
-           
+            </CreateCart>
+          
         </ContainerCreateForm>
     );
 };
