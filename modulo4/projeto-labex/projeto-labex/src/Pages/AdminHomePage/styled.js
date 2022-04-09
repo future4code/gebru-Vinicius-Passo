@@ -3,33 +3,15 @@ import styled from "styled-components"
 export const ContainerAdminHome = styled.div`
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     justify-content: center;
     align-items: center;
+    background-color:black;
+    padding: 2%;
     border: solid 1px green;
-    height: 100%;
     height: 100vh;
     background-color: black;
     div , p{
         color:white;
-=======
-   
-    label{
-        display: flex;
-        border: 1px solid black;
-        width: 350px;
-        height: 40px;
-        box-sizing: 0 4px 8px 0 rgba(0,0,0,0.3);
-        padding: 10px 20px;
-        border-radius: 4px;
-        margin: 10px 0px;
-        align-items: center;
-        justify-content: space-between;
-        width: 460px;
-    &:hover{
-        cursor: pointer;
-        background-color: #b6d4e3;
->>>>>>> 55f3cd8d7579824df0cad1d68c7452b5ce41e6a1
     }
 `
 export const HomeCard = styled.div`

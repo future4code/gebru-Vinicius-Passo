@@ -1,75 +1,70 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-// import { CampoLogin, ContainerLogin, ContunButton, TextoInput } from "./styled";
+import { CampoLogin, ContainerLogin, ContunButton, TextoInput } from "./styled";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { BASE_URL } from "../../constants/url";
 import axios from "axios";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { useForm } from "../../hooks/useForm";
 
 const LoginPage = () => {
   useProtectedPage();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
 
-  const onChangeEmail = (even) => {
-    setEmail(even.target.value);
-  };
-  const onChangePassword = (even) => {
-    setPassword(even.target.value);
-  };
+  const { form, onChange, cleanFields } = useForm({
+    email: '',
+    password: ''
+})
 
-  const onSubmitLogin = () => {
-    const body = {
-      email: email,
-      password: password,
-    };
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
+  
     axios
-      .post(`${BASE_URL}/login`, body)
+      .post(`${BASE_URL}/login`, form)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         navigate("/admin");
       })
-      .catch((err) => {
+      .catch(() => {
         alert("Você não possui autenticação, só os adm tem acesso!");
-        setEmail("");
-        setPassword("");
       });
+      cleanFields()
   };
 
   const navigate = useNavigate();
-
   const goBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   return (
-    <div>
-      <div>
+    <ContainerLogin>
+      <CampoLogin>
         <div>
           <h1>Login</h1>
         </div>
 
-        <div>
+        <TextoInput onSubmit={onSubmitLogin}>
           <TextField
-            value={email}
-            onChange={onChangeEmail}
+            name={"email"}
+            value={form.email}
+            onChange={onChange}
             type={"email"}
             label="Email"
             placeholder="Digite seu  E-mail"
           />
           <br />
+          <br />
           <TextField
-            value={password}
-            onChange={onChangePassword}
+            name={"password"}
+            value={form.password}
+            onChange={onChange}
             label="senha"
             placeholder="Digite sua senha"
             type={"password"}
           />
           <br />
-        </div>
-        <br />
-        <div>
+          <br />
+          <ContunButton>
           <Button
             size="large"
             variant="contained"
@@ -78,17 +73,20 @@ const LoginPage = () => {
           >
             Voltar
           </Button>
+         
           <Button
             size="large"
             variant="contained"
             color="secondary"
-            onClick={onSubmitLogin}
+            type={"submit"}
           >
             Entrar
           </Button>
-        </div>
-      </div>
-    </div>
+        </ContunButton>
+        </TextoInput>
+        
+      </CampoLogin>
+    </ContainerLogin>
   );
 };
 
