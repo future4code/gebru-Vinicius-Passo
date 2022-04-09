@@ -49,6 +49,7 @@ const CreateTripPage = () => {
             <h1>Criar viagem</h1>
             <InputForm onSubmit={enviaFormulario}>
                 <TextField
+                label={"Nome"}
                 placeholder={"Nome"}
                 name={"name"}
                 value={form.name}
@@ -59,6 +60,7 @@ const CreateTripPage = () => {
                 />
                 <br />
                   <CampoSelect
+                   label={"Planeta"}
                     placeholder={"Planeta"}
                     name={"planet"}
                     value={form.planet}
@@ -84,6 +86,7 @@ const CreateTripPage = () => {
                 />
                <br />
                 <TextField
+                   label={"Descrição"}
                    placeholder={"Descrição"}
                    name={"description"}
                    value={form.description}
@@ -94,6 +97,7 @@ const CreateTripPage = () => {
                 />
                 <br />
                 <TextField
+                   label={"Duração"}
                    placeholder={"Duração"}
                    name={"durationInDays"}
                    value={form.durationInDays}

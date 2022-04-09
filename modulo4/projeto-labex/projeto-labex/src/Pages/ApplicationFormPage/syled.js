@@ -32,6 +32,12 @@ export const FormInput = styled.div`
     input{
         font-family: sans-serif;
     }
+    select{
+        font-family: sans-serif;
+        font-size: 15px;
+        height: 50px;
+        background-color: #B6B3BB;
+    }
 `
 
 export const TyleButton = styled.div`

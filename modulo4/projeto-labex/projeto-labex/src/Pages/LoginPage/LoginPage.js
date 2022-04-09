@@ -51,6 +51,7 @@ const LoginPage = () => {
             type={"email"}
             label="Email"
             placeholder="Digite seu  E-mail"
+            required
           />
           <br />
           <br />
@@ -61,6 +62,7 @@ const LoginPage = () => {
             label="senha"
             placeholder="Digite sua senha"
             type={"password"}
+            required
           />
           <br />
           <br />

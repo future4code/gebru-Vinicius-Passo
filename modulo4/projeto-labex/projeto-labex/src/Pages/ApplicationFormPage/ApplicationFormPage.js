@@ -7,6 +7,7 @@ import { useRequestData } from "../../hooks/useRequestData";
 import { CardForm, ContainerForm, FormInput, TyleButton } from "./syled";
 import axios from "axios"
 import { useForm } from "../../hooks/useForm";
+import {  paises } from "./states";
 
 
 const ApplicationFormPage = () => {
@@ -50,10 +51,12 @@ const ApplicationFormPage = () => {
                 name={"tripName"}
                  value={form.tripName} 
                  onChange={onChange}
+                 required
+                 title="Campo obrigatório"
                >
                   <option value={""} disabled>Escolha uma viagem</option>
-                   {selectTrip?.map((pais) => {
-                        return <option value={pais.id} key={pais.id}>{pais.name}</option>
+                   {selectTrip?.map((trip) => {
+                        return <option value={trip.id} key={trip.id}>{trip.name}</option>
                     })}
                </select>
               
@@ -64,6 +67,9 @@ const ApplicationFormPage = () => {
                 name={"name"}
                  value={form.name}
                  onChange={onChange}
+                 required
+                 inputProps={{ pattern: '^.{3,}' }}
+                 title={"Deve conter no mímino 3 letras"}
                  />
                 <br/>
                 <TextField 
@@ -73,6 +79,9 @@ const ApplicationFormPage = () => {
                 name={"age"}
                 value={form.age}
                 onChange={onChange}
+                required
+                inputProps={{ min: 18 }}
+                title={"Aceitamos participante igual ou maior que 18 anos"}
                  />
                  <br/>
                 <TextField 
@@ -81,6 +90,9 @@ const ApplicationFormPage = () => {
                 name={"applicationText"}
                 value={form.applicationText}
                 onChange={onChange}
+                required
+                inputProps={{ pattern: '^.{30,}' }}
+                 title={"Deve conter no mímino 30 letras"}
                 />
                 <br/>
                 <TextField 
@@ -89,15 +101,24 @@ const ApplicationFormPage = () => {
                 name={"profession"}
                 value={form.profession}
                 onChange={onChange}
+                required
+                inputProps={{ pattern: '^.{10,}' }}
+                 title={"Deve conter no mímino 10 letras"}
                 />
                 <br/>
-              <TextField
-              placeholder="Digite sua nacionalidade"
-              label="País"
-              name={"country"}
-              value={form.country}
-              onChange={onChange}
-              />
+           
+              <select 
+               name={"country"}
+               value={form.country} 
+               onChange={onChange}
+               required
+               title="Campo obrigatório"
+              >
+                  <option value={""} disabled>Escolha uma país</option>
+                  {paises.map( (pais) => {
+                      return <option value={pais} key={pais} >{pais}</option>
+                  })}
+              </select>
             </FormInput>
                <br />     
             <TyleButton>

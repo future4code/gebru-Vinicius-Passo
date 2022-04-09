@@ -46,9 +46,6 @@ const AdminHomePage = () => {
             <label tripdetail={tripDetail} onClick={() => gotripDetail(navigate, nameId.id)} key={nameId.id}>
                 {nameId.name}
 
-                {/* <PossitionAbsolute>
-             <button onClick={()=> deleteTrip(nameId.id, nameId.name)}>Delete</button>
-             </PossitionAbsolute> */}
             </label>
         
             <Button 
@@ -83,6 +80,11 @@ const AdminHomePage = () => {
                  lisTripNameId &&
                  lisTripNameId.length > 0 &&
                 lisTripNameId}
+                {!loadingTrip &&
+                 lisTripNameId &&
+                 lisTripNameId.length === 0 &&
+                lisTripNameId && <h3>Não a viagens</h3>}
+                
             </div>
 
         </ContainerAdminHome>
