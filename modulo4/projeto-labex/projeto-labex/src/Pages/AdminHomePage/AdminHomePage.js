@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/url";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
@@ -13,12 +13,11 @@ import axios from "axios";
 const AdminHomePage = () => {
     useProtectedPage();
     const navigate = useNavigate();
-  
-    const [trip, loadingTrip, errorTrip] = useRequestData(`${BASE_URL}/trips`);
+
+    const [trip, loadingTrip, errorTrip] = useRequestData(`${BASE_URL}/trips`, );
     const [tripDetail] = useState();
     const viagens = trip?.trips;
-
-
+    
     const logaut = ()=>{
         localStorage.removeItem('token')
         goToHomePage(navigate)
@@ -28,42 +27,72 @@ const AdminHomePage = () => {
             auth: localStorage.getItem("token")
         }
     }
-    
-    const lisTripNameId = viagens?.map((nameId) => {
-        const deleteTrip = (id) => {
-            axios
-            .delete(`${BASE_URL}/trips/${id}`, headers)
-            .then( ()=> {
-             alert("deletada com sucesso")
-            })
-            .catch( ()=> {
-                alert("erro meu bem, olha seu codigo de novo")
-            })
-        }
-        return (
-            <HomeCard>
-          <AlignCards>
-            <label tripdetail={tripDetail} onClick={() => gotripDetail(navigate, nameId.id)} key={nameId.id}>
-                {nameId.name}
+ 
+    const homeTrips = () => {
+        const lisTripNameId = viagens?.map((nameId) => {
+            return (
+                <HomeCard>
+              <AlignCards>
+                <label tripdetail={tripDetail} onClick={() => gotripDetail(navigate, nameId.id)} key={nameId.id}>
+                    {nameId.name}
+                </label>
+            
+                <Button 
+                onClick={()=> deleteTrip(nameId.id)}
+                variant="outlined" 
+                size="small"
+                color="error">
+                  Delete
+                  </Button>
+              </AlignCards>
+                </HomeCard>
+            );
+        });
 
-            </label>
-        
-            <Button 
-            onClick={()=> deleteTrip(nameId.id)}
-            variant="outlined" 
-            size="small"
-            color="error">
-              Delete
-              </Button>
-          </AlignCards>
-            </HomeCard>
-        );
-    });
+        return ( 
+            <div>
+                 {loadingTrip && <p>carregando...</p>}
+                {!loadingTrip && errorTrip && <p>Deu ruim carrega de novo!</p>}
+                {!loadingTrip &&
+                 lisTripNameId &&
+                 lisTripNameId.length > 0 &&
+                lisTripNameId}
+                {!loadingTrip &&
+                 lisTripNameId &&
+                 lisTripNameId.length === 0 &&
+                lisTripNameId && <h3>Não tem viagens</h3>}
+                
+            </div>
+        )
+    }
+      
+    useEffect( () => {
+        homeTrips()
+    },[])
+
+    useEffect( () => {
+      return trip?.trips;
+    }, [viagens])
+   
+    const deleteTrip = (id) => {
+        axios
+        .delete(`${BASE_URL}/trips/${id}`, headers)
+        .then( (res)=> {
+         if(window.confirm("Tem certeza que deseja apagar usuário?")) {
+            window.location.reload(false)
+         }  
+      
+        })
+        .catch( ()=> {
+            alert("erro meu bem, olha seu codigo de novo")
+        })
+    }
 
     const goCreateTrip = () => {
         navigate("/create");
     };
-
+   
+    
     return (
         <ContainerAdminHome>
             <h1>Panel Administrativo!</h1>
@@ -74,17 +103,7 @@ const AdminHomePage = () => {
             </ContainerButton>
             <br />
             <div >
-                {loadingTrip && <p>carregando...</p>}
-                {!loadingTrip && errorTrip && <p>Deu ruim carrega de novo!</p>}
-                {!loadingTrip &&
-                 lisTripNameId &&
-                 lisTripNameId.length > 0 &&
-                lisTripNameId}
-                {!loadingTrip &&
-                 lisTripNameId &&
-                 lisTripNameId.length === 0 &&
-                lisTripNameId && <h3>Não a viagens</h3>}
-                
+                    {homeTrips()}
             </div>
 
         </ContainerAdminHome>

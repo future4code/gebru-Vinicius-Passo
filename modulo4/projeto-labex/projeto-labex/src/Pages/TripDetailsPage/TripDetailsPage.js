@@ -39,7 +39,7 @@ const TripDetailsPage = () => {
     
         const listCandidatesPendant =  tripDetail?.candidates.map( (pendantCandidate) => {
             const approve = (decision) => {
-               
+             
                 const body = {
                     approve: decision
                 }
@@ -47,7 +47,7 @@ const TripDetailsPage = () => {
                .put(`${BASE_URL}/trips/${params.id}/candidates/${pendantCandidate.id}/decide`, body, headers)
                .then( res => {
                    alert(`Decisão registrada com sucesso`)
-                 
+                   window.location.reload(false)
                })
                .catch( err => {
                    alert("Error ao aprovar candidato")
@@ -67,7 +67,7 @@ const TripDetailsPage = () => {
                           size="large" 
                           variant="contained" 
                           color="secondary"
-                          onClick={()=> approve(true)}
+                          onClick={()=> approve(true) }
                          >Aprovar</Button>
                          <Button 
                          size="large" 

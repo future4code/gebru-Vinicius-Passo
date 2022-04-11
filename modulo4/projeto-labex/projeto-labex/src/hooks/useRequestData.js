@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-export  const useRequestData = ( url ) => {
+export  const useRequestData = ( url) => {
     const [data, setData] = useState(undefined)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState("")
@@ -19,7 +19,7 @@ export  const useRequestData = ( url ) => {
             setError(err)
             setIsLoading(false)
         })
-    }, [url])
+    }, [url ])
 
     return[data,isLoading, error]
  }
