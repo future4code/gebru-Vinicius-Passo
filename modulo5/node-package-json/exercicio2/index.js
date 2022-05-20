@@ -24,3 +24,4 @@ switch (operacao) {
         console.log(`O resultado é : ${div}`)
         break;
 }
+//para rodar esse script usa npm run dev1 uma string e um number
