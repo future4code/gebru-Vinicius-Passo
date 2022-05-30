@@ -1,10 +1,12 @@
-type Clien = {
-    cliente: string,
+
+type Conta = 
+  {
+	cliente: string,
     saldoTotal: number,
     debitos: number[]
-}
+  }
 
-const clientes = [
+const clientes:Conta[]  = [
 	{ cliente: "João", saldoTotal: 1000, debitos: [100, 200, 300] },
 	{ cliente: "Paula", saldoTotal: 7500, debitos: [200, 1040] },
 	{ cliente: "Pedro", saldoTotal: 10000, debitos: [5140, 6100, 100, 2000] },
@@ -13,8 +15,15 @@ const clientes = [
 	{ cliente: "Soter", saldoTotal: 1200, debitos: [] }
 ]
 
-// const buscaClienteNegativo = (clientes: Clien[]) => {
-//     const newCliente = clientes.reduce( (total:number[], item) => {
-//         return total + 
-//     })
-// }
+//   let newArray = clientes[0].debitos.reduce( (pv, pc) => pv + pc)
+	
+const retornaContasNegativa = (lista: Conta[]) => {
+	lista.forEach((cliente) => {
+		const totalDebito = cliente.debitos.reduce( (a, b) => a + b, 0);
+		cliente.saldoTotal -= totalDebito
+		cliente.debitos = [];
+	})
+	const contasNegativas = lista.filter( (conta) => conta.saldoTotal < 0);
+	return contasNegativas
+}
+console.log(retornaContasNegativa(clientes))     
