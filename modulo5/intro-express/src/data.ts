@@ -1,10 +1,15 @@
-// export type User = {
-//  id: number
-//  name: string
-//  phone: number
-//  email:string
-//  website: string
-//  detailUsuario: string[] | {}
+export type User = {
+ id: number
+ name: string
+ phone: number
+ email:string
+ website: string
+}
+//  export type Posts = {
+//   userId: number
+//   id: number
+//   title: string
+//   body: string
 // }
 
 export const dataUsers = [
@@ -31,7 +36,7 @@ export const dataUsers = [
     }
     ]
 
-export const usuarios = [
+export const posts = [
     {
       userId: 1,
       id: 1,
