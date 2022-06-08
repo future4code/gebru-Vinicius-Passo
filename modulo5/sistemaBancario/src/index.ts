@@ -1,41 +1,38 @@
+import { contaUsuario } from './data';
 import express, {Request, Response} from 'express'
 import cors from 'cors'
+import { v4 as generateId } from 'uuid';
 
-type conts = {
-    name: string
-    cpf: string
-    idade: number
-}
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
-
+console.log("olá mundo")
 
 app.post('/criar/conta', (req: Request, res: Response) => {
     try{
-        const {name, cpf, nascimento} = req.body
+        const {name, cpf, dataNascimento} = req.body
         const dataAtual = new Date()
-        const anoAtual = dataAtual. getFullYear();
+        const anoAtual = dataAtual.getFullYear();
+        const pegandoAno = dataNascimento.split('/')
+        const anoParaSaberIdade : number = pegandoAno[2] as number
+        const idade = anoAtual - anoParaSaberIdade
 
-        const idade = anoAtual - nascimento
-        const contas: conts[] = [{name: "", cpf: "", idade }]
-        console.log("conta", contas)
-
-        if(!name)
+        if(!name || !cpf || !dataNascimento)
         throw new Error ("O campo name precisa ser preenchido!")
-        if(!cpf)
-        throw new Error("O campo cpf precisa ser preenchido!")
+        
         if(idade < 18)
         throw new Error("É necessário ser maior de idade para criar uma conta!")
 
-        const newConta = {
+        contaUsuario.push({
+            id:generateId(),
             name,
             cpf,
-            idade
-        }
-       contas.push(newConta)
+            dataNascimento,
+            saldo: 0.00,
+            extrato: [{valor: 0.00, data: ""}]
+        })
 
        res.send("conta criada")
     
