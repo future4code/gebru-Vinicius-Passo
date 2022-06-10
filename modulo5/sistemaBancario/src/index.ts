@@ -3,7 +3,7 @@ import express, {Request, Response} from 'express'
 import cors from 'cors'
 import { v4 as generateId } from 'uuid';
 import {erros} from './erros'
-import { realpathSync } from 'fs';
+
 
 
 const app = express()
@@ -39,7 +39,7 @@ app.post('/criar/conta', (req: Request, res: Response) => {
             cpf,
             dataNascimento,
             saldo: 0.00,
-            extrato: [{valor: 0.00, data: ""}]
+            extrato: [{valor: 0.00, descricao:"", data: ""}]
         })
 
        res.send("conta criada")
@@ -58,20 +58,18 @@ app.post('/criar/conta', (req: Request, res: Response) => {
     }
 })
 
-// Edpoint para pegar saldo de uma conta
-app.get('/pegar/:name/saldo', (req: Request, res: Response) => {
+app.get('/pegar/saldo', (req: Request, res: Response) => {
    try{
-       const idName = req.params.name
        const authorization = req.headers.authorization
-       const usuario = contaUsuario.find( (i) => i.name === idName)
+       const usuario = contaUsuario.find( (i) => i.cpf === authorization)
        const idUsuario = usuario?.name
        const idCpf = usuario?.cpf
        const saldo = usuario?.saldo
        
-       if(!idName || !authorization)
+       if(!authorization)
        throw new Error(erros.SALDO_NOT_FOUND.message)
 
-       if(idUsuario !== idName)
+       if(!idUsuario )
          throw new Error(erros.USUARIO_NOT_FOUND.message)   
 
        if(idCpf !== authorization)
@@ -96,29 +94,34 @@ app.get('/pegar/:name/saldo', (req: Request, res: Response) => {
    }
 })
 
-app.put('/saldo/:name/adicionar', (req: Request, res: Response) => {
+app.put('/saldo/adicionar', (req: Request, res: Response) => {
     try{
-        const idName = req.params.name
-        const authorization = req.headers.authorization
+        const idName = req.body.name as string
+        const cpfBody = req.body.cpf as string
         const saldoAdicionado = req.body.saldo
+        const dataBody = req.body.data as string
         const saldoAtual : number = saldoAdicionado
 
-        const usuario = contaUsuario.find( (i) => i.name === idName)
+        const usuario = contaUsuario.find( (u) => u.cpf === cpfBody)
         const idUsuario = usuario?.name
         const idCpf = usuario?.cpf
 
-        if(!idName || !authorization)
+        if(!cpfBody || !idName)
         throw new Error(erros.SALDO_NOT_FOUND.message)
 
-        if(idUsuario !== idName)
+        if(!idUsuario)
          throw new Error(erros.USUARIO_NOT_FOUND.message) 
 
-         if(idCpf !== authorization)
+         if(idCpf !== cpfBody)
          throw new Error(erros.USUARIO_NOT_FOUND.message) 
          
-         if(usuario?.cpf === authorization)
-         usuario.saldo = saldoAtual
-      
+         if(usuario?.cpf !== cpfBody || idName !== idUsuario)
+            throw new Error(erros.USUARIO_NOT_FOUND.message)
+         usuario.saldo = saldoAtual + usuario.saldo
+         usuario.extrato[0].valor = usuario.saldo
+         usuario.extrato[0].descricao = "Depósito de dinheiro"
+         usuario.extrato[0].data = dataBody
+
        res.send("saldo adicionado!")
     }
     catch (error : any) {
@@ -132,6 +135,8 @@ app.put('/saldo/:name/adicionar', (req: Request, res: Response) => {
             case erros.USUARIO_NOT_FOUND.message:
                 res.status(erros.USUARIO_NOT_FOUND.status).send(erros.USUARIO_NOT_FOUND.message)
                 break   
+            case erros.USUARIO_NOT_FOUND.message:
+                res.status(erros.USUARIO_NOT_FOUND.status).send(erros.USUARIO_NOT_FOUND.message)    
             default: 
                 res.status(erros.SOME_ERROR.status).send(erros.SOME_ERROR.message)            
         }
