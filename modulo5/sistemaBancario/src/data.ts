@@ -23,10 +23,9 @@ export const contaUsuario : Cont[] = [
     {
     id: generateId(),
     name: "vitor",
-    cpf: "68832585335",
-    dataNascimento: "17/06/2003",
+    cpf: "48836585225",
+    dataNascimento: "21/10/1999",
     saldo: 0,
     extrato: [{valor: 0, descricao:"", data: ""}]
 }
 ]
-

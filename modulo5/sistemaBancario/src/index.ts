@@ -18,7 +18,7 @@ app.get('/contas/usuarios', (req: Request, res: Response) => {
 
 
 // endpoit para criar uma conta!
-app.post('/criar/conta', (req: Request, res: Response) => {
+app.post('/contas/criar', (req: Request, res: Response) => {
     try{
         const {name, cpf, dataNascimento} = req.body
         const dataAtual = new Date()
@@ -58,7 +58,7 @@ app.post('/criar/conta', (req: Request, res: Response) => {
     }
 })
 
-app.get('/pegar/saldo', (req: Request, res: Response) => {
+app.get('/contas/saldo', (req: Request, res: Response) => {
    try{
        const authorization = req.headers.authorization
        const usuario = contaUsuario.find( (i) => i.cpf === authorization)
@@ -94,7 +94,7 @@ app.get('/pegar/saldo', (req: Request, res: Response) => {
    }
 })
 
-app.put('/saldo/adicionar', (req: Request, res: Response) => {
+app.put('/contas/adicionar/saldo', (req: Request, res: Response) => {
     try{
         const idName = req.body.name as string
         const cpfBody = req.body.cpf as string
@@ -106,8 +106,9 @@ app.put('/saldo/adicionar', (req: Request, res: Response) => {
         const idUsuario = usuario?.name
         const idCpf = usuario?.cpf
 
-        if(!cpfBody || !idName)
+        if(!cpfBody || !idName || !dataBody || saldoAtual < 0 || saldoAtual === 0)
         throw new Error(erros.SALDO_NOT_FOUND.message)
+
 
         if(!idUsuario)
          throw new Error(erros.USUARIO_NOT_FOUND.message) 
@@ -143,6 +144,7 @@ app.put('/saldo/adicionar', (req: Request, res: Response) => {
     }
 })
 
+
 app.listen(3003, () => {
-    console.log("Servidor de online")
+    console.log("Servidor aberto na porta 3003")
 })
