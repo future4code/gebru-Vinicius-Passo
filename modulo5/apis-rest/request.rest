@@ -1,0 +1,32 @@
+GET http://localhost:3003/users
+
+###
+
+GET http://localhost:3003/users?name=alice
+
+###
+
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "vitor",
+    "email": "vitor@gmail.com",
+    "type": "ADMIN",
+    "age": 25
+}
+
+###
+
+PATCH http://localhost:3003/users/0.8931621518081239/editar
+Content-Type: application/json
+
+{
+    "name":"vitor alterado"
+}
+
+###
+
+DELETE http://localhost:3003/users/3/deletar
+
+// para deletar passe um id do usuário 

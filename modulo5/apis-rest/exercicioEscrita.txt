@@ -1,0 +1,14 @@
+3a) Qual é o tipo de envio de parâmetro que costuma ser utilizado por aqui?
+para buscar algo da pra usar por params e por query, porém é melhor usar o query para
+para busca pq ele é opcional, caso o usuário não faça a busca, ele não estora um erro sem 
+ler o código, quando é feitor por params se o usuário não passe o id, o nosso endpoint não ler
+o resto do código.
+
+
+4.a) Mude o método do endpoint para PUT. O que mudou?
+
+o que muda é metado, funciona do mesmo jeito! 
+
+4.b) Você considera o método PUT apropriado para esta transação? Por quê?
+   Não, por questão de semântica não é o ideal
+    usar o put para criar algo em nossa aplicação!
