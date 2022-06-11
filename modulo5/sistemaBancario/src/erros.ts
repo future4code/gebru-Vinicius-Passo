@@ -7,6 +7,10 @@ export const erros = {
       status: 401,
       message: "Todos os campos devem ser preenchidos!",
     },
+    USER_NOT_FOUND: {
+      status: 404,
+      message: "usuário já existe!",
+    },
    SALDO_NOT_FOUND: {
       status: 401,
       message: "credenciais ausentes ou inválidas!",
