@@ -3,7 +3,6 @@ import express, {Request, Response} from 'express'
 import cors from 'cors'
 import { v4 as generateId } from 'uuid';
 import {erros} from './erros'
-import { userInfo } from 'os';
 
 
 
@@ -209,11 +208,18 @@ app.put('/conta/:id/saldo/atualizar', (req: Request, res: Response) => {
         const dataString = JSON.stringify(dataAtual)
         const separandoTempo = dataString.split('T')
         const novaData = separandoTempo[0].split('-')
-        const date = `${novaData[2]}/${novaData[1]}/${anoAtual}`
+        const date  = `${novaData[2]}/${novaData[1]}/${anoAtual}`
+        const user = contaUsuario.find( (user) => user.id === id)
         
+       
         if(!id){
             errorCode = 401
             throw new Error("precisa passar um id")
+        }
+
+        if(user?.id!== id){
+            errorCode = 402
+            throw new Error("id não encontrado!")
         }
        
         for(let i = 0; i < contaUsuario.length; i++){
@@ -221,21 +227,19 @@ app.put('/conta/:id/saldo/atualizar', (req: Request, res: Response) => {
                 errorCode = 402
                 throw new Error("saldo insuficiente!")
             }
-          
             if(id === contaUsuario[i].id){
              
-                if( contaUsuario[i].extrato[0].data !== date){
+                if( !contaUsuario[i].extrato[0].data){
                     errorCode = 303
-                    throw new Error(`Essa conta só sera paga ${contaUsuario[i].extrato[0].data}`)
+                    throw new Error(`não tem boleto para pagar`)
                 }
-
-               if( contaUsuario[i].extrato[0].data === date){
-                contaUsuario[i].saldo = contaUsuario[i].saldo - contaUsuario[i].extrato[0].valor
-               }
             }
         }
-
-    res.send("Boleto pago!")
+        // if(user.extrato[0].data === date)
+            
+       
+        user.saldo = user.saldo - user.extrato[0].valor   
+    res.send(`boleto pago: seu novo saldo ${user.saldo}`)
     }
     catch(error : any) {
         res.status(errorCode).send(error.message)

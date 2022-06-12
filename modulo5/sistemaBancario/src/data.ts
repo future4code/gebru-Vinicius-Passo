@@ -33,7 +33,7 @@ export const contaUsuario : Cont[] = [
     name: "Rosivaldo",
     cpf: "32537829278",
     dataNascimento: "21/10/2001",
-    saldo: 1500,
-    extrato: [{valor: 500, descricao:"conta de agua", data: "11/06/2022"}]
+    saldo: 0,
+    extrato: [{valor: 0, descricao:"conta de agua", data: "11/06/2022"}]
 }
 ]
