@@ -233,7 +233,7 @@ app.put('/conta/:id/saldo/atualizar', (req: Request, res: Response) => {
                     errorCode = 303
                     throw new Error(`não tem boleto para pagar`)
                 }
-            }
+            } 
         }
         if(user?.extrato[0].data === date){
             user.saldo = user.saldo - user.extrato[0].valor 
@@ -243,7 +243,7 @@ app.put('/conta/:id/saldo/atualizar', (req: Request, res: Response) => {
         }
             
           
-    res.send(`transferencia ou boleto pago, seu saldo disponivél é: ${user.saldo}`)
+    res.send(`transferência ou boleto pago, seu saldo disponivél é: ${user.saldo}`)
     }
     catch(error : any) {
         res.status(errorCode).send(error.message)

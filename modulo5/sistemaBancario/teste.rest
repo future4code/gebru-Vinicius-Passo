@@ -1,10 +1,12 @@
 POST http://localhost:3003/contas/criar
 Content-Type: application/json
 
+//Endpoint para criar uma conta
+
 {
     "name": "Benjamin",
-    "cpf": "85268878814",
-    "dataNascimento": "14/10/2000"
+    "cpf": "52368876784",
+    "dataNascimento": "14/10/2003"
 }
 
 
@@ -13,6 +15,8 @@ Content-Type: application/json
 
 PUT http://localhost:3003/contas/adicionar/saldo
  Content-Type: application/json
+
+// Endpoint para adicionar saldo
 
  {
     "name": "vinicius",
@@ -27,9 +31,11 @@ PUT http://localhost:3003/contas/adicionar/saldo
 POST http://localhost:3003/contas/pagar
 Content-Type: application/json
 
+//Endpoint para pagar conta, a data é opcional, caso
+// não passe a data, o saldo é atualizado automaticamente
 {
      "cpf":"48836585225",
-     "data": "23/06/2022",
+     "data": "12/06/2022",
      "descricao": "conta de luz",
      "valor": 120
 }
@@ -37,7 +43,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3003/conta/bf90d20b-16d4-4a4f-8457-8860a765596a/saldo/atualizar
+PUT http://localhost:3003/conta/5d6a231a-e7a8-4925-bb82-116f07d09e3d/saldo/atualizar
 //atualiza conta cuja a data seja presente!
 
 
