@@ -210,8 +210,8 @@ app.put('/conta/:id/saldo/atualizar', (req: Request, res: Response) => {
         const novaData = separandoTempo[0].split('-')
         const date  = `${novaData[2]}/${novaData[1]}/${anoAtual}`
         const user = contaUsuario.find( (user) => user.id === id)
-        
-       
+    
+
         if(!id){
             errorCode = 401
             throw new Error("precisa passar um id")
@@ -235,11 +235,15 @@ app.put('/conta/:id/saldo/atualizar', (req: Request, res: Response) => {
                 }
             }
         }
-        // if(user.extrato[0].data === date)
+        if(user?.extrato[0].data === date){
+            user.saldo = user.saldo - user.extrato[0].valor 
+        } else {
+            errorCode = 404
+            throw new Error("No momento só aceita pagamento com a data presente!")
+        }
             
-       
-        user.saldo = user.saldo - user.extrato[0].valor   
-    res.send(`boleto pago: seu novo saldo ${user.saldo}`)
+          
+    res.send(`transferencia ou boleto pago, seu saldo disponivél é: ${user.saldo}`)
     }
     catch(error : any) {
         res.status(errorCode).send(error.message)
