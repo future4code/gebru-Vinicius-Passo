@@ -23,4 +23,31 @@
 
 A) DELETE FROM actor WHERE name = "Fernanda Montenegro"; comando para deletar uma coluna pelo nome
 
-B) 
+B) DELETE FROM actor WHERE gender = "male" AND salary > 1000000; Se encontrar o mole e um salario maior que 1000000 a coluna encontrada sera removida
+
+
+   --------------------------------- EXERCÍCIO 4 -------------------------
+
+   A) SELECT MAX(salary) FROM actor; essa query pega o maior sálario
+
+   B) SELECT MIN(salary) FROM actor; Essa query pega o menor sálario
+
+   C) SELECT COUNT(*) FROM actor WHERE gender = "famele"; query para pegar a quantidade de atriz
+
+   D) SELECT SUM(salary) FROM actor; Essa query soma todo salário da coluna salary
+
+    --------------------------------- EXERCÍCIO 5 -------------------------
+
+    A) SELECT COUNT(*), gender FROM actor GROUP BY gender, Essa query pega a quantidade e o grupo que pertece, no caso do meu teste me deu a quantidade e nome do grupo
+
+    B) SELECT id, name FROM actor ORDER BY name DESC; Esse query pega id e o nome dos atores em ordem decrescente alfabética
+
+    C) SELECT * FROM actor ORDER BY salary; Essa query retorna o salário do menor pro maior
+
+    D) SELECT * FROM actor ORDER BY salary DESC LIMIT 3; Essa query retorna os três primeiros maiores salários;
+
+    E) SELECT AVG(salary), gender FROM actor GROUP BY gender; Essa query retorna a média do salário do grupo gender;
+
+     --------------------------------- EXERCÍCIO 6 -------------------------
+
+     A) 
