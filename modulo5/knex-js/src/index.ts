@@ -1,7 +1,7 @@
 import connection from "./data/connection";
 import {Request, Response} from "express";
 import app from "./App";
-import {avgSalary} from "./endpoints"
+import {avgSalary, actorSpecific} from "./endpoints"
 
 
 app.get("/actor", async (req: Request, res: Response) => {
@@ -20,8 +20,19 @@ app.get("/actor/:gender/average", async (req: Request, res: Response) => {
     const gender = req.params.gender
     try {
         const result = await avgSalary(gender)
+        console.log(result)
+       res.status(200).send(result)
+    } catch (e) {
+        console.log({e})
+        return res.status(500).send("algo deu errado!")
+    }
+})
 
-        res.send(result)
+app.get("/actor/:id", async (req: Request, res: Response) => {
+    const {id} = req.params
+    try {
+        const result = await actorSpecific(id)
+        res.status(200).send(result)
     } catch (e) {
         console.log({e})
         return res.status(500).send("algo deu errado!")

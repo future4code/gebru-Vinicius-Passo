@@ -14,8 +14,15 @@ GET http://localhost:3004/actor/count/famele
 
 
 ###
+GET http://localhost:3004/actor/003
 
 
+
+###
+GET http://localhost:3004/actor/gender/average
+
+
+###
 PUT http://localhost:3004/actor/003/edit
 Content-Type: application/json
 
@@ -32,10 +39,6 @@ Content-Type: application/json
 DELETE http://localhost:3004/actor/005/delete
 
 
-
 ###
 
-
-
-GET http://localhost:3004/actor/male/average
 

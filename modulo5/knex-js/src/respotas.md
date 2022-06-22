@@ -66,6 +66,11 @@ B) app.delete("/actor/:id/delete", async (req: Request, res: Response) => {
     }
 })
 
-C)
+C) problemas tecnos
+
+
+---------------------------- EXERCÍCIO 3 ------------------
+
+A) 
 
 ```         
