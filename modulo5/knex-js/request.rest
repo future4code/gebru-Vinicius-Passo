@@ -1,0 +1,41 @@
+GET http://localhost:3004/actor
+
+
+###
+
+GET http://localhost:3004/actor/vitor duarte passo
+
+
+
+
+###
+GET http://localhost:3004/actor/count/famele
+
+
+
+###
+
+
+PUT http://localhost:3004/actor/003/edit
+Content-Type: application/json
+
+
+    { 
+    "salary": 800000
+    }
+
+
+
+###
+
+
+DELETE http://localhost:3004/actor/005/delete
+
+
+
+###
+
+
+
+GET http://localhost:3004/actor/male/average
+
