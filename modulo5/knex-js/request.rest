@@ -1,0 +1,64 @@
+GET http://localhost:3004/actor
+
+
+###
+
+GET http://localhost:3004/actor/vitor duarte passo
+
+
+
+
+###
+GET http://localhost:3004/actor/count/famele
+
+
+
+###
+GET http://localhost:3004/actor/001
+
+
+
+###
+GET http://localhost:3004/actor/gender/average
+
+###
+
+
+
+GET http://localhost:3004/actor/query?gender=famele
+
+
+###
+
+
+
+PUT http://localhost:3004/actor/003/edit
+Content-Type: application/json
+
+
+    { 
+    "salary": 800000
+    }
+
+
+
+###
+
+PUT http://localhost:3004/actor/001/editOtherForm
+Content-Type: application/json
+
+
+    { 
+    "salary": 6150000
+    }
+
+
+
+###
+
+DELETE http://localhost:3004/actor/005/delete
+
+
+###
+
+
