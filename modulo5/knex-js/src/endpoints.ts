@@ -12,3 +12,8 @@ export const avgSalary = async (gender: string): Promise<any> => {
     const result = await connection("actor").select().where({id})
     return result
   }
+
+ export const updateSalary = async(id: string, salary: number) => {
+    const update = await connection("actor").update({salary}).where({id})
+    return update
+  }

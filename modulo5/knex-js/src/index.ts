@@ -1,7 +1,7 @@
 import connection from "./data/connection";
 import {Request, Response} from "express";
 import app from "./App";
-import {avgSalary, actorSpecific} from "./endpoints"
+import {avgSalary, actorSpecific, updateSalary} from "./endpoints"
 
 
 app.get("/actor", async (req: Request, res: Response) => {
@@ -13,6 +13,20 @@ app.get("/actor", async (req: Request, res: Response) => {
     } catch (e) {
         console.log({e});
         return res.status(500).send("algo deu errado!")
+    }
+})
+
+app.get("/actor/query", async(req: Request, res: Response) => {
+    const gender = req.query.gender as string
+    console.log(gender)
+    try {
+          const count = await connection.raw(`
+        SELECT COUNT(*) as count FROM actor WHERE gender = "${gender}" 
+        `)
+        res.send(count[0])
+    } catch (e) {
+        console.log({e})
+        return res.status(500).send("algo deu muito errado!")
     }
 })
 
@@ -82,6 +96,21 @@ app.put("/actor/:id/edit", async (req: Request, res: Response): Promise<any> => 
     catch (e) {
         console.log(e)
         return res.status(500).send("algo deu errado!")
+    }
+})
+
+app.put("/actor/:id/editOtherForm", async(req: Request, res: Response) => {
+    const id = req.params.id as string
+    const salary = req.body.salary as number
+
+    try {
+         await updateSalary(id, salary)
+
+         res.status(200).send("atualizado!")
+      
+    } catch (e) {
+        console.log({e})
+        return res.status(500).send("erro no servidor!")
     }
 })
 
