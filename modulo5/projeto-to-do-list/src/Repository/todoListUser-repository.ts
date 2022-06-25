@@ -7,6 +7,17 @@ export const readTodoListAllRepository = async () => {
     return await connection("TodoListUser").select()
 }
 
+export const readTodoListUserTaskRepository = async () => {
+    try {
+        return await connection.raw(`
+        SELECT * FROM TodoListUser JOIN TodoListTask ON TodoListUser.id = TodoListTask.creator_user_id;
+        `)
+      
+    } catch (error : any) {
+        return error.message
+    }
+}
+
 export const readTodoListUsersRepository = async (id: string) => {
     try {
         return await connection("TodoListUser").select().where("id", id)

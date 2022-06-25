@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { createTodoListTaskRepository, createTodoListUsersRepository, readTodoListAllRepository, readTodoListUsersRepository, updateTodoLIstUsersRepository } from '../Repository/todoListUser-repository';
-import { Task, Users, UsersUpdate } from '../Types/types';
+import { createTodoListTaskRepository, createTodoListUsersRepository, readTodoListAllRepository, readTodoListUsersRepository, readTodoListUserTaskRepository, updateTodoLIstUsersRepository } from '../Repository/todoListUser-repository';
+import { Task, Users, UsersUpdate, UserTask } from '../Types/types';
 import { v4 as generateId } from 'uuid';
 
 
@@ -11,17 +11,29 @@ export const readTodoListAllControllers = async (req: Request, res: Response) =>
     res.send(todoListAll)
 }
 
+export const readTodoListUserTaskControllers = async (req: Request, res: Response) => {
+    let errorCode = 500
+    try {
+        const id = req.params.id as string
+        const task : UserTask[] = await readTodoListUserTaskRepository()
+       
+        res.status(200).send(task[0])
+    } catch (error: any) {
+        res.status(errorCode).send(error.message)
+    }
+}
+
 export const readTodoListUsersControllers = async (req: Request, res: Response) => {
     let errorCode = 500
     const id = req.params.id as string
     try {
-        const todoListUsuersId = await readTodoListUsersRepository(id)
-        if(!todoListUsuersId.length){
+        const todoListUsersId = await readTodoListUsersRepository(id)
+        if(!todoListUsersId.length){
             errorCode = 402
             throw new Error("Id não identificado!")
         }
 
-        res.status(200).send(todoListUsuersId)
+        res.status(200).send(todoListUsersId)
     } catch (error : any) {
         res.status(errorCode).send(error.message)
     }
