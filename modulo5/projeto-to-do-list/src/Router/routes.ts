@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import {
+     createTodoListTaskControllers,
      createTodoListUsersControllers,
+      readTodoListAllControllers,
       readTodoListUsersControllers, 
       updateTodoLIstUsersControllers 
 } 
@@ -8,7 +10,8 @@ import {
 
 export const router = Router();
 
-
+router.get("/todoLists/all", readTodoListAllControllers)
 router.get("/todoLists/:id/User", readTodoListUsersControllers)
 router.post("/todoListUsers/create", createTodoListUsersControllers)
+router.post("/todoLists/task", createTodoListTaskControllers)
 router.put("/todoListsUser/:id/update", updateTodoLIstUsersControllers)

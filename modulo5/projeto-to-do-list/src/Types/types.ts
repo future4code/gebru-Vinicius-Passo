@@ -1,6 +1,23 @@
 export type Users = {
-    id ?: string,
+    id : string,
+    name: string,
+    nickname: string,
+    email : string
+}
+
+export type UsersUpdate = {
     name: string,
     nickname: string,
     email ?: string
 }
+
+export type Task = {
+    id: string
+    title : string,
+    description: string,
+    status?: string,
+    limit_date: Date,
+    creator_user_id: string
+}
+
+

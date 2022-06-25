@@ -1,8 +1,15 @@
 import { Request, Response } from 'express';
-import { createTodoListUsersRepository, readTodoListUsersRepository, updateTodoLIstUsersRepository } from '../Repository/todoListUser-repository';
-import { Users } from '../Types/types';
+import { createTodoListTaskRepository, createTodoListUsersRepository, readTodoListAllRepository, readTodoListUsersRepository, updateTodoLIstUsersRepository } from '../Repository/todoListUser-repository';
+import { Task, Users, UsersUpdate } from '../Types/types';
 import { v4 as generateId } from 'uuid';
 
+
+
+export const readTodoListAllControllers = async (req: Request, res: Response) => {
+    const todoListAll = await readTodoListAllRepository()
+
+    res.send(todoListAll)
+}
 
 export const readTodoListUsersControllers = async (req: Request, res: Response) => {
     let errorCode = 500
@@ -42,14 +49,44 @@ export const createTodoListUsersControllers = async (req: Request, res: Response
     }
 }
 
+export const createTodoListTaskControllers = async(req: Request, res: Response) => {
+    let errorCode = 500
+    try {
+        const {title, description, status, limitDateTask, creator_user_id } = req.body
+        const [day, month, year] = limitDateTask.split("/")
+        const limit_date : Date = new Date(`${year}-${month}-${day}`) 
+
+        if(!title || !description|| !limit_date|| !creator_user_id){
+            errorCode = 402
+            throw new Error("É necessário informa todos os campos!")
+        }
+
+        const taks : Task = {
+            id: generateId(),
+            title,
+            description,
+            status,
+            limit_date,
+            creator_user_id
+        }
+
+        await createTodoListTaskRepository(taks)
+
+        res.status(201).send("Tarefa criada com sucesso!")
+
+    } catch (error : any) {
+        res.status(errorCode).send(error.message)
+    }
+}
+
 export const updateTodoLIstUsersControllers = async (req: Request, res: Response) => {
     let errorCode = 500
     try {
-        const {name, nickname} = req.body;
+        const {name, nickname, email} = req.body;
         const {id} = req.params;
 
-        const updateUser : Users = {name, nickname}
-        console.log(updateUser)
+        const updateUser : UsersUpdate = {name, nickname, email}
+       
         if(!id){
             errorCode = 402
             throw new Error("E necessario informa um id")
@@ -58,7 +95,7 @@ export const updateTodoLIstUsersControllers = async (req: Request, res: Response
             errorCode = 422
             throw new Error("todos os campos devem ser preenchidos!")
         }
-
+        
          await updateTodoLIstUsersRepository(id, updateUser)
       
         res.send("usuario atualizado!")
@@ -68,7 +105,4 @@ export const updateTodoLIstUsersControllers = async (req: Request, res: Response
     }
 }
 
-// if(!userEdit.length){
-//     errorCode = 402
-//     throw new Error("Id não identificado!")
-// }
+

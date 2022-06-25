@@ -1,6 +1,11 @@
 import { connection } from '../Data/connection';
-import { Users } from '../Types/types';
+import { Task, Users, UsersUpdate } from '../Types/types';
 
+
+
+export const readTodoListAllRepository = async () => {
+    return await connection("TodoListUser").select()
+}
 
 export const readTodoListUsersRepository = async (id: string) => {
     try {
@@ -18,8 +23,16 @@ export const createTodoListUsersRepository = async (users : Users ) => {
     }
 }
 
-export const updateTodoLIstUsersRepository = async (id : string, userEdit : Users ) => {
-    console.log("liguie", id, userEdit)
+export const createTodoListTaskRepository = async (task : Task) => {
+    try {
+        return await connection("TodoListTask").insert(task)
+    } catch (error : any) {
+        return error.message
+    }
+}
+
+export const updateTodoLIstUsersRepository = async (id : string, userEdit : UsersUpdate ) => {
+    
     try {
         return await connection("TodoListUser").where("id", "=", id).update(userEdit)
     } catch (error : any) {
