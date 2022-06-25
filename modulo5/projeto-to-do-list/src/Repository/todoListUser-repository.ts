@@ -13,7 +13,16 @@ export const readTodoListUsersRepository = async (id: string) => {
 export const createTodoListUsersRepository = async (users : Users ) => {
     try {
         return await connection("TodoListUser").insert(users)
-    } catch (error) {
-        console.log(error)
+    } catch (error : any) {
+        return error.message
+    }
+}
+
+export const updateTodoLIstUsersRepository = async (id : string, userEdit : Users ) => {
+    console.log("liguie", id, userEdit)
+    try {
+        return await connection("TodoListUser").where("id", "=", id).update(userEdit)
+    } catch (error : any) {
+        return error.message
     }
 }
