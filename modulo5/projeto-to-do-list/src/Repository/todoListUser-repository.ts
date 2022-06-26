@@ -2,16 +2,19 @@ import { connection } from '../Data/connection';
 import { Task, Users, UsersUpdate } from '../Types/types';
 
 
-
 export const readTodoListAllRepository = async () => {
     return await connection("TodoListUser").select()
 }
 
 export const readTodoListUserTaskRepository = async () => {
     try {
-        return await connection.raw(`
-        SELECT * FROM TodoListUser JOIN TodoListTask ON TodoListUser.id = TodoListTask.creator_user_id;
-        `)
+     
+      return await connection.select('*')
+      .from('TodoListUser')
+      .join(' TodoListTask', function() {
+            this
+              .on('TodoListUser.id', '=', "TodoListTask.creator_user_id")
+          });
       
     } catch (error : any) {
         return error.message
