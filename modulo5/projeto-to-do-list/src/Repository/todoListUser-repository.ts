@@ -8,7 +8,7 @@ export const readTodoListAllRepository = async () => {
 
 export const readTodoListUserTaskRepository = async () => {
     try {
-      return await connection.select( 'TodoListTask.id as tasId','title', 'description', 'limit_date', 'status','creator_user_id', 'name')
+      return await connection.select( 'TodoListTask.id as tasId','title', 'description', 'limit_date', 'status','creator_user_id', 'nickname as creatorUserNickname')
       .from('TodoListUser')
       .join(' TodoListTask', function() {
             this
