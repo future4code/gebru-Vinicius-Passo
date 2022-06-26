@@ -19,8 +19,19 @@ export const readTodoListAllControllers = async (req: Request, res: Response) =>
 
 export const readTodoListUserTaskControllers = async (req: Request, res: Response) => {
     let errorCode = 500
+    const id = req.params.id as string
     try {
-        const task : UserTask[] = await readTodoListUserTaskRepository()
+        const taskUsers : UserTask[] = await readTodoListUserTaskRepository()
+        const task = taskUsers?.find( tas => tas.creator_user_id === id) 
+        if(!id){
+            errorCode = 402
+            throw new Error("É necessário informa um id")
+        }
+        if(task === undefined){
+            errorCode = 422
+            throw new Error("verifica se o id está cerreto, se estiver usuário não possuie tarefa!")
+        }
+
         res.status(200).send(task)
     } catch (error: any) {
         res.status(errorCode).send(error.message)

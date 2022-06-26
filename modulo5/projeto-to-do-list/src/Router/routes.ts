@@ -12,7 +12,7 @@ import {
 export const router = Router();
 
 router.get("/todoLists/all", readTodoListAllControllers)
-router.get("/todoLists/task", readTodoListUserTaskControllers)
+router.get("/todoLists/:id/task", readTodoListUserTaskControllers)
 router.get("/todoLists/:id/User", readTodoListUsersControllers)
 router.post("/todoListUsers/create", createTodoListUsersControllers)
 router.post("/todoLists/task", createTodoListTaskControllers)

@@ -3,7 +3,7 @@ GET http://localhost:3004/todoLists/all
 
 
 ###
-GET http://localhost:3004/todoLists/task
+GET http://localhost:3004/todoLists/554888-afs-58445/task
 
 
 
@@ -31,10 +31,10 @@ POST http://localhost:3004/todoLists/task
 Content-Type: application/json
 
 {
-    "title": "Limpar a casa",
-	"description": "Deve limpar os quartos e sala de estar",
-	"limitDateTask": "27/06/2022",
-	"creator_user_id": "554888-afs-58445"
+    "title": "Assistente bancário",
+	"description": "Deve ajudar os velhos a tirar dinheiro no banco",
+	"limitDateTask": "28/06/2022",
+	"creator_user_id": "e92902af-1e7c-435e-8222-e25c19be3f33"
 }
 
 
