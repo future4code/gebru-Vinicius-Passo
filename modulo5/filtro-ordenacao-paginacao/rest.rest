@@ -1,0 +1,17 @@
+GET http://localhost:3003/users/:id
+###
+
+//padrão
+GET http://localhost:3003/users
+###
+// filtro
+GET http://localhost:3003/users?name=paula
+###
+//ordenacao
+GET http://localhost:3003/users?sort=name&order=DESC
+###
+// paginacao
+GET http://localhost:3003/users?size=10&page=2
+###
+// todos juntos
+GET http://localhost:3003/users?name=Tainah&sort=name&order=ASC*size=1&page=1
