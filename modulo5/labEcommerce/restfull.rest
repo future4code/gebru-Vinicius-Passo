@@ -24,3 +24,16 @@ Content-Type: application/json
     "price": 2329,
     "imageUrl": "https://st3.depositphotos.com/9880800/15207/i/1600/depositphotos_152078182-stock-photo-casual-businessman-working-on-laptop.jpg"
 }
+
+
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+
+{
+    "userId": "9c24c389-c7e2-4c2e-8171-e03eee13635f6",
+    "productId": "1e992e06-ea0d-4406-babe-432233b38ab7",
+    "quantity": 6
+}
