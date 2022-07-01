@@ -1,0 +1,26 @@
+GET http://localhost:3003/usersAll
+###
+
+GET http://localhost:3003/productAll
+
+###
+POST http://localhost:3003/users
+Content-Type: application/json
+
+
+{
+    "name": "simone",
+    "email": "simone@gmail.com",
+    "password": "simone68428"
+}
+###
+
+POST http://localhost:3003/productCreate
+Content-Type: application/json
+
+
+{
+    "name": "notebook-2",
+    "price": 2329,
+    "imageUrl": "https://st3.depositphotos.com/9880800/15207/i/1600/depositphotos_152078182-stock-photo-casual-businessman-working-on-laptop.jpg"
+}
