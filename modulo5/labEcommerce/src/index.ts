@@ -7,6 +7,7 @@ import { createUsers } from "./endpoint/users/createUsers";
 import { createProduct } from "./endpoint/product/createProduct";
 import { getProductAll } from "./endpoint/product/getProductAll";
 import { createPurchases } from "./endpoint/purchases/createPurchases";
+import { getPurchase } from "./endpoint/purchases/getPurchase";
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ export const connection = knex({
  app.use("/productCreate", createProduct)
  app.use("/productAll", getProductAll)
  app.use("/purchases", createPurchases)
+ app.use("/purchase/:id", getPurchase)
 
  app.listen(3003, ()=>{
   console.log('Servidor rodando na porta 3003')

@@ -1,7 +1,11 @@
-GET http://localhost:3003/usersAll
+GET http://localhost:3003/usersAll?sort=name&order=desc
 ###
 
-GET http://localhost:3003/productAll
+GET http://localhost:3003/productAll?
+###
+
+GET http://localhost:3003/purchase/34bc8987-6019-496f-af17-1abb00e3672d
+###
 
 ###
 POST http://localhost:3003/users
@@ -20,9 +24,9 @@ Content-Type: application/json
 
 
 {
-    "name": "notebook-2",
-    "price": 2329,
-    "imageUrl": "https://st3.depositphotos.com/9880800/15207/i/1600/depositphotos_152078182-stock-photo-casual-businessman-working-on-laptop.jpg"
+    "name": "maquiagem",
+    "price": 230,
+    "imageUrl": "https://www.megamaquiagem.com.br/produtos/kit-de-maquiagem-com-maleta-maquiadora-completa-profissional/"
 }
 
 
@@ -33,7 +37,7 @@ Content-Type: application/json
 
 
 {
-    "userId": "9c24c389-c7e2-4c2e-8171-e03eee13635f6",
-    "productId": "1e992e06-ea0d-4406-babe-432233b38ab7",
+    "userId": "34bc8987-6019-496f-af17-1abb00e3672d",
+    "productId": "0d64dd34-79d3-48bb-a6ab-a337e2a88946",
     "quantity": 6
 }
