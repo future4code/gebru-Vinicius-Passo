@@ -16,11 +16,15 @@ export const createPurchases = async (req: Request, res: Response) => {
          }
 
        const users = await connection("labecommerce_users").select().where("id", userId)
+       if(!users[0] ){
+        errorCode = 404
+        throw new Error('usuário não encontrado')
+       }
        const product = await connection("labecommerce_products").select().where("id", productId)
        const totalPrice = product[0]?.price * quantity 
        const user_id : string = users[0].id 
        const product_id : string = product[0].id
-      
+
        const labePurchases : Purchases = {id, user_id, product_id, quantity, totalPrice}
       
        await insertPurchases(labePurchases)

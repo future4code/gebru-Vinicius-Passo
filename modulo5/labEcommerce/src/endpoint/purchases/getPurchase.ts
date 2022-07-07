@@ -15,7 +15,6 @@ export const getPurchase = async (req: Request, res: Response) => {
             throw new Error("not the registered purchase")
         }
      
-
         res.status(200).send(result)
 
     }  catch (error : any) {
