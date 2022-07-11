@@ -10,7 +10,7 @@ GET http://localhost:3003/productAll
 GET http://localhost:3003/productAll?sort=name&order=desc
 ###
 
-GET http://localhost:3003/purchase/ed659cfc-4f3d-437e-b280-f1d7f32044d9
+GET http://localhost:3003/purchase/74ff4538-ea07-467b-a60f-aa890a8b39b1
 ###
 
 ###
@@ -29,7 +29,7 @@ POST http://localhost:3003/productCreate
 Content-Type: application/json
 
 {
-    "name": "Placa de video gamer",
+    "name": "vinicius",
     "price": 4500,
     "imageUrl": "https://images.kabum.com.br/produtos/fotos/166104/placa-de-video-zotac-nvidia-geforce-rtx-3060ti-twin-edge-lhr-8gb-14-0-gbps-gddr6-dlss-ray-tracing-zt-a30610e-10mlhr_1623326525_gg.jpg"
 }

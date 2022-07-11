@@ -12,8 +12,8 @@ export const getProductAll = async (req: Request, res: Response) => {
         name = "%" 
         }
 
-        if(sort !== "name" ) {
-            sort = "name"
+        if(sort !== "product_name" ) {
+            sort = "product_name"
         }
         if(!order) {
             order = "ASC"
