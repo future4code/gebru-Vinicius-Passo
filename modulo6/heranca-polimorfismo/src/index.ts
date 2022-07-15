@@ -1,5 +1,5 @@
 import { Client } from "./clients"
-import { Commerce, Place, Residence } from "./Classs"
+import { Commerce, Industry, Place, Residence } from "./Classs"
 
 // -------------- 1
 class User {
@@ -127,4 +127,50 @@ class CommercialClient extends Commerce implements Client{
   }
 }
 const commercialClient = new CommercialClient("Rosivaldo", 78, 58, "110-25541-0000", 83, "65870-000")
-console.log(commercialClient.calculateBill())
+// console.log(commercialClient.calculateBill()) 
+
+// class IndustrialClient extends Industry implements Client {
+//   constructor(
+//     public name: string,
+//     public registrationNumber: number,
+//     public consumedEnergy: number,
+//     private insdustryNumber: string, // tanto faz ser string ou number
+//     machinesQuantity: number,
+//     cep: string
+
+//   ) {
+//     surper (machinesQuantity, cep)
+//   }
+
+//   public getIndustryQuantity(): string { 
+//     return this.insdustryNumber
+//   }
+
+//   public calculateBill(): number {
+//    return  this.consumedEnergy * 0,45 +  this.machinesQuantity * 100;
+//   }
+  
+// }
+
+class IndustrialClinet extends Industry implements Client {
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private insdustryNumber: string, // tanto faz ser string ou number
+    machinesQuantity: number,
+    cep: string
+  ) {
+    super(machinesQuantity, cep);
+  }
+
+  public getIndustryNumber(): string {
+    return this.insdustryNumber;
+  }
+
+  public calculateBill(): number {
+    return this.consumedEnergy * 0.45 + this.machinesQuantity * 100;
+  }
+}
+
+// const industrialClinet = new IndustrialClinet()

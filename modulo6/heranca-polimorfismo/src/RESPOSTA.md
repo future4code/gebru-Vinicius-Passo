@@ -25,4 +25,16 @@
         R = Não é possível criar uma instância de uma classe abstrata.
 
        B) Só é possivel ter acesso a essa class Place com estendendo ela usando o extends
+
+
+       5)
+       A) Que ambas tem o metado de caulcular 
+       B) Que uma tem o cpf e a outra tem o cnpj
+
+       6)
+       A) IndustrialClinet é filha da class place, pq a IndustrialClinet herda os valores 
+       dessa class
+       B)Implementa o Client, pq Client é uma interface e nesse contexto usamos pra herdar 
+       os valores dessa interface
+       C) porque queriamos pegar os valores getIndustryNumber, calculateBill
 ```

@@ -37,14 +37,15 @@ export abstract class Place {
 
   export class Industry extends Place {
     constructor(
-      private machinesQuantity: number, 
-      // Refere-se à quantidade de máquinas do local 
-      
+      protected machinesQuantity: number,
+      // Refere-se à quantidade de máquinas do local
+  
       cep: string
-      ) {
-        super(cep);
+    ) {
+      super(cep);
     }
-    public getDwellersQuantity() : number {
-      return this.machinesQuantity
+  
+    public getMachinesQuantity(): number {
+      return this.machinesQuantity;
     }
   }
