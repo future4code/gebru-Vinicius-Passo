@@ -32,9 +32,9 @@
        B) Que uma tem o cpf e a outra tem o cnpj
 
        6)
-       A) IndustrialClinet é filha da class place, pq a IndustrialClinet herda os valores 
-       dessa class
-       B)Implementa o Client, pq Client é uma interface e nesse contexto usamos pra herdar 
+       A) IndustrialClinet é filha da class Industry, porque a class IndustrialClinet ta herdando
+       os atrubutos da class industry
+       B)Implementa o Client, pq Client faz um contrato com essa class ou seja esse contrato deve ser respeitado 
        os valores dessa interface
        C) porque queriamos pegar os valores getIndustryNumber, calculateBill
 ```
