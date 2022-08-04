@@ -1,7 +1,8 @@
-import { post } from "../@types/user";
+import { PostRepository } from "../business/PostRepository";
+import { post } from "../model/user";
 import { BaseDatabase } from "./BaseDatabese";
 
-export class PostDatabase extends BaseDatabase {
+export class PostDatabase extends BaseDatabase implements PostRepository{
   private static TABLENAME = "labook_posts";
 
   async getPost(id: string): Promise<post[]> {

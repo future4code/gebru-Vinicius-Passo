@@ -3,7 +3,7 @@ export type friend = {
     authorId: string,
     friendId: string
  }
-export type friendCB = {
+export interface friendDTO {
     authorId: string,
     friendId: string
  }

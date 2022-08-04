@@ -9,7 +9,7 @@ export type authenticationData = {
     email: string,
     password: string
  }
- export type userCB = {
+ export interface userDTO {
     name: string,
     email: string,
     password: string
@@ -27,7 +27,7 @@ export type authenticationData = {
     type: POST_TYPES,
     authorId: string
  }
- export type postCB = {
+ export interface postDTO {
     photo: string,
     description: string,
     type: POST_TYPES,
