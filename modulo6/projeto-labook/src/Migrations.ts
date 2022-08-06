@@ -27,6 +27,13 @@ export class Migrations extends BaseDatabase {
              friend_id VARCHAR(255)  NOT NULL,
             FOREIGN KEY (author_id) REFERENCES labook_users(id)
          );
+
+         CREATE TABLE post_likes(
+            id VARCHAR(255) PRIMARY KEY,
+            post_id VARCHAR(255) NOT NULL,
+            author_id VARCHAR(255) NOT NULL,
+            FOREIGN KEY (author_id) REFERENCES labook_users(id)
+            );
          `
       )
    }  

@@ -1,9 +1,22 @@
-import { PostRepository } from "../business/PostRepository";
-import { post } from "../model/user";
+import { PostRepository } from "../repository/PostRepository";
+import { post, POST_TYPES } from "../model/user";
 import { BaseDatabase } from "./BaseDatabese";
 
 export class PostDatabase extends BaseDatabase implements PostRepository{
   private static TABLENAME = "labook_posts";
+
+ async getPostType(type: POST_TYPES): Promise<post[]> {
+  try {
+    const result: post[] = await BaseDatabase.connection(PostDatabase.TABLENAME)
+    .select("*")
+    .where({type})
+    .orderBy("created_at", "desc")
+    return result
+
+  } catch (error: any) {
+    throw new Error(error.sqlMessage || error.message);
+  }
+ }
 
   async getPost(id: string): Promise<post[]> {
     try {

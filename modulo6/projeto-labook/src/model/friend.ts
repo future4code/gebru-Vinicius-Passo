@@ -3,6 +3,7 @@ export type friend = {
     authorId: string,
     friendId: string
  }
+
 export interface friendDTO {
     authorId: string,
     friendId: string

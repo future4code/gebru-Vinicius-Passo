@@ -10,5 +10,6 @@ const postDatabase = new PostDatabase()
 const postBusiness = new PostBusiness(postDatabase)
 const postController = new PostController(postBusiness)
 
+postRouter.get("/type/:type", (req, res) => postController.getPostTypeController(req, res))
 postRouter.get("/:id", (req, res) => postController.getPostController(req, res))
 postRouter.post("/create",(req, res) => postController.createPostControler(req, res))
