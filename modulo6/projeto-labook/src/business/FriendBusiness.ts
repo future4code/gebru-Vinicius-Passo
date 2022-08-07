@@ -38,14 +38,13 @@ export class FriendBusiness {
         }
     
         const idFriend = await this.friendDatabase.getFriendId(id);
-        console.log(idFriend)
+      
         if (!idFriend[0]) {
           throw new CustonError(
             "Sem registro de amizade, só é possivél deleter amizade que existe",
             404
           );
         }
-     
     
         await this.friendDatabase.deleteFriend(id);
       }
