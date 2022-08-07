@@ -23,4 +23,17 @@ export class LikePostController {
         res.status(400).send(error.message)
     }
    }
+
+  async desLike(req: Request, res: Response): Promise<void> {
+    try {
+        const id = req.params.id
+
+        await this.likePostBusiness.deleteLike(id)
+
+        res.status(200).send({message: "post descurtido"})
+        
+    } catch (error: any) {
+        res.status(400).send(error.message)
+    }
+  }
 }

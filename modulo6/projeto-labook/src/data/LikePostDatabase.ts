@@ -31,4 +31,16 @@ export class LikePostDatabase extends BaseDatabase implements PostLikeRepository
         throw new Error(error.sqlMessage || error.message);
       }
    }
+  async deleteLike (id: string):Promise<any> {
+    try {
+      const result = await BaseDatabase.connection(LikePostDatabase.TABLENAME)
+        .delete()
+        .where({id})
+
+        return result
+
+    } catch (error: any) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+  }
 }

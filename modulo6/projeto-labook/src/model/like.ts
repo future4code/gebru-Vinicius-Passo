@@ -1,5 +1,4 @@
 
-
 export interface LikePost {
     id: string,
     postId: string,

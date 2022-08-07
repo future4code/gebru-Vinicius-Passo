@@ -36,12 +36,16 @@ Content-Type: application/json
 }
 ###
 
-POST http://localhost:3003/like/f805de7e-2e7d-4199-ae74-9cbde80e63fb
+POST http://localhost:3003/like/96ba1048-85a1-4888-9454-0475f9a3b655
 Content-Type: application/json
 
 { 
     "postId": "42722f8d-8df1-4f01-ab64-63478612b9df"
 } 
+
+### 
+DELETE http://localhost:3003/like/delete/709c7d9b-4b9d-4f76-9606-2e9c25295401
+
 ###
 
 DELETE http://localhost:3003/friend/delete/4bd5a206-cc50-4f03-9723-225cc38c06a2

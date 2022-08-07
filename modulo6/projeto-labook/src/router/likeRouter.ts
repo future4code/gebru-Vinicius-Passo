@@ -10,3 +10,4 @@ const likePostBusiness = new LikePostBusiness(likePostDatabase);
 const likePostController = new LikePostController(likePostBusiness) 
 
 likeRouter.post("/:authorId", (req, res) => likePostController.likeController(req, res))
+likeRouter.delete("/delete/:id", (req, res) => likePostController.desLike(req, res))
