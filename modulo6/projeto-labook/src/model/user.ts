@@ -33,3 +33,9 @@ export type authenticationData = {
     type: POST_TYPES,
     authorId: string
  }
+
+ export interface pagination {
+   id: string
+   size: number,
+   page: number
+ }

@@ -5,9 +5,9 @@ GET http://localhost:3003/post/fa3c435e-5232-4cea-9350-7b8d6a6aadaf
 GET http://localhost:3003/post/type/event
 
 ###
-GET http://localhost:3003/users/feed/f805de7e-2e7d-4199-ae74-9cbde80e63fb
+GET http://localhost:3003/users/feed/f805de7e-2e7d-4199-ae74-9cbde80e63fb?size=2&page=1
 ###
-
+#?size=1&page=1
 POST http://localhost:3003/users
 Content-Type: application/json
 
@@ -23,9 +23,9 @@ Content-Type: application/json
 
 {
     "photo": "http://staticmobly.akamaized.net/p/Rufato-Conjunto-de-Mesa-de-Jantar-com-Vidro-e-6-Cadeiras-Maia-I-Veludo-Imbuia-e-Creme-8044-849615-1-zoom.jpg",
-    "description": "celular",
+    "description": "teclado",
     "type": "event",
-    "authorId": "43dcf17a-247c-4687-af6f-606f2c44b4a8"
+    "authorId": "5854730a-14e4-45a8-ab4f-e1c0e6597c21"
 }
 ###
 POST http://localhost:3003/friend/f805de7e-2e7d-4199-ae74-9cbde80e63fb

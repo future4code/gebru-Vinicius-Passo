@@ -1,28 +1,25 @@
 
-import { user } from "../model/user";
+import { pagination, user } from "../model/user";
 import { UserRepository } from "../repository/UserRepository";
 import { BaseDatabase } from "./BaseDatabese";
 
 export class UserDatabase extends BaseDatabase implements UserRepository {
   private static TABLENAME = "labook_users";
 
-  async getFeedUser(id: string): Promise<any> {
+  async getFeedUser( pagination:pagination ): Promise<any> {
+    let ofFset = pagination.size * ( pagination.page - 1)
     try {
       const result = await BaseDatabase.connection()
-        .select(
-          "labook_posts.id as post_id",
-          "friend_id as fiendId",
-          "photo",
-          "description",
-          "created_at"
-        )
         .from("labook_posts")
-        .leftOuterJoin("To_do_friends", function () {
-          this.on("labook_posts.author_id", "=", "To_do_friends.author_id");
+        .select( "*" )
+        .join("To_do_friends", function() {
+          this. 
+          on("To_do_friends.friend_id", "=", "labook_posts.author_id")
         })
-
-        .where("To_do_friends.author_id", "=", id)
-        .orderBy("created_at", "desc");
+        .where("To_do_friends.author_id", "=", pagination.id)
+        .orderBy("created_at", "desc")
+        .limit(pagination.size)
+        .offset(ofFset)
 
       return result;
     } catch (error: any) {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { userDTO } from "../model/user";
+import { pagination, userDTO } from "../model/user";
 import { UserBusiness } from "../business/UserBusiness";
 
 export class UserController {
@@ -7,9 +7,16 @@ export class UserController {
 
     async feadController(req: Request, res: Response) {
         try {
-            const id = req.params.id
+            const id = req.params.id 
+            const size = Number(req.query.size)
+            const page = Number(req.query.page)
 
-            const feed = await this.userBusiness.getFeadUserBusiness(id)
+            const pagination: pagination = {
+                id,
+                size,
+                page
+            }
+            const feed = await this.userBusiness.getFeadUserBusiness(pagination)
             res.send(feed).status(200)
         } catch (error: any) {
             res.status(400).send(error.message)
