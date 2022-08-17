@@ -32,4 +32,15 @@ export class UserDatabase extends BaseDatabase {
             throw new CustonError(400, error.message);
           }
     }
+    public findUserById = async (id: string): Promise <Iuser> => {
+        try {
+            const result = await UserDatabase.connection("Face_User")
+            .select()
+            .where({id})
+            
+            return result[0]
+        } catch (error: any) {
+            throw new CustonError(400, error.message);
+          }
+    }
 }

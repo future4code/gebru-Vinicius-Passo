@@ -5,7 +5,7 @@ import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 
 const idGenerator = new IdGenerator();
-const authenticator = new Authenticator()
+const authenticator = new Authenticator();
 
 export class UserBusiness {
 
@@ -73,5 +73,21 @@ export class UserBusiness {
         } catch (error: any) {
            throw new CustonError(400, error.message) 
         }
+    }
+
+    public getProfiller = async (token: string) => {
+        try {
+            const ProfileId = authenticator.getTokenData(token) 
+            const id: string = ProfileId.id
+            const userDatabase = new UserDatabase()
+            const profile = await userDatabase.findUserById(id)
+
+            if(!profile) {
+                throw new UserNotFound()
+            }
+           return {id: profile.id, email: profile.email}
+        } catch (error: any) {
+            throw new CustonError(400, error.message) 
+         }
     }
 }

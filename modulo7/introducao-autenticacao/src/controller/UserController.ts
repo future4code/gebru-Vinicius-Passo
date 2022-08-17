@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { ILoginDTO, IuserDTO } from "../model/user";
+import { ILoginDTO, Iuser, IuserDTO } from "../model/user";
 
 
 export class UserController {
@@ -32,6 +32,18 @@ export class UserController {
             const token = await userBusiness.login(input)
             
             res.status(201).send({message: "usuário logado!", token})
+        } catch (error: any) {
+            res.status(400).send(error.message)
+        }
+    }
+    public profile = async (req: Request, res: Response) => {
+        try {
+            const token = req.headers.authorization as string
+        
+            const userBusiness = new UserBusiness();
+            const result = await userBusiness.getProfiller(token)
+            
+            res.status(201).send(result)
         } catch (error: any) {
             res.status(400).send(error.message)
         }

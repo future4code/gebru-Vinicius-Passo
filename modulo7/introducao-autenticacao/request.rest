@@ -1,3 +1,7 @@
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNlN2EwZDZkLWU2NzktNDcxNC04ZmYxLWY1NzhhOTdiMGZlNyIsImlhdCI6MTY2MDc0NjQ1NSwiZXhwIjoxNjYwNzY0NDU1fQ.1nn7L-8_jYqBDwRTfmyf-fWzD88hqBQ5_dSsCbDgm_g
+
+###
 POST http://localhost:3003/user/signup
 Content-Type: application/json 
 
@@ -16,13 +20,3 @@ Content-Type: application/json
     "password": "1223145153"
 }
 
-###
-POST http://localhost:3003/task/create 
-Content-Type: application/json 
-
-{
-    "title": "aula arquitetura II",
-    "description": "como usar o express.router()",
-    "deadline": "26/05/2022",
-    "authorId": "1b146f8d-7709-4a84-8c3c-7f980e8d4da3" 
-}
