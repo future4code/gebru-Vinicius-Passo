@@ -1,0 +1,51 @@
+GET http://localhost:3003/post/fa3c435e-5232-4cea-9350-7b8d6a6aadaf
+###
+
+###
+GET http://localhost:3003/post/type/event
+
+###
+GET http://localhost:3003/users/feed/f805de7e-2e7d-4199-ae74-9cbde80e63fb?size=2&page=1
+###
+#?size=1&page=1
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "caila do vinicius",
+    "email": "caila_do_vincius@.com",
+    "password":"cailaAmavinicius456"
+}
+
+###
+POST http://localhost:3003/post/create
+Content-Type: application/json
+
+{
+    "photo": "http://staticmobly.akamaized.net/p/Rufato-Conjunto-de-Mesa-de-Jantar-com-Vidro-e-6-Cadeiras-Maia-I-Veludo-Imbuia-e-Creme-8044-849615-1-zoom.jpg",
+    "description": "teclado",
+    "type": "event",
+    "authorId": "5854730a-14e4-45a8-ab4f-e1c0e6597c21"
+}
+###
+POST http://localhost:3003/friend/f805de7e-2e7d-4199-ae74-9cbde80e63fb
+Content-Type: application/json
+
+{
+    "friendId": "5854730a-14e4-45a8-ab4f-e1c0e6597c21"
+}
+###
+
+POST http://localhost:3003/like/96ba1048-85a1-4888-9454-0475f9a3b655
+Content-Type: application/json
+
+{ 
+    "postId": "42722f8d-8df1-4f01-ab64-63478612b9df"
+} 
+
+### 
+DELETE http://localhost:3003/like/delete/709c7d9b-4b9d-4f76-9606-2e9c25295401
+
+###
+
+DELETE http://localhost:3003/friend/delete/4bd5a206-cc50-4f03-9723-225cc38c06a2
