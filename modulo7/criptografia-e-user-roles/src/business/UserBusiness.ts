@@ -1,0 +1,99 @@
+import { UserDatabase } from "../data/UserDatabase";
+import { CustonError, InvalidEmail, InvalidName, InvalidPassword, UserNotFound } from "../error/CustonError";
+import { ILoginDTO, Iuser, IuserDTO } from "../model/user";
+import { Authenticator } from "../services/Authenticator";
+import { HashManager } from "../services/HashManager";
+import { IdGenerator } from "../services/IdGenerator";
+
+const idGenerator = new IdGenerator();
+const authenticator = new Authenticator();
+const hashManager = new HashManager()
+
+export class UserBusiness {
+
+    public signup = async (input: IuserDTO): Promise <string> => {
+        try {
+            const {name, email, password} = input;
+
+            if(!name || !email || !password) {
+                throw new CustonError( 400 ,"Preencha os campos 'email', 'password'")
+            }
+
+            if(!email.includes("@")) {
+                throw new InvalidEmail();
+            }
+
+            if(name.length < 4) {
+                throw new InvalidName()
+            }
+
+            const hashPassword = await hashManager.generateHash(password)
+
+            const id: string = idGenerator.generateId();
+
+            const user: Iuser = {
+                id,
+                name,
+                email,
+                password: hashPassword
+            }
+
+            const userDataBase = new UserDatabase() 
+            await userDataBase.insertUser(user)
+
+            const token = authenticator.generateToken({id});
+            return token;
+        } catch (error: any) {
+           throw new CustonError(400, error.message) 
+        }
+    }
+    public login = async (input: ILoginDTO): Promise <string> => {
+        try {
+            const { email, password} = input;
+
+            if(!email || !password) {
+                throw new CustonError( 400 ,"Preencha os campos 'email', 'password'")
+            }
+
+            if(!email.includes("@")) {
+                throw new InvalidEmail();
+            }
+
+            const userDataBase = new UserDatabase()
+            const user = await userDataBase.findUserByEmail(email)
+
+            const hashCompare = await hashManager.compareHash(password, user.password)
+
+            if(!user) {
+                throw new UserNotFound()
+            }
+
+            if(!hashCompare) {
+                throw new InvalidPassword()
+            }  
+            
+            const id = user.id
+
+            const token = authenticator.generateToken({id});
+            return token;
+        } catch (error: any) {
+           throw new CustonError(400, error.message) 
+        }
+    }
+
+    public getProfiller = async (token: string) => {
+        try {
+            const ProfileId = authenticator.getTokenData(token) 
+            const id: string = ProfileId.id
+            const userDatabase = new UserDatabase()
+            const profile = await userDatabase.findUserById(id)
+
+            if(!profile) {
+                throw new UserNotFound()
+            }
+           return {id: profile.id, email: profile.email}
+        } catch (error: any) {
+            throw new CustonError(400, error.message) 
+         }
+    }
+}
