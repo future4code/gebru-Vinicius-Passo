@@ -10,7 +10,7 @@ export class CustonError extends Error {
 
 export class InvalidName extends CustonError{ 
     constructor(){
-        super(400, "Campo name inválido, é necessário passar ao menos 4 caracteres!s")
+        super(400, "Campo name inválido, é necessário passar ao menos 4 caracteres!")
     }
 }
 
