@@ -1,0 +1,17 @@
+POST http://localhost:3003/user/sinup
+Content-Type: application/json 
+
+{
+    "name": "caila",
+    "email": "caila@email.com",
+    "password": "caila456"
+}
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json 
+
+{
+    "email": "caila@email.com",
+    "password": "caila456"
+}

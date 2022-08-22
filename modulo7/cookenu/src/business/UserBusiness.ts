@@ -1,0 +1,93 @@
+import { CustomError, InvalidEmail, InvalidName, InvalidPassword, UserNotFound } from "../error/CustomError";
+import { ILoginDTO, Iuser, IuserDTO } from "../model/user";
+import { IUserRepository } from "../repository/userRepository";
+import { HashManager } from "../services/HashManager";
+import { IdGenerator } from "../services/IdGenerator";
+import { Authenticator } from "../services/Authenticator";
+
+
+export class UserBusiness {
+    constructor(
+     private userDataBase: IUserRepository, 
+     private hashManger: HashManager,
+     private authenticator: Authenticator
+     ){}
+
+   async signup (input : IuserDTO): Promise<string> {
+        try {
+            const {name, email, password} = input;
+        
+            if(!name || !email || !password) {
+              throw new CustomError( "Preencha os campos 'name', 'email', 'password'", 400 )
+          }
+    
+          if(name.length < 4) {
+              throw new InvalidName()
+          }
+    
+          if(!email.includes("@")) {
+             throw new InvalidEmail()
+          }
+       
+          if(password.length < 6) {
+              throw new InvalidPassword()
+          }
+          
+          const hashPassword = await this.hashManger.generateHash(password)
+    
+          const id: string = IdGenerator()
+    
+          const user: Iuser = {
+              id,
+              name,
+              email,
+              password : hashPassword
+          }
+    
+          await this.userDataBase.sinupUser(user)
+          this.hashManger.generateHash(id)
+    
+          const token = this.authenticator.generateToken({id})
+          return token
+        } catch (error: any) {
+            throw new CustomError(error.message, 400)
+        }
+   }
+   
+   async login (input : ILoginDTO): Promise<string> {
+        try {
+            const { email, password} = input;
+        
+            if(!email || !password) {
+              throw new CustomError( "Preencha os campos 'email', 'password'", 400 )
+          }
+    
+          if(!email.includes("@")) {
+             throw new InvalidEmail()
+          }
+       
+          if(password.length < 6) {
+              throw new InvalidPassword()
+          }
+
+          const user = await this.userDataBase.findUserByEmail(email)
+
+          if(!user) {
+            throw new UserNotFound()
+          }
+          
+          const hashPassword = await this.hashManger.compareHash(password, user.password)
+
+          if(!hashPassword) {
+            throw new InvalidPassword()
+          }
+
+          const id = user.id as string
+    
+          const token = this.authenticator.generateToken({id}) 
+          return token
+        } catch (error: any) {
+            throw new CustomError(error.message, 400)
+        }
+   }
+}
