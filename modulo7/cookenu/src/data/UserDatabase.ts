@@ -1,8 +1,9 @@
 import { CustomError } from "../error/CustomError";
 import { Iuser } from "../model/user";
+import { IUserRepository } from "../repository/userRepository";
 import { BaseDatabase } from "./BaseDatabase";
 
-export class UserDatabase extends BaseDatabase {
+export class UserDatabase extends BaseDatabase implements IUserRepository {
   private static TABLE_NAME = "Cookenu_User";
 
   public sinupUser = async (user: Iuser): Promise<void> => {
