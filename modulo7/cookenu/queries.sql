@@ -6,13 +6,12 @@ CREATE TABLE Cookenu_User (
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Architecture_Task (
+CREATE TABLE Cookenu_Recipe (
 	id VARCHAR(255) PRIMARY KEY, 
     title VARCHAR(255) NOT NULL, 
     description TEXT NOT NULL, 
-    status VARCHAR(255) NOT NULL DEFAULT "to_do",
-    deadline VARCHAR(255)  NOT NULL,
+    date datetime,
     author_id varchar(255) NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES Architecture_User(id)
+    FOREIGN KEY (author_id) REFERENCES Cookenu_User(id)
 );
 

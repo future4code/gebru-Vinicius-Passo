@@ -25,4 +25,16 @@ export class UserDatabase extends BaseDatabase implements IUserRepository {
       throw new CustomError(error.sqlMessage, 400);
     }
   };
+
+  public findUserById = async (id: string): Promise<Iuser> => {
+    try {
+      const result = await UserDatabase.connection(UserDatabase.TABLE_NAME)
+        .select()
+        .where({ id });
+
+      return result[0];
+    } catch (error: any) {
+      throw new CustomError(error.sqlMessage, 400);
+    }
+  };
 }
