@@ -7,12 +7,14 @@ export class UserController {
     
     public signup = async (req: Request, res: Response) => {
         try {
-            const {name, email, password} = req.body
+            const {name, email, password, role} = req.body
             const input: IuserDTO = {
                 name,
                 email, 
-                password
+                password,
+                role
             }
+            
             const userBusiness = new UserBusiness();
             const token = await userBusiness.signup(input)
             
@@ -23,10 +25,11 @@ export class UserController {
     }
     public login = async (req: Request, res: Response) => {
         try {
-            const { email, password} = req.body
+            const { email, password, role} = req.body
             const input: ILoginDTO = {
                 email, 
-                password
+                password,
+                role
             }
             const userBusiness = new UserBusiness();
             const token = await userBusiness.login(input)

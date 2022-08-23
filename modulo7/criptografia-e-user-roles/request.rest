@@ -8,8 +8,10 @@ Content-Type: application/json
 {
     "name": "vinicius", 
     "email": "vinicius5@email.com",
-    "password": "1223145153"
+    "password": "1223145153",
+    "role": "ADMIN"
 }
+
 ###
 
 POST http://localhost:3003/user/login
@@ -17,6 +19,7 @@ Content-Type: application/json
 
 {
     "email": "vinicius5@email.com",
-    "password": "1223145153"
+    "password": "1223145153",
+     "role": "ADMIN"
 }
 

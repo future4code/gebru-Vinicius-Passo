@@ -1,13 +1,11 @@
 import * as jwt from "jsonwebtoken";
 import { Unauthorized } from "../error/CustonError";
+import { AuthenticationData } from "../model/type";
 
-export type AuthenticationData = {
-    id: string
-}
 
 export class Authenticator {
-    generateToken = ({id}: AuthenticationData): string => {
-        const token = jwt.sign({id}, process.env.JWT_KEY as string, {
+    generateToken = (peload: AuthenticationData): string => {
+        const token = jwt.sign(peload, process.env.JWT_KEY as string, {
             expiresIn: process.env.JWT_DURATION 
         }) 
         return token;
@@ -15,12 +13,12 @@ export class Authenticator {
 
     getTokenData = (token: string): AuthenticationData => {
         try {
-            const payload = jwt.verify(
+            const result = jwt.verify(
                 token,
                 process.env.JWT_KEY as string
             ) as AuthenticationData
 
-            return payload;
+            return result;
             
         } catch (error: any) {
             console.log(error.message)

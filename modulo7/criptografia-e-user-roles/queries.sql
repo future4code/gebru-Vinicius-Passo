@@ -3,7 +3,8 @@ CREATE TABLE Face_User (
     id VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(65) NOT NULL
 );
 CREATE TABLE Architecture_Task (
 	id VARCHAR(255) PRIMARY KEY, 

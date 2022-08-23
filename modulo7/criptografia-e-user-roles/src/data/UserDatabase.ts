@@ -12,7 +12,8 @@ export class UserDatabase extends BaseDatabase {
                 id: user.id,
                 name: user.name,
                 email: user.email,
-                password: user.password
+                password: user.password,
+                role: user.role
             })
             .into("Face_User")
             
