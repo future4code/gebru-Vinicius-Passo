@@ -1,12 +1,29 @@
 GET http://localhost:3003/user/profile
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTI4MDE3MSwiZXhwIjoxNjYxMjk4MTcxfQ.3Xixttjb56k0wH6DRv1rKMNhNgUr6rLpJ_vVSd94_rQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
 ###
 // pega perfil
 
 GET http://localhost:3003/user/profile/9cb08fd1-e37f-4188-bb17-5081d3a877e7
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTI4MDE3MSwiZXhwIjoxNjYxMjk4MTcxfQ.3Xixttjb56k0wH6DRv1rKMNhNgUr6rLpJ_vVSd94_rQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
 
 // pega perfil de outro usuário
+###
+
+GET http://localhost:3003/recipe/3f8af21c-5c85-47bb-9dd3-e472175c60bee
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
+
+// pegar receita, precia do id da receita
+###
+
+GET http://localhost:3003/recipe/3f8af21c-5c85-47bb-9dd3-e472175c60be
+Content-Type: application/json 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
+
+// Pegar receita
+{
+	"title": "bolo de laranja",
+	"description": "8 xícara (chá) de leite, 5 xícara (chá) de farinha de trigo"
+}
 
 ###
 POST http://localhost:3003/user/sinup
@@ -30,13 +47,15 @@ Content-Type: application/json
 }
 ###
 
-POST http://localhost:3003/recipe
+POST http://localhost:3003/userFollow/9cb08fd1-e37f-4188-bb17-5081d3a877e7
 Content-Type: application/json 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTI4MDE3MSwiZXhwIjoxNjYxMjk4MTcxfQ.3Xixttjb56k0wH6DRv1rKMNhNgUr6rLpJ_vVSd94_rQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
 
-// criar receita
-{
-	"title": "bolo de laranja",
-	"description": "8 xícara (chá) de leite, 5 xícara (chá) de farinha de trigo"
-}
+// seguir usuário
+###
 
+POST http://localhost:3003/userFollow/unfollow/9cb08fd1-e37f-4188-bb17-5081d3a877e7
+Content-Type: application/json 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
+
+// deixar de seguir

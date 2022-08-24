@@ -38,3 +38,15 @@ export class Unauthorized extends CustomError{
         super( "Usuário não não authorizado, faça login novamente",401)
     }
 } 
+export class InvalidToken extends CustomError{ 
+    constructor(){
+      
+        super("É necessário passar o token no header authorization!", 402)
+    }
+} 
+export class InvalidId extends CustomError{ 
+    constructor(){
+      
+        super("É necessário passar o id da receita", 400)
+    }
+} 

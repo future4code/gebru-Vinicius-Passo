@@ -7,6 +7,13 @@ import { BaseDatabase } from "./BaseDatabase";
 export class RecipeDatabase extends BaseDatabase implements IRecipeRepository{
     private static TABLE_NAME = "Cookenu_Recipe"
 
+    public async getRecipe (id: string): Promise<IRecipe[]> {
+        const recipe: IRecipe[] = await RecipeDatabase.connection(RecipeDatabase.TABLE_NAME)
+        .select()
+        .where({id})
+        return recipe
+    }
+
     public async insertRecipe (recipe: IRecipe): Promise<void> {
         const {id, title, description, authorId, date} = recipe
         

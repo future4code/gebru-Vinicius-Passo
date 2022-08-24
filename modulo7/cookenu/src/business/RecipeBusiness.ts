@@ -1,4 +1,4 @@
-import { CustomError, UserNotFound } from "../error/CustomError";
+import { CustomError, InvalidId, InvalidToken, UserNotFound } from "../error/CustomError";
 import { IRecipe, IRecipeDTO } from "../model/recipe";
 import { IRecipeRepository } from "../repository/recipeRepository";
 import { Authenticator } from "../services/Authenticator";
@@ -16,7 +16,7 @@ export class RecipeBusiness {
         try {
             const { title, description } = input;
             if(!token) {
-                throw new CustomError("É necessário passar o token no header authorization!", 401)
+                throw new InvalidToken()
             }
 
             if(!title || !description) {
@@ -43,6 +43,34 @@ export class RecipeBusiness {
 
             await this.recipeDatabase.insertRecipe(recipe)
 
+        } catch (error: any) {
+            throw new CustomError(error.message, 400)
+        }
+     }
+
+     async getRecipeBusiness (id: string, token: string): Promise<IRecipe> {
+        try {
+            if(!id) {
+                throw new InvalidId()
+            }
+            if(!token) {
+                throw new CustomError("É necessário passar o token", 401)
+            }
+
+            const user = this.authenticator.getTokenData(token)
+
+            if(!user) {
+                throw new UserNotFound()
+            }
+
+            const recipe = await this.recipeDatabase.getRecipe(id)
+
+            if(!recipe[0]) {
+                throw new CustomError("Receita não encontrada!", 422)
+            }
+
+            return recipe[0]
+            
         } catch (error: any) {
             throw new CustomError(error.message, 400)
         }

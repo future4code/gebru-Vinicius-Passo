@@ -13,4 +13,5 @@ const authenticator = new Authenticator();
 const recipeBusiness = new RecipeBusiness(recipeDatabase, authenticator)
 const recipeController = new RecipeController(recipeBusiness)
 
+recipeRouter.get("/:id", (res, req) => recipeController.getRecipeController(res,req))
 recipeRouter.post("/", (res, req) => recipeController.insertRecipeController(res,req))
