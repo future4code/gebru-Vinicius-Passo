@@ -9,8 +9,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEt
 // pega perfil de outro usuário
 ###
 
-GET http://localhost:3003/recipe/3f8af21c-5c85-47bb-9dd3-e472175c60bee
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM1MDk0MCwiZXhwIjoxNjYxMzY4OTQwfQ.-lurcafNQ7pStcRs7iSCYYjXW860w9f3oZQDuQlMyTM
+GET http://localhost:3003/recipe/3f8af21c-5c85-47bb-9dd3-e472175c60be
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU3NzZlZTkzLTcxZWEtNDkzNy05NGU4LTE0ODdlZTFhMDU5NCIsImlhdCI6MTY2MTM2OTEyMCwiZXhwIjoxNjYxMzg3MTIwfQ.WsxVhup_fIsJwMIyx-aAUwr1UeiNCo2I27WA0fqRIBU
 
 // pegar receita, precia do id da receita
 ###

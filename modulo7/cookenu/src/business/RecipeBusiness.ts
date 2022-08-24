@@ -1,5 +1,6 @@
+import moment from "moment";
 import { CustomError, InvalidId, InvalidToken, UserNotFound } from "../error/CustomError";
-import { IRecipe, IRecipeDTO } from "../model/recipe";
+import { IRecipe, IRecipeDTO, IRecipeTOD } from "../model/recipe";
 import { IRecipeRepository } from "../repository/recipeRepository";
 import { Authenticator } from "../services/Authenticator";
 import DataRecipe from "../services/DataRecipe";
@@ -48,7 +49,7 @@ export class RecipeBusiness {
         }
      }
 
-     async getRecipeBusiness (id: string, token: string): Promise<IRecipe> {
+     async getRecipeBusiness (id: string, token: string): Promise<IRecipeTOD> {
         try {
             if(!id) {
                 throw new InvalidId()
@@ -69,7 +70,16 @@ export class RecipeBusiness {
                 throw new CustomError("Receita não encontrada!", 422)
             }
 
-            return recipe[0]
+            const newData = moment(recipe[0].date).format('DD/MM/YYYY')
+        
+            const ricep: IRecipeTOD = {
+                id: recipe[0].id,
+                title: recipe[0].title,
+                description: recipe[0].description,
+                date: newData
+            }
+
+            return ricep
             
         } catch (error: any) {
             throw new CustomError(error.message, 400)

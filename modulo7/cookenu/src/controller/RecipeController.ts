@@ -31,12 +31,7 @@ export class RecipeController {
 
       const recipe =  await this.recipeBusiness.getRecipeBusiness(id, token)
 
-        res.status(200).send({
-            id: recipe.id,
-            title: recipe.title,
-            description: recipe.description,
-            date: recipe.date
-        })
+        res.status(200).send(recipe)
     } catch (error: any) {
         res.send(error.message).status(error.statusCode)
     }
