@@ -35,7 +35,7 @@ export class UserNotFound extends CustomError{
 
 export class Unauthorized extends CustomError{ 
     constructor(){
-        super( "Usuário não não authorizado, faça login novamente",401)
+        super( "Usuário não authorizado, faça login novamente",401)
     }
 } 
 export class InvalidToken extends CustomError{ 

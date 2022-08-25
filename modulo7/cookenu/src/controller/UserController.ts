@@ -63,4 +63,17 @@ export class UserController {
             res.send(error.message).status(error.statusCode)
         }
     }
+
+    public getFeed = async (req: Request, res: Response) => {
+        try {
+            const token = req.headers.authorization as string
+
+            const feed = await this.userBusiness.getFeed(token)
+
+            res.status(201).send(feed)
+            
+        } catch (error: any) {
+            res.send(error.message).status(error.statusCode)
+        }
+    }
 }

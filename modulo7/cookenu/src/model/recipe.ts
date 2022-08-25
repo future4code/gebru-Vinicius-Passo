@@ -5,7 +5,7 @@ export interface IRecipe {
     authorId: string
     date: Date
 }
-export interface IRecipeTOD {
+export interface IRecipeBusiness {
     id: string
     title: string,
     description: string,

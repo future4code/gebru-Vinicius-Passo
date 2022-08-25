@@ -1,11 +1,10 @@
 import moment from "moment";
 import { CustomError, InvalidId, InvalidToken, UserNotFound } from "../error/CustomError";
-import { IRecipe, IRecipeDTO, IRecipeTOD } from "../model/recipe";
+import { IRecipe, IRecipeBusiness, IRecipeDTO } from "../model/recipe";
 import { IRecipeRepository } from "../repository/recipeRepository";
 import { Authenticator } from "../services/Authenticator";
 import DataRecipe from "../services/DataRecipe";
 import { IdGenerator } from "../services/IdGenerator";
-
 
 export class RecipeBusiness {
     constructor(
@@ -49,7 +48,7 @@ export class RecipeBusiness {
         }
      }
 
-     async getRecipeBusiness (id: string, token: string): Promise<IRecipeTOD> {
+     async getRecipeBusiness (id: string, token: string): Promise<IRecipeBusiness> {
         try {
             if(!id) {
                 throw new InvalidId()
@@ -72,7 +71,7 @@ export class RecipeBusiness {
 
             const newData = moment(recipe[0].date).format('DD/MM/YYYY')
         
-            const ricep: IRecipeTOD = {
+            const ricep: IRecipeBusiness = {
                 id: recipe[0].id,
                 title: recipe[0].title,
                 description: recipe[0].description,

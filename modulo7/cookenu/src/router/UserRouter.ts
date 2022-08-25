@@ -17,6 +17,7 @@ const userController = new UserController(userBusiness)
 
 
 userRouter.get("/profile", (res, req) => userController.profile(res, req)) // pega perfil pelo token
+userRouter.get("/feed", (res, req) => userController.getFeed(res,req))
 userRouter.get("/profile/:id", (res, req) => userController.getUserByIdController(res, req)) // pega usuário por id
 userRouter.post("/sinup", (res, req) => userController.userSinup(res, req)) // cadastro de usuário gera um token
 userRouter.post("/login", (res, req) => userController.userLogin(res, req)) // login de usuário cadastrado

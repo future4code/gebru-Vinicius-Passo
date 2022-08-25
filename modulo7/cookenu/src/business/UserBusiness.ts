@@ -1,5 +1,5 @@
 import { CustomError, InvalidEmail, InvalidName, InvalidPassword, UserNotFound } from "../error/CustomError";
-import { ILoginDTO, Iuser, IuserDTO } from "../model/user";
+import { ILoginDTO, Iuser, IuserDTO, IuserFeed } from "../model/user";
 import { IUserRepository } from "../repository/userRepository";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
@@ -123,7 +123,30 @@ export class UserBusiness {
       }
 
       return { id: user.id, name: user.name, email: user.email }
-      
+
+    } catch (error: any) {
+      throw new CustomError(error.message, 400)
+    }
+  }
+
+  public getFeed = async (token: string): Promise<IuserFeed[]> => {
+    try {
+
+      const user = this.authenticator.getTokenData(token)
+
+      if (!user.id) {
+        throw new UserNotFound()
+      }
+
+      const feed = await this.userDataBase.getFeed(user.id)
+
+      if (feed.length === 0) {
+        throw new CustomError("Sem publicação de receita", 400)
+      }
+
+
+      return feed
+
     } catch (error: any) {
       throw new CustomError(error.message, 400)
     }
