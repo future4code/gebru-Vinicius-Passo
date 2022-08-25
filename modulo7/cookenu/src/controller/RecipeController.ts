@@ -4,7 +4,7 @@ import {RecipeBusiness} from "../business/RecipeBusiness";
 
 
 export class RecipeController {
-    constructor(private recipeBusiness: RecipeBusiness) {}
+  constructor(private recipeBusiness: RecipeBusiness) {}
 
   public insertRecipeController = async (req: Request, res: Response): Promise<void> => {
         try {

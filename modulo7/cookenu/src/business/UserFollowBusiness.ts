@@ -21,7 +21,7 @@ export class UserFollowBusiness {
                 throw new InvalidId()
             }
             const authorUser = this.authenticator.getTokenData(token)
-
+            
             if(!authorUser) {
                 throw new UserNotFound()
             }
@@ -33,8 +33,10 @@ export class UserFollowBusiness {
             }
        
             const followIdDb = await this.userFollowDatabase.getFriendId(userFollowId)
-            
-            if(followIdDb.length > 0) {
+           
+            const usuario = followIdDb.find( (i) => i.author_id === authorUser.id)
+           
+            if(usuario) {
                 throw new CustomError("Não é possível seguri o mesmo usuário duas vezes!", 400)
             }
 
@@ -42,8 +44,8 @@ export class UserFollowBusiness {
 
             const userDb: IuserFollow = {
                 id,
-                authorId: authorUser.id,
-                userFollowId
+                author_id: authorUser.id,
+                user_follow_id: userFollowId
             }
 
             await this.userFollowDatabase.insertRecipe(userDb)

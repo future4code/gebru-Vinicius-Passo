@@ -26,14 +26,14 @@ export class UserFollowDatabase extends BaseDatabase implements IUserFollowRepos
     }
 
       public async insertRecipe (recipe: IuserFollow): Promise<void> {
-        const {id, authorId, userFollowId} = recipe
+        const {id, author_id, user_follow_id} = recipe
         
         try {
             await UserFollowDatabase.connection(UserFollowDatabase.TABLE_NAME)
             .insert({
               id,
-              author_id: authorId,
-              user_follow_id: userFollowId
+              author_id,
+              user_follow_id
             })
 
         } catch (error: any) {

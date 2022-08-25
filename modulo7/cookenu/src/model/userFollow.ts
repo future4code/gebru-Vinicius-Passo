@@ -1,7 +1,7 @@
 export interface IuserFollow {
     id: string
-    authorId: string,
-    userFollowId: string
+    author_id: string,
+    user_follow_id: string
 }
 export interface IuserFollowDTO {
     authorId: string,
