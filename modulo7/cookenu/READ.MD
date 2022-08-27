@@ -8,7 +8,7 @@ Esse produto nada mais é do que uma rede social, na qual os usuário podem divi
 ### Funcionalidade:
 
 - ```Cadastro```. O usuário só precisa informar: email, nome e sua senha para realizar o cadastro.
-- ``` Login```. Basta informar email e a senha corretamente que o usuário poderá se logar na aplicação.
+- ``` Login.``` Basta informar email e a senha corretamente que o usuário poderá se logar na aplicação.
 - ```Informação do próprio perfil```. Apartir do token de autenticação fornecido, usuário deve ser capaz de ver as suas informações não sensíveis salvas no banco (id, name, e email).
 - ```Feed.``` Um usuário pode visualizar as receitas criadas pelos usuários que ele segue. As receitas são retornadas em ordem de criação.
 - ```Criar receita.``` Um usuário logado pode criar suas receitas.
