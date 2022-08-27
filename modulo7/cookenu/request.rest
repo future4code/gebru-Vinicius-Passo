@@ -36,9 +36,9 @@ Content-Type: application/json
 
 // cadastro de usuário
 {
-    "name": "vitor",
-    "email": "vitor@email.com",
-    "password": "vitor456"
+    "name": "simone",
+    "email": "simone@email.com",
+    "password": "simone456"
 }
 ###
 

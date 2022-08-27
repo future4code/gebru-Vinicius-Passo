@@ -45,7 +45,6 @@ export class UserBusiness {
       }
 
       await this.userDataBase.sinupUser(user)
-      this.hashManger.generateHash(id)
 
       const token = this.authenticator.generateToken({ id })
       return token
