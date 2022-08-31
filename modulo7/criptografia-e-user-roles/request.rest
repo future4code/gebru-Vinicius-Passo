@@ -1,0 +1,25 @@
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNlN2EwZDZkLWU2NzktNDcxNC04ZmYxLWY1NzhhOTdiMGZlNyIsImlhdCI6MTY2MDc0NjQ1NSwiZXhwIjoxNjYwNzY0NDU1fQ.1nn7L-8_jYqBDwRTfmyf-fWzD88hqBQ5_dSsCbDgm_g
+
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json 
+
+{
+    "name": "vinicius", 
+    "email": "vinicius5@email.com",
+    "password": "1223145153",
+    "role": "ADMIN"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json 
+
+{
+    "email": "vinicius5@email.com",
+    "password": "1223145153",
+     "role": "ADMIN"
+}
+
