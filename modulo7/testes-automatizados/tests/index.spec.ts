@@ -4,7 +4,6 @@ import { Casino, LOCATION, NACIONALITY, Users, verifyAge } from "../src/desafio"
 
 
 
-
 describe("teste na função performPurchase", () => {
     const user: User = {
         name: "vinicus",
