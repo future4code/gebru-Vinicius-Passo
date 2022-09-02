@@ -108,7 +108,6 @@ describe("testando função performAttack", () => {
         })
 
         try {
-    
             const attacker:Character  = {
                 name: "Squirtle",
                 life : 100,
@@ -131,4 +130,79 @@ describe("testando função performAttack", () => {
             expect(validatorMock).toHaveReturnedTimes(1)
         }
     });
+
+    test("verificando se o valor do ataque está correto", () => {
+        expect.assertions(1);
+        const validatorMock = jest.fn( () => {
+            return true
+        });
+        try {
+            const attacker:Character  = {
+                name: "Squirtle",
+                life : 100,
+                strength: 85,
+                defense: 95
+            }
+            const defense :Character  = {
+                name: "Weedle",
+                life : 99,
+                strength: 75,
+                defense: 70
+            }
+
+            performAttack(attacker, defense, validatorMock)
+            expect(attacker.strength).toBe(85)
+    
+        } catch (error:any) {} 
+    })
+
+    test("verificando se o valor da vida do atacante está correto", () => {
+        expect.assertions(1);
+        const validatorMock = jest.fn( () => {
+            return true
+        });
+        try {
+            const attacker:Character  = {
+                name: "Squirtle",
+                life : 100,
+                strength: 85,
+                defense: 95
+            }
+            const defense :Character  = {
+                name: "Weedle",
+                life : 99,
+                strength: 75,
+                defense: 70
+            }
+
+            performAttack(attacker, defense, validatorMock)
+            expect(attacker.life).toBe(100)
+    
+        } catch (error:any) {}  
+    })
+
+    test("verificando se o nome do defensor existe", () => {
+        expect.assertions(1);
+        const validatorMock = jest.fn( () => {
+            return true
+        });
+        try {
+            const attacker:Character  = {
+                name: "Squirtle",
+                life : 100,
+                strength: 85,
+                defense: 95
+            }
+            const defense :Character  = {
+                name: "Weedle",
+                life : 99,
+                strength: 75,
+                defense: 70
+            }
+
+            performAttack(attacker, defense, validatorMock)
+            expect(defense.name).toContain("Weedle")
+    
+        } catch (error:any) {}  
+    })
 })
