@@ -1,0 +1,6 @@
+
+
+function contaCaracterRepetido (str: string) {
+
+   
+}
