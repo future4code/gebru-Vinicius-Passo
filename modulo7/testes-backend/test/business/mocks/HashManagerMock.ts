@@ -1,4 +1,4 @@
-import { IHashGenerator } from "../../src/ports/userPorts";
+import { IHashGenerator } from "../../../src/ports/userPorts";
 
 
 export class HashManagerMock implements IHashGenerator {

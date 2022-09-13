@@ -1,5 +1,5 @@
-import { Iuser, USER_ROLES } from "../../src/model/user";
-import { IUserRepository } from "../../src/repository/userRepository";
+import { Iuser, USER_ROLES } from "../../../src/model/user";
+import { IUserRepository } from "../../../src/repository/userRepository";
 
 
 export class UserDatabaseMock implements IUserRepository {

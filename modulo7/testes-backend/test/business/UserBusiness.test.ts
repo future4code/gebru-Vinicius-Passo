@@ -1,13 +1,14 @@
 import { UserBusiness } from "../../src/business/UserBusiness";
-import { AuthenticatorMock } from "./AuthenticatorMock";
-import { HashManagerMock } from "./HashManagerMock";
-import { IdGeneratorMock } from "./IdGeneratorMock";
-import { UserDatabaseMock } from "./UserDatabaseMock";
+import { AuthenticatorMock } from "./mocks/AuthenticatorMock";
+import { HashManagerMock } from "./mocks/HashManagerMock";
+import { IdGeneratorMock } from "./mocks/IdGeneratorMock";
+import { UserDatabaseMock } from "./mocks/UserDatabaseMock";
+
 
 const userDatabaseMock = new UserDatabaseMock();
 const idGeneratorMock = new IdGeneratorMock();
-const authenticator = new AuthenticatorMock()
-const hashManager = new HashManagerMock()
+const authenticator = new AuthenticatorMock();
+const hashManager = new HashManagerMock();
 const userBusiness = new UserBusiness(userDatabaseMock,idGeneratorMock,authenticator, hashManager)
 
 describe( "testando a função getUserByid", () => {
@@ -15,7 +16,7 @@ describe( "testando a função getUserByid", () => {
         expect.assertions(1)
         try {
          const id = "id";
-        await userBusiness.getProfiller(id)    
+         await userBusiness.getProfiller(id)    
         } catch (error: any) {
             expect(error).toBeDefined();
         }

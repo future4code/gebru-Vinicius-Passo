@@ -1,4 +1,4 @@
-import { IIDGenerator } from "../../src/ports/userPorts";
+import { IIDGenerator } from "../../../src/ports/userPorts";
 
 
 export class IdGeneratorMock implements IIDGenerator {
