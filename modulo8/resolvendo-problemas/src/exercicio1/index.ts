@@ -19,3 +19,4 @@
 
 
 console.log(oneEdit("banana", "panana"));
+console.log(oneEdit("banan", "panana"));
