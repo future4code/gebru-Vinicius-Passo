@@ -1,27 +1,23 @@
 import React from "react";
 import * as Styled from "./styled";
+import { gotToMovieDetail } from "../../router/coordinator"
+import { useNavigate } from "react-router-dom";
 
-
-export const CardsMovie = () => {
+export const CardsMovie = ({ movie }) => {
+    const navigate = useNavigate()
 
     return (
-        <Styled.ContainerCard>
-
+        <Styled.ContainerCard onClick={() => gotToMovieDetail(navigate, movie?.id)}>
             <Styled.Content>
-
-                <Styled.Img src={"https://www.intrinseca.com.br/blog/wp-content/uploads/2013/02/capafilme_Ahospedeira.jpg"} alt={"product.name"} />
-
+                <Styled.Img src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`} alt={movie?.title} />
             </Styled.Content>
 
             <Styled.FooterCard>
 
-             <span>
-                <p><strong>Olá</strong></p>
-                <p>data</p>
-             </span>                
-                <Styled.FooterCard>
-
-                </Styled.FooterCard>
+                <Styled.Title>
+                    {movie?.title} <br />
+                    {movie?.release_date}
+                </Styled.Title>
 
             </Styled.FooterCard>
 

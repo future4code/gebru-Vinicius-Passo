@@ -14,3 +14,14 @@ export const Container = styled.div`
   background-color: ${colors.tertiary};
   color: ${colors.tertiary};
  `
+
+//   export const NavBar = styled.footer`
+//   width: 100%;
+//   height: 100%;
+//   background-color: ${colors.secondary};
+// `;
+
+// export const LogoImg = styled.img`
+// width: 15%;
+// margin-left: 4.5rem;
+// `

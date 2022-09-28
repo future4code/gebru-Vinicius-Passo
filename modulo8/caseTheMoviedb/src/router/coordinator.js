@@ -1,5 +1,7 @@
 export const goToFeed = (navigate) => {
-    navigate("/")
+    navigate("/");
 }
 
-
+export const gotToMovieDetail = (navigate, id) => {
+    navigate(`/filme/detalhe/${id}`);
+}

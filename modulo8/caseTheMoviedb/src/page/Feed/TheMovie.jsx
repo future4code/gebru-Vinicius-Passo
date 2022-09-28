@@ -1,13 +1,12 @@
 import React from "react";
 import { CardsMovie } from "../../components/Card";
-import * as Styled from "./styled";
 
 
-export const TheMovei = () => {
+export const TheMovei = ({movie}) => {
+
   return (
-    <Styled.ProductContent>
-      <CardsMovie />
-
-    </Styled.ProductContent>
+    <div>
+      <CardsMovie movie={movie}/>
+    </div>
   )
 }
