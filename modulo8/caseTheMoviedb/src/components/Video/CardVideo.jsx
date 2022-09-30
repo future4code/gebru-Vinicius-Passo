@@ -13,7 +13,7 @@ export const CardVideo = ({ moviesDetail }) => {
                     !trailer ? (
                         <Styled.CardIsNotVideo>
                             <img src={`https://image.tmdb.org/t/p/w500${moviesDetail?.backdrop_path}`} />
-                            <h1>Não tem tem trailer</h1>
+                            <h1>Não tem trailer</h1>
                         </Styled.CardIsNotVideo>
                     ) :
                         <ReactPlayer
