@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const MovieDetailContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -13,20 +12,14 @@ export const CloakImg = styled.img`
   height: 28vw;
   left: 7%;
   top: 3em;
+  object-fit: cover;
 `
 
 export const DirectionCast = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  /* max-width: 328px;
-    overflow: auto;
-    ::-webkit-scrollbar {
-        width: 0px;
-    }
-    ::-webkit-scrollbar-thumb {
-    background: #fff; 
-    border-radius: 2px;
-        } */
+    display: flex;
+    object-fit: cover;
+    width: 80vw;
+    margin: auto;
 `
 
 export const JoinDivs = styled.div`
@@ -48,8 +41,6 @@ export const FilderTitle = styled.div`
        font-size: 2rem;
     }
 
-  
-
     span{
       font-family: 'Roboto';
       font-weight: 400;
@@ -59,7 +50,7 @@ export const FilderTitle = styled.div`
     }
 `
 
- export const FilderSinopse = styled.div`
+export const FilderSinopse = styled.div`
   h2{
       font-family: 'Roboto';
       font-style: normal;
@@ -80,7 +71,7 @@ export const FilderTitle = styled.div`
  
  `
 
- export const SectionDiv = styled.div`
+export const SectionDiv = styled.div`
   h2{
     color: black;
     margin-left: 7%;

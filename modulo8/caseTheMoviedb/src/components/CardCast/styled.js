@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 
-
 export const ContainerCardCast = styled.div`
   background-color: white;
   box-shadow: 0 0 18px 2px rgba(0, 0, 0, 0.75);
@@ -12,8 +11,14 @@ export const ContainerCardCast = styled.div`
   margin: 1rem;
   transition: 0.2s;
   width: 14rem;
-
+  max-width: 600px;
+  max-height: 600px;
+  transform-style: preserve-3d;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
+
 export const Content = styled.div`
     width: 100%;
     height: 80%;
@@ -21,7 +26,7 @@ export const Content = styled.div`
 `
 export const Title = styled.div`
     position: absolute;
-    color: back;
+    color: black;
     overflow: hidden;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
     font-size: 1.4rem;
@@ -32,6 +37,7 @@ export const Title = styled.div`
 export const Img = styled.img`
     width: 100%;
     height: 100%;
+    object-fit: cover;
 `
 
 export const FooterCard = styled.div`

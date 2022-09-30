@@ -13,7 +13,7 @@ export const Movei = () => {
     const { movies } = useContext(GlobalStateContext);
     const theMovies = movies && movies?.map((movie) => {
         return <TheMovei key={movie?.id} movie={movie} />
-    })
+    });
 
     return (
         <Styled.ContainerMovei>

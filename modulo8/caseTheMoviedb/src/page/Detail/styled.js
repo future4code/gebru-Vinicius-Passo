@@ -12,3 +12,14 @@ width: 15%;
 margin-left: 4.5rem;
 `
 
+export const DivGlobalCardVideo = styled.div`
+ 
+ h2{
+    margin-left: 8%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+ }
+`
+

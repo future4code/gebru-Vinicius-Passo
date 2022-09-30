@@ -1,19 +1,30 @@
 import React, { useState } from 'react';
+import { SwiperSlide } from 'swiper/react';
 import { Nav } from '../../page/Feed/Nav';
 import { getMovieCredits } from '../../services/movieCredits';
 import { CardCast } from '../CardCast';
+import { Slied } from '../Slied/Slied';
 import * as Styled from "./styled";
 
 
 export const CardDetail = ({ moviesDetail }) => {
+
+    const settings = {
+        spaceBetween: 30,
+        slidesPerView: 4
+    }
 
     const [movieCredtis, setMovieCredtis] = useState();
 
     getMovieCredits(setMovieCredtis, moviesDetail?.id);
 
     const listActor = movieCredtis && movieCredtis.map((credti) => {
-        return <CardCast key={credti?.id} crdit={credti} />
-    })
+        return (
+            <SwiperSlide>
+                < CardCast key={credti?.id} crdit={credti} />
+            </SwiperSlide>
+        )
+    });
 
     return (
         <Styled.MovieDetailContainer>
@@ -38,7 +49,10 @@ export const CardDetail = ({ moviesDetail }) => {
             <Styled.SectionDiv>
                 <h2>Elenco original.</h2>
                 <Styled.DirectionCast>
-                    {listActor}
+
+                    <Slied settings={settings}>
+                        {listActor}
+                    </Slied>
                 </Styled.DirectionCast>
 
             </Styled.SectionDiv>

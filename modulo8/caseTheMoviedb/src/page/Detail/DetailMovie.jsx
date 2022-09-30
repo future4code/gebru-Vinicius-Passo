@@ -5,6 +5,7 @@ import Logo from "../../assets/headers.png";
 import * as Styled from "./styled";
 import { CardDetail } from "../../components/CardDetail";
 import { getMovieDetail } from "../../services/movieDetail";
+import { CardVideo } from "../../components/Video/CardVideo";
 
 
 export const DetailMovei = () => {
@@ -22,8 +23,12 @@ export const DetailMovei = () => {
       </Headers>
 
       <div>
-      <CardDetail moviesDetail={moviesDetail}/>
+        <CardDetail moviesDetail={moviesDetail} />
       </div>
+      <Styled.DivGlobalCardVideo>
+        <h2>Trailer</h2>
+        <CardVideo moviesDetail={moviesDetail}/>
+      </Styled.DivGlobalCardVideo>
     </>
   )
 };
