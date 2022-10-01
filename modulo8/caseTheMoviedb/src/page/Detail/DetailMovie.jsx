@@ -27,7 +27,7 @@ export const DetailMovei = () => {
       </div>
       <Styled.DivGlobalCardVideo>
         <h2>Trailer</h2>
-        <CardVideo moviesDetail={moviesDetail}/>
+        <CardVideo moviesDetail={moviesDetail} />
       </Styled.DivGlobalCardVideo>
     </>
   )

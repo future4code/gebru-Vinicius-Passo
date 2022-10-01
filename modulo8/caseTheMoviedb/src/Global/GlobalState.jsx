@@ -5,7 +5,8 @@ import { useEffect } from "react";
 
 export const GlobalState = (props) => {
   const [page, setPage] = React.useState(1);
-  const [movies, setMovies] = React.useState([])
+  const [movies, setMovies] = React.useState([]);
+  const [genere, setGenere] = React.useState([]);
 
 
   const getMovieAll = () => {
@@ -23,10 +24,27 @@ export const GlobalState = (props) => {
     getMovieAll();
   }, [page])
 
+   const geteGenere = () => {
+        axios
+        .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=eacfdd5c4a73d7defd3e7f49f3e0624a&language=pt-BR`)
+        .then( (res) => {
+            setGenere(res?.data)
+        })
+        .catch( (error) => {
+          console.log(error)
+        });
+    }
+
+    useEffect( () => {
+      geteGenere()
+    }, [])
+
   const data = {
     movies,
     page,
-    setPage
+    setPage,
+    genere,
+    setGenere
   }
 
   return (

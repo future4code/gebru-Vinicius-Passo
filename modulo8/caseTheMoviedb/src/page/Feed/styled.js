@@ -39,6 +39,9 @@ export const Descripitontext = styled.div`
 export const JoinsButons = styled.div`
     display: flex;
     justify-content: center;
+    width: 90%;
+    flex-wrap: wrap;
+    padding: 3%;
 `
 
 export const PaginationStyled = styled.div`

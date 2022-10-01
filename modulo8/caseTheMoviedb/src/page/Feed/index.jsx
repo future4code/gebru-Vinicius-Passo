@@ -7,13 +7,45 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import { PaginationControlled } from "../../components/Pagination";
 import Logo from "../../assets/headers.png";
 import { Button } from "@mui/material";
+import { useState } from "react";
 
 
 export const Movei = () => {
-    const { movies } = useContext(GlobalStateContext);
-    const theMovies = movies && movies?.map((movie) => {
-        return <TheMovei key={movie?.id} movie={movie} />
+    const { movies, genere } = useContext(GlobalStateContext);
+    const [genereKey, setGenereKey] = useState(0)
+
+
+    const theMovies = movies && movies?.filter((keyGenere) => {
+        return keyGenere?.genre_ids.includes(genereKey)
+    })
+        .map((movie) => {
+            return (
+                <TheMovei key={movie?.id} movie={movie} />
+            )
+        });
+
+    const theMoviesAlll = movies && movies?.map((movie) => {
+        return (
+            <TheMovei key={movie?.id} movie={movie} />
+        )
     });
+
+    const getGenereButton = genere && genere?.genres?.map((genere) => {
+
+        const SubmitButton = (id) => {
+            setGenereKey(id)
+        }
+
+        return (
+            <Button
+                key={genere?.id}
+                onClick={() => SubmitButton(genere?.id)}
+                name={genere?.id}
+                variant="contained"
+                color="secondary"
+            >{genere?.name}
+            </Button>)
+    })
 
     return (
         <Styled.ContainerMovei>
@@ -29,17 +61,14 @@ export const Movei = () => {
                     </h1>
                 </Styled.Descripitontext>
                 <Styled.JoinsButons>
-                    <Button color="secondary">Comédia</Button>
-                    <Button color="secondary">Ação</Button>
-                    <Button color="secondary">Anime</Button>
-                    <Button color="secondary">Romance</Button>
-                    <Button color="secondary">Terror</Button>
-                    <Button color="secondary">Lançamento</Button>
-                    <Button color="secondary">Comédia</Button>
+                    {getGenereButton}
                 </Styled.JoinsButons>
             </Nav>
             <Styled.ProductContent>
-                {theMovies ? theMovies : "Braian felipe tem que estudar muito  "}
+                {
+                    genereKey === 0 ? theMoviesAlll :
+                        theMovies ? theMovies : " Sem filme "
+                }
 
             </Styled.ProductContent>
 
@@ -49,3 +78,4 @@ export const Movei = () => {
         </Styled.ContainerMovei>
     )
 }
+
