@@ -24,20 +24,20 @@ export const GlobalState = (props) => {
     getMovieAll();
   }, [page])
 
-   const geteGenere = () => {
-        axios
-        .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=eacfdd5c4a73d7defd3e7f49f3e0624a&language=pt-BR`)
-        .then( (res) => {
-            setGenere(res?.data)
-        })
-        .catch( (error) => {
-          console.log(error)
-        });
-    }
+  const geteGenere = () => {
+    axios
+      .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=eacfdd5c4a73d7defd3e7f49f3e0624a&language=pt-BR`)
+      .then((res) => {
+        setGenere(res?.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }
 
-    useEffect( () => {
-      geteGenere()
-    }, [])
+  useEffect(() => {
+    geteGenere()
+  }, [])
 
   const data = {
     movies,
@@ -53,5 +53,3 @@ export const GlobalState = (props) => {
     </GlobalStateContext.Provider>
   )
 }
-
-
