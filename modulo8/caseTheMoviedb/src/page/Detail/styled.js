@@ -25,3 +25,13 @@ export const DivGlobalCardVideo = styled.div`
  }
 `
 
+
+export const ButtonGoBackHome = styled.div`
+   display: flex;
+   width: 80%;
+   align-items: center;
+   justify-content: center;
+   margin-left: 8%;
+   margin-bottom: 1%;
+`
+

@@ -13,6 +13,10 @@ export const CloakImg = styled.img`
   left: 7%;
   top: 3em;
   object-fit: cover;
+  @media  screen and (min-width: 320px) and (max-width: 800px){
+    width: 24vw;
+    height: 35%;
+    }
 `
 
 export const DirectionCast = styled.div`
