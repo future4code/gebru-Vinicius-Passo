@@ -1,1 +1,48 @@
 ### PROJETO THEMOVIE
+
+
+![image]()
+
+FEITO POR: 
+- [vinicius duarte passo](https://github.com/ViniciusDuarte17)
+
+### Link de acesso 
+
+<a href="http://symptomatic-book.surge.sh/" target="_blank">gebru-pokedex4.surge.sh</a>
+
+# O que funciona:
+### Página HOME
+✅ Lista de filmes
+
+✅ Botões de navegação
+
+
+✅ Botão para ver detalhes do filme
+
+✅ Componente de paginação da lista de filmes
+
+### Página Detalhes
+✅ Mostrar o filme escolhido
+
+✅ Mostra os os atores e o trailer do filme
+
+
+### Responsividade
+![Webp net-resizeimage](https://user-images.githubusercontent.com/61671015/165351130-75ee1f02-d272-483f-aa5b-cbf57dc120c2.png)
+
+
+
+# Tecnologias utilizadas
+
+- [React.js](https://pt-br.reactjs.org/docs/getting-started.html)
+- [Styled-Components](https://styled-components.com/docs)
+- [Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [MUI](https://mui.com/pt/)
+- [Sweetalert2](https://sweetalert2.github.io)
+- [vite](https://vitejs.devas/)
+
+# IMAGENS
+
+https://user-images.githubusercontent.com/61671015/165361492-27ea7475-1f2e-452e-a355-35c6bf8aaf00.mp4
+
