@@ -10,8 +10,8 @@ import * as Styled from "./styled";
 export const CardDetail = ({ moviesDetail }) => {
 
     const settings = {
-        spaceBetween: 30,
-        slidesPerView: 4
+        spaceBetween: 10,
+        slidesPerView: 3
     }
 
     const [movieCredtis, setMovieCredtis] = useState();

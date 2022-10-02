@@ -20,7 +20,7 @@ export const ContainerCardCast = styled.div`
 `
 
 export const Content = styled.div`
-    width: 100%;
+    width: 98%;
     height: 80%;
     display: flex;
 `

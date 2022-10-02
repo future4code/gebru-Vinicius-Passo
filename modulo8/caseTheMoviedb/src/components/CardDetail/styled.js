@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MovieDetailContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 99.8%;
 `
 
 export const CloakImg = styled.img`
@@ -20,6 +20,10 @@ export const DirectionCast = styled.div`
     object-fit: cover;
     width: 80vw;
     margin: auto;
+
+    @media  screen and (min-width: 320px) and (max-width: 800px){
+      display: flex;
+    }
 `
 
 export const JoinDivs = styled.div`

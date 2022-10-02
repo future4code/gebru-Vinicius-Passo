@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as colors from "../../constants/colors";
 
 export const ContainerMovei = styled.div`
-width: 100%;
+width: 99.88%;
 display: flex;
 flex-direction: column;
 `
@@ -19,7 +19,7 @@ export const ContainerNav = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 22rem;
+    height: 24rem;
     margin-top: -1%;
     border: solid 1px green;
     background-color: ${colors.primary};
@@ -33,6 +33,16 @@ export const Descripitontext = styled.div`
     h1 {
         color: white;
         font-family: Roboto;
+    }
+
+    @media  screen and (min-width: 320px) and (max-width: 650px){
+        h1 {
+         display: flex;
+        justify-content: end;
+        color: white;
+        font-family: Roboto;
+         font-size: 1.1em;
+    }
     }
 `
 
@@ -56,7 +66,17 @@ export const PaginationStyled = styled.div`
 export const NavBar = styled.footer`
 width: 100%;
 height: 100%;
+display: flex;
+align-items: center;
+margin-top: 1%;
 background-color: ${colors.secondary};
+
+@media  screen and (min-width: 320px) and (max-width: 650px){
+        background-color: ${colors.secondary};
+        margin-top: 4%;
+        display: flex;
+        align-items: center;
+    }
 `;
 
 export const LogoImg = styled.img`
