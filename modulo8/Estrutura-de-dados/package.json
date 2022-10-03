@@ -1,0 +1,21 @@
+{
+  "name": "estrutura-de-dados",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"start:dev": "ts-node-dev ./src/index.ts",
+    "exercicio1": "ts-node-dev ./src/exercicio1/index.ts",
+    "exercicio2": "ts-node-dev ./src/exercicio2/index.ts",
+    "start": "node ./build/index.js",
+    "build": "tsc"  
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.7.18",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.3"
+  }
+}
