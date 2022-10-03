@@ -1,0 +1,27 @@
+GET http://localhost:3003/user
+
+
+###
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "vitor",
+    "email": "vitor@.com",
+    "password": "vitor1321"
+}
+###
+
+
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "tropa de elite2",
+    "description": "Nascimento, capitão da Tropa de Elite do Rio de Janeiro, é designado para chefiar uma das equipes que tem como missão apaziguar o Morro do Turano. Ele precisa cumprir as ordens enquanto procura por um substituto para ficar em seu lugar. Em meio a um tiroteio, Nascimento e sua equipe resgatam Neto e Matias, dois aspirantes a oficiais da PM. Ansiosos para entrar em ação e impressionados com a eficiência de seus salvadores, os dois se candidatam ao curso de formação da Tropa de Elite.",
+    "duration_in_minutes": 2,
+    "year_of_release": 2007
+}
+
+
+
